@@ -1,6 +1,7 @@
 import React from 'react'
 import DarkmodeSwap from './darkmodeSwap'
 import ItemGroup from './itemGroup'
+import Image from 'next/image'
 
 const Navbar = () => {
     return (
@@ -14,7 +15,9 @@ const Navbar = () => {
                         <ItemGroup />
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost p-0 normal-case text-xl flex justify-center content-center overflow-hidden" href="/">
+                    <Image className="rounded-xl" width={150} height={150} src="/logo.jpg" alt="Company logo" />
+                </a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
