@@ -1,37 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Interiéry Design
+## Jak to spustit
+### 1. Stažení ZIP souboru
+Klikněte na zelené tlačítko `<> Code`.
 
-## Getting Started
+Následně klikněte na tlačítko `Download ZIP`.
 
-First, run the development server:
+Počkejte, než se soubor ZIP stáhne.
+#
+### 2. Extrakce souborů
+Otevřete stažený ZIP soubor.
 
+Přetáhněte složku `interiery_design-main` do složky `web` na vašem počítači.
+#
+### 3. Otevření CMD
+Ve Windows vyhledávání zadejte `CMD`.
+
+Aplikaci `Příkazový řádek` spusťte jako správce.
+
+Potvrďte povolení pro spuštění jako správce stisknutím tlačítka `Ano`.
+#
+### 4. Lokalizace souborů webu
+V průzkumníku souborů otevřete složku `interiery_design-main`.
+
+Klikněte na horní lištu s cestou.
+
+Pokud jste klikli správně, tak uvidíte označený text, ten zkopírujte pomocí klávesové zkratky `CTRL + C`.
+
+Do příkazového řádku napište `cd` a poté vložte cestu klávesovou zkratkou `CTRL + V`.
+
+Následně stiskněte klávesu `Enter`.
+#
+### 5. Příprava spuštění webu
+Do příkazového řádku napište příkaz:
+```bash
+npm install
+```
+Poté stiskněte klávesu `Enter`.
+#
+### 6. Spuštění webového serveru
+Do příkazového řádku napište příkaz:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Následně stiskněte klávesu `Enter`.
+
+Vyčkejte než se v příkazovém řádku objeví tento text:
+```node.js
+> interiery_design@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.0
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 6s
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-Update!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Příkazový řádek zavřete až budete s prohlížením webu hotovy.
+#
+### 7. Návštěva webových stránek
+Otevřete webovou stránku [http://localhost:3000](http://localhost:3000) pro zobrazení webových stránek.
