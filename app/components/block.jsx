@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const About = ({isRight, heading, text, image}) => {
+const Block = ({isRight, heading, text, image}) => {
     return (
         <div className="hero min-h-[20rem] bg-base-200">
             <div className={`hero-content flex-col ${isRight ? "lg:flex-row-reverse" : "lg:flex-row"}`}>
@@ -15,4 +15,4 @@ const About = ({isRight, heading, text, image}) => {
     )
 }
 
-export default About
+export default Block
