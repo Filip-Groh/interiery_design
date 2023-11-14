@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:database.db"
+}
+
+// Update SQLite run: npx prisma migrate dev
+// Update JS mapping run: npx prisma generate
+
+model user {
+  id String @id @default(cuid())
+  firstName String
+  lastName String
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+}
+
+// Interiery design
+
+model designer {
+  id Int @id @default(autoincrement())
+  name String
+  role String
+  email String
+  mobil String
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+}
+
+model realization {
+  id Int @id @default(autoincrement())
+  name String
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+}
+
+model comment {
+  id Int @id @default(autoincrement())
+  heading String
+  text String
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+}
