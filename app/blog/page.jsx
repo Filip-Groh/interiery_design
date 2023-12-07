@@ -1,11 +1,17 @@
 import React from 'react'
 import NavigationPath from '../components/navigation/navigation'
+import { getArticles } from '@/utils/database'
+import ArticlePreview from '../components/gallery/2/articlePreview'
 
-const Gallery = () => {
+const Gallery = async () => {
+    const articles = await getArticles()
+    console.log(articles)
     return (
         <>
             <NavigationPath path={["Home", "Gallery", "Gallery 2"]}/>
-            <div>Gallery2</div>
+            {articles.map((article) => {
+                return <ArticlePreview key={article.id} id={article.id} title={article.title} description={article.description} tags={article.tags} previewImage={article.images[0]} />
+            })}
         </>
     )
 }

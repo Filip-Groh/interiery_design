@@ -10,40 +10,125 @@ datasource db {
   url      = "file:database.db"
 }
 
+// Update formatting run: npx prisma format
 // Update SQLite run: npx prisma migrate dev
 // Update JS mapping run: npx prisma generate
 
-model user {
-  id String @id @default(cuid())
-  firstName String
-  lastName String
-  createDate DateTime @default(now())
-  updateDate DateTime @updatedAt
-}
-
 // Interiery design
 
-model designer {
-  id Int @id @default(autoincrement())
-  name String
-  role String
+model Designer {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  name  String
+  role  String
   email String
   mobil String
-  createDate DateTime @default(now())
-  updateDate DateTime @updatedAt
 }
 
-model realization {
-  id Int @id @default(autoincrement())
-  name String
+model Realization {
+  id         Int      @id @default(autoincrement())
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
+
+  title    String
+  comments Comment[]
+  tags     Tag[]
+
+  task        String
+  design      Design[]
+  preview     Preview[]
 }
 
-model comment {
-  id Int @id @default(autoincrement())
-  heading String
-  text String
+model Article {
+  id         Int      @id @default(autoincrement())
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
+
+  title       String
+  tags        Tag[]
+
+  text     String
+  images   Image[]
+  comments Comment[]
+}
+
+model Comment {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  title         String
+  text          String
+  likes         Int
+  user          User         @relation(fields: [userId], references: [id])
+  userId        Int
+  realization   Realization? @relation(fields: [realizationId], references: [id])
+  realizationId Int?
+  article       Article?     @relation(fields: [articleId], references: [id])
+  articleId     Int?
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  name    String
+  profile Image     @relation(fields: [imageId], references: [id])
+  comment Comment[]
+  imageId Int
+}
+
+model Tag {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  name          String       @unique
+  realization   Realization? @relation(fields: [realizationId], references: [id])
+  realizationId Int?
+  article       Article?     @relation(fields: [articleId], references: [id])
+  articleId     Int?
+}
+
+model Design {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  title         String
+  description   String
+  images        Image[]
+  realization   Realization? @relation(fields: [realizationId], references: [id])
+  realizationId Int?
+}
+
+model Preview {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  title         String
+  description   String
+  images        Image[]
+  realization   Realization? @relation(fields: [realizationId], references: [id])
+  realizationId Int?
+}
+
+model Image {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  path        String
+  description String
+  article     Article? @relation(fields: [articleId], references: [id])
+  articleId   Int?
+  user        User[]
+  design      Design?  @relation(fields: [designId], references: [id])
+  designId    Int?
+  preview     Preview? @relation(fields: [previewId], references: [id])
+  previewId   Int?
 }
