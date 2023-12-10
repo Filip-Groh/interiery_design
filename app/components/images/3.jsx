@@ -1,0 +1,26 @@
+import React from 'react'
+import Image from 'next/image'
+
+const Image3 = () => {
+    return (
+        <div className="flex justify-center w-full">
+            <div className="diff aspect-[16/9] w-96 rounded-2xl relative m-10">
+                <div className="diff-item-1">
+                    <Image width={1000} height={1000} src="/before.jpg" alt="before" />
+                </div>
+                <div className="diff-item-2">
+                    <Image width={1000} height={1000} src="/after.jpg" alt="after" />
+                </div>
+                <div className="diff-resizer scale-[2] translate-x-[0.3rem] translate-y-[0.25rem] w-[12rem]"></div>
+                <div className="font-bold absolute bottom-2 left-2 z-10 bg-black bg-opacity-50 rounded-lg px-2 py-1">
+                    <p className="leading-4 text-center">Před</p>
+                </div>
+                <div className="font-bold absolute bottom-2 right-2 z-10 bg-black bg-opacity-50 rounded-lg px-2 py-1">
+                    <p className="leading-4 text-center">Po</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Image3

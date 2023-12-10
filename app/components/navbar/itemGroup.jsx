@@ -19,6 +19,7 @@ const ItemGroup = () => {
             <DropItem name="Prototypes">
                 <NavbarItem name="Images" url="/prototypes/images"/>
                 <NavbarItem name="Comments" url="/prototypes/comments"/>
+                <NavbarItem name="Realization" url="/prototypes/realization"/>
             </DropItem>
         </>
     )
