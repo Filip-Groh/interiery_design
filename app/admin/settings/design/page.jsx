@@ -1,11 +1,7 @@
-import React from 'react'
 import Link from 'next/link'
-import Designer from '@/app/components/settings/designer/designer'
-import { getDesigners } from '@/utils/database'
+import React from 'react'
 
-const DesignerSettings = async () => {
-    const designers = await getDesigners()
-
+const DesignSettings = () => {
     return (
         <>
             <div className="flex justify-center p-2">
@@ -15,26 +11,21 @@ const DesignerSettings = async () => {
                 </div>
             </div>
             <div className="flex justify-center">
-                <div className="flex flex-row bg-base-200 w-10/12 rounded-lg mb-2">
+                <div className="bg-base-200 w-10/12 rounded-lg mb-2">
                     <ul className="menu bg-base-100 w-56 rounded-lg m-2">
                         <li><Link href="/admin/settings">Basic</Link></li>
-                        <li><Link href="/admin/settings/designer" className="active">Designer</Link></li>
+                        <li><Link href="/admin/settings/designer">Designer</Link></li>
                         <li><Link href="/admin/settings/realization">Realization</Link></li>
                         <li><Link href="/admin/settings/article">Article</Link></li>
-                        <li><Link href="/admin/settings/design">Design</Link></li>
+                        <li><Link href="/admin/settings/design" className="active">Design</Link></li>
                         <li><Link href="/admin/settings/preview">Preview</Link></li>
                         <li><Link href="/admin/settings/tag">Tag</Link></li>
                         <li><Link href="/admin/settings/image">Image</Link></li>
                     </ul>
-                    <div className="flex gap-2 m-2">
-                        {designers.map((people) => {
-                            return <Designer key={people.id} name={people.name} role={people.role} email={people.email} phone={people.mobil} image="/people.jpg"/>
-                        })}
-                    </div>
                 </div>
             </div>
         </>
     )
 }
 
-export default DesignerSettings
+export default DesignSettings

@@ -21,6 +21,7 @@ const ItemGroup = () => {
                 <NavbarItem name="Comments" url="/prototypes/comments"/>
                 <NavbarItem name="Realization" url="/prototypes/realization"/>
             </DropItem>
+            <NavbarItem name="Admin" url="/admin"/>
         </>
     )
 }

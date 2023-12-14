@@ -36,9 +36,9 @@ model Realization {
   comments Comment[]
   tags     Tag[]
 
-  task        String
-  design      Design[]
-  preview     Preview[]
+  task    String
+  design  Design[]
+  preview Preview[]
 }
 
 model Article {
@@ -46,8 +46,8 @@ model Article {
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 
-  title       String
-  tags        Tag[]
+  title String
+  tags  Tag[]
 
   text     String
   images   Image[]
@@ -76,9 +76,8 @@ model User {
   updateDate DateTime @updatedAt
 
   name    String
-  profile Image     @relation(fields: [imageId], references: [id])
+  profile Image?
   comment Comment[]
-  imageId Int
 }
 
 model Tag {
@@ -124,11 +123,13 @@ model Image {
 
   path        String
   description String
-  article     Article? @relation(fields: [articleId], references: [id])
-  articleId   Int?
-  user        User[]
-  design      Design?  @relation(fields: [designId], references: [id])
-  designId    Int?
-  preview     Preview? @relation(fields: [previewId], references: [id])
-  previewId   Int?
+
+  article   Article? @relation(fields: [articleId], references: [id])
+  articleId Int?
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?     @unique
+  design    Design?  @relation(fields: [designId], references: [id])
+  designId  Int?
+  preview   Preview? @relation(fields: [previewId], references: [id])
+  previewId Int?
 }
