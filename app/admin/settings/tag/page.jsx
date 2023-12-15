@@ -1,22 +1,11 @@
-"use client"
-
 import TagCreating from '@/app/components/tag/creating'
 import TagEditable from '@/app/components/tag/tag-settings'
 import React from 'react'
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { getTags } from '@/utils/database'
 
-const TagSettings = () => {
-    const [tags, setTags] = useState()
-    useEffect(() => {
-        fetch("/api/tag", {
-            method: "GET"
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setTags(data)
-        })
-    }, [])
+const TagSettings = async () => {
+    const tags = await getTags()
 
     return (
         <>
@@ -27,7 +16,7 @@ const TagSettings = () => {
                 </div>
             </div>
             <div className="flex justify-center">
-                <div className="bg-base-200 w-10/12 rounded-lg mb-2">
+                <div className="flex flex-row bg-base-200 w-10/12 rounded-lg mb-2">
                     <ul className="menu bg-base-100 w-56 rounded-lg m-2">
                         <li><Link href="/admin/settings">Basic</Link></li>
                         <li><Link href="/admin/settings/designer">Designer</Link></li>
@@ -38,13 +27,12 @@ const TagSettings = () => {
                         <li><Link href="/admin/settings/tag" className="active">Tag</Link></li>
                         <li><Link href="/admin/settings/image">Image</Link></li>
                     </ul>
+                    <div className="flex flex-row flex-wrap">
+                        {tags.map((tag) => {
+                            return <TagEditable key={tag.id} name={tag.name} />
+                        })}
+                    </div>
                 </div>
-            </div>
-            <TagCreating />
-            <div>
-                {tags?.map((tag) => {
-                    return <TagEditable key={tag.id} id={tag.id} name={tag.name} />
-                })}
             </div>
         </>
     )

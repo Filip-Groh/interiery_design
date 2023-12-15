@@ -110,7 +110,6 @@ model Preview {
   updateDate DateTime @updatedAt
 
   title         String
-  description   String
   images        Image[]
   realization   Realization? @relation(fields: [realizationId], references: [id])
   realizationId Int?

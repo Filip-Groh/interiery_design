@@ -65,3 +65,25 @@ export const delTag = async (id, name) => {
         console.log(error)
     }
 }
+
+export const getImages = async () => {
+    try {
+        const query = prisma.image.findMany()
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getPreviews = async () => {
+    try {
+        const query = prisma.preview.findMany({
+            include: {
+                images: true
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
