@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client"
+import { writeFile } from 'fs/promises'
 
 let prisma = new PrismaClient()
 
@@ -10,6 +11,22 @@ export const queryData = async () => {
 export const getDesigners = async () => {
     try {
         const query = prisma.designer.findMany()
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+} 
+
+export const setDesigner = async (name, role, email, mobil) => {
+    try {
+        const query = prisma.designer.create({
+            data: {
+                name: name,
+                role: role,
+                email: email,
+                mobil: mobil
+            }
+        })
         return query
     } catch (error) {
         console.log(error)
@@ -69,6 +86,26 @@ export const delTag = async (id, name) => {
 export const getImages = async () => {
     try {
         const query = prisma.image.findMany()
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const setImages = async (file, description) => {
+    try {
+        const bytes = await file.arrayBuffer()
+        const buffer = Buffer.from(bytes)
+        const pathOfFile = `./public/${file.name}`
+        const pathOfData = `/${file.name}`
+        await writeFile(pathOfFile, buffer)
+
+        const query = prisma.image.create({
+            data: {
+                path: pathOfData,
+                description: description
+            }
+        })
         return query
     } catch (error) {
         console.log(error)

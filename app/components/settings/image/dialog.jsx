@@ -1,11 +1,22 @@
+"use client"
+
 import React from 'react'
 
 const ImageDialog = ({dialogId}) => {
+    const submit = async (event) => {
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        const response = await fetch('/api/image', {
+            method: 'POST',
+            body: formData,
+        })
+    }
+
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
                 <h3 className="font-bold text-lg mb-2">Creating of Image</h3>
-                <form>
+                <form onSubmit={submit}>
                     <label htmlFor="file">File of image: </label>
                     <input type="file" accept="image/*" id="file" name="file" className="file-input file-input-bordered w-full" />
                     <label htmlFor="description">Description: </label>
