@@ -37,7 +37,7 @@ model Realization {
   tags     Tag[]
 
   task    String
-  design  Design[]
+  image   Image[]
   preview Preview[]
 }
 
@@ -46,12 +46,12 @@ model Article {
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 
-  title String
-  tags  Tag[]
-
-  text     String
-  images   Image[]
+  title    String
   comments Comment[]
+  tags     Tag[]
+
+  text   String
+  images Image[]
 }
 
 model Comment {
@@ -92,18 +92,6 @@ model Tag {
   articleId     Int?
 }
 
-model Design {
-  id         Int      @id @default(autoincrement())
-  createDate DateTime @default(now())
-  updateDate DateTime @updatedAt
-
-  title         String
-  description   String
-  images        Image[]
-  realization   Realization? @relation(fields: [realizationId], references: [id])
-  realizationId Int?
-}
-
 model Preview {
   id         Int      @id @default(autoincrement())
   createDate DateTime @default(now())
@@ -123,12 +111,12 @@ model Image {
   path        String
   description String
 
-  article   Article? @relation(fields: [articleId], references: [id])
-  articleId Int?
-  user      User?    @relation(fields: [userId], references: [id])
-  userId    Int?     @unique
-  design    Design?  @relation(fields: [designId], references: [id])
-  designId  Int?
-  preview   Preview? @relation(fields: [previewId], references: [id])
-  previewId Int?
+  realization   Realization? @relation(fields: [realizationId], references: [id])
+  realizationId Int?
+  article       Article?     @relation(fields: [articleId], references: [id])
+  articleId     Int?
+  user          User?        @relation(fields: [userId], references: [id])
+  userId        Int?         @unique
+  preview       Preview?     @relation(fields: [previewId], references: [id])
+  previewId     Int?
 }
