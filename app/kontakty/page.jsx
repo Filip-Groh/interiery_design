@@ -3,10 +3,10 @@ import NavigationPath from '../components/navigation/navigation'
 import People from '../components/contacts/people'
 import Location from '../components/contacts/location'
 import Company from '../components/contacts/company'
-import { getDesigners } from '@/utils/database'
+import { getDesigner } from '@/utils/database'
 
 const Contact = async () => {
-    const peoples = await getDesigners()
+    const peoples = await getDesigner()
 
     return (
         <>

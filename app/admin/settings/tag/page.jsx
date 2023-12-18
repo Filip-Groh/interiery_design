@@ -1,10 +1,10 @@
 import TagEditable from '@/app/components/tag/tag-settings'
 import React from 'react'
-import { getTags } from '@/utils/database'
+import { getTag } from '@/utils/database'
 import SettingsMenu from '@/app/components/settings/menu'
 
 const TagSettings = async () => {
-    const tags = await getTags()
+    const tags = await getTag()
 
     return (
         <SettingsMenu activeTabName="Tag">

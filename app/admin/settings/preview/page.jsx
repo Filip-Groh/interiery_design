@@ -1,10 +1,10 @@
 import React from 'react'
 import DatabasePreview from '@/app/components/images/databasePreview'
-import { getPreviews } from '@/utils/database'
+import { getPreview } from '@/utils/database'
 import SettingsMenu from '@/app/components/settings/menu'
 
 const PreviewSettings = async () => {
-    const previews = await getPreviews()
+    const previews = await getPreview()
     const firstHalfPreviews = previews.filter((preview, index) => {return index % 2 == 0})
     const secondHalfPreviews = previews.filter((preview, index) => {return index % 2 == 1})
 

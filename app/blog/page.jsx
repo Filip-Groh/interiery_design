@@ -1,10 +1,10 @@
 import React from 'react'
 import NavigationPath from '../components/navigation/navigation'
-import { getArticles } from '@/utils/database'
+import { getArticle } from '@/utils/database'
 import ArticlePreview from '../components/gallery/2/articlePreview'
 
 const Gallery = async () => {
-    const articles = await getArticles()
+    const articles = await getArticle()
     console.log(articles)
     return (
         <>

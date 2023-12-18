@@ -1,12 +1,12 @@
 import React from 'react'
-import { getImages } from '@/utils/database'
+import { getImage } from '@/utils/database'
 import DatabaseImage from '@/app/components/images/databaseImage'
 import AddButton from '@/app/components/settings/image/add'
 import ImageDialog from '@/app/components/settings/image/dialog'
 import SettingsMenu from '@/app/components/settings/menu'
 
 const ImageSettings = async () => {
-    const images = await getImages()
+    const images = await getImage()
     const firstHalfImages = images.filter((image, index) => {return index % 2 == 0})
     const secondHalfImages = images.filter((image, index) => {return index % 2 == 1})
 

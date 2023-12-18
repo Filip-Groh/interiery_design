@@ -1,8 +1,8 @@
-import { getTags, setTag, delTag } from '@/utils/database'
+import { getTag, setTag, delTag } from '@/utils/database'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-    const tags = await getTags()
+    const tags = await getTag()
     return NextResponse.json({data: tags}, { status: 200 })
 }
 

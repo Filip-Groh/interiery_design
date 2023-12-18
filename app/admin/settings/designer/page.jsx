@@ -1,12 +1,12 @@
 import React from 'react'
 import Designer from '@/app/components/settings/designer/designer'
-import { getDesigners } from '@/utils/database'
+import { getDesigner } from '@/utils/database'
 import AddDesigner from '@/app/components/settings/designer/add'
 import DesignerDialog from '@/app/components/settings/designer/dialog'
 import SettingsMenu from '@/app/components/settings/menu'
 
 const DesignerSettings = async () => {
-    const designers = await getDesigners()
+    const designers = await getDesigner()
 
     return (
         <SettingsMenu activeTabName="Designer">
