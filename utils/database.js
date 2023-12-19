@@ -160,11 +160,21 @@ export const delImage = async (id) => {
     }
 }
 
-export const setPreview = async (title) => {
+export const setPreview = async (title, image1Id, image2Id) => {
     try {
         const query = prisma.preview.create({
             data: {
-                title: title
+                title: title,
+                images: {
+                    connect: [
+                        {
+                            id: image1Id
+                        },
+                        {
+                            id: image2Id
+                        }
+                    ]
+                }
             }
         })
         return query

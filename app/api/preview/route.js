@@ -1,4 +1,4 @@
-import { getTag, setTag, delTag } from '@/utils/database'
+import { getPreview, setPreview, delPreview } from '@/utils/database'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
@@ -8,8 +8,10 @@ export async function GET() {
 
 export async function POST(request) {
     const formData = await request.formData()
-    const name = formData.get('name')
-    const tag = await setTag(name)
+    const title = formData.get('title')
+    const image1 = Number(formData.get('image1'))
+    const image2 = Number(formData.get('image2'))
+    const tag = await setPreview(title, image1, image2)
     return NextResponse.json({data: tag}, { status: 200 })
 }
 

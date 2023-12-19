@@ -7,7 +7,7 @@ const ArticlePreview = ({id, title, description, tags, previewImage}) => {
         <div className="card w-80 bg-base-100 shadow-xl">
             <Link href={`blog/${id}`}>
                 <figure>
-                    <Image width={500} height={295} src={previewImage.path} alt={previewImage.description}/>
+                    <Image width={500} height={295} src={previewImage?.path || "/logo.jpg"} alt={previewImage?.description}/>
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">
