@@ -12,7 +12,7 @@ const DesignerSettings = async () => {
         <SettingsMenu activeTabName="Designer">
             <div className="flex flex-wrap gap-2 m-2">
                 {designers.map((people) => {
-                    return <Designer key={people.id} name={people.name} role={people.role} email={people.email} phone={people.mobil} image="/people.jpg"/>
+                    return <Designer key={people.id} id={people.id} name={people.name} role={people.role} email={people.email} phone={people.mobil} image="/people.jpg"/>
                 })}
                 <AddDesigner modalId="addDesigner" />
                 <DesignerDialog dialogId="addDesigner" />

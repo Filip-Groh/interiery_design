@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client"
-import { writeFile } from 'fs/promises'
+import { writeFile, rm } from 'fs/promises'
 
 let prisma = new PrismaClient()
 
@@ -149,11 +149,18 @@ export const getImage = async () => {
 
 export const delImage = async (id) => {
     try {
+        const image = await prisma.image.findFirst({
+            where: {
+                id: id
+            }
+        })
+        const path = `./public/${image.path}`
         const query = prisma.image.delete({
             where: {
                 id: id
             }
         })
+        await rm(path)
         return query
     } catch (error) {
         console.log(error)

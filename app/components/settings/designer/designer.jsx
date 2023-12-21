@@ -3,7 +3,17 @@
 import React from 'react'
 import Image from 'next/image'
 
-const Designer = ({name, role, email, phone, image}) => {
+const Designer = ({id, name, role, email, phone, image}) => {
+    const handleDelete = async (event) => {
+        event.preventDefault()
+        const formData = new FormData()
+        formData.append("id", id)
+        const response = await fetch('/api/designer', {
+            method: 'DELETE',
+            body: formData,
+        })
+    }
+
     return (
         <div className="card card-compact w-72 bg-base-100 shadow-xl overflow-visible">
             <figure className="p-8 pb-2 overflow-visible">
@@ -36,8 +46,11 @@ const Designer = ({name, role, email, phone, image}) => {
                         <input type="text" id="phone" name="phone" defaultValue={phone} placeholder={phone} required className="rounded w-full p-1" />
                     </div>
                     <div className="flex flex-row gap-2 my-2">
-                        <input type="reset" value="Reset" className="rounded p-2 bg-base-200 basis-1/2" />
-                        <input type="submit" value="Update" className="rounded p-2 bg-base-200 basis-1/2" />
+                        <input type="reset" value="Reset" className="rounded p-2 bg-base-200 w-full" />
+                        <input type="submit" value="Update" className="rounded p-2 bg-base-200 w-full" />
+                        <button onClick={handleDelete}>
+                            <Image src="/svg/delete.svg" width={100} height={100} alt="Delete SVG Image" />
+                        </button>
                     </div>
                 </form>
             </div>
