@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Article = ({params: {id}}) => {
+const Realization = ({params: {id}}) => {
     console.log(id)
     return (
         <div>{id}</div>

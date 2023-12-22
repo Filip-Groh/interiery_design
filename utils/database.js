@@ -22,7 +22,8 @@ export const getArticle = async () => {
         const query = prisma.article.findMany({
             include: {
                 tags: true,
-                images: true
+                images: true,
+                comments: true
             }
         })
         return query
@@ -248,7 +249,14 @@ export const setRealization = async (title, task) => {
 
 export const getRealization = async () => {
     try {
-        const query = prisma.realization.findMany()
+        const query = prisma.realization.findMany({
+            include: {
+                image: true,
+                preview: true,
+                comments: true,
+                tags: true
+            }
+        })
         return query
     } catch (error) {
         console.log(error)

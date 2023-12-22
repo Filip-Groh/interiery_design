@@ -3,8 +3,6 @@ import NavbarItem from './item/item'
 import DropItem from './item/dropItem'
 
 const ItemGroup = () => {
-
-    // <NavbarItem name="Blog" url="/blog"/>
     return (
         <>
             <NavbarItem name="O nás" url="/o-nas"/>
@@ -22,6 +20,8 @@ const ItemGroup = () => {
                 <NavbarItem name="Realization" url="/prototypes/realization"/>
             </DropItem>
             <NavbarItem name="Admin" url="/admin"/>
+            <NavbarItem name="Blog" url="/blog"/>
+            <NavbarItem name="Realization" url="/realization"/>
         </>
     )
 }
