@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 
 const TagEditable = ({id, name}) => {
     const submit = async (event) => {
@@ -14,14 +15,13 @@ const TagEditable = ({id, name}) => {
     }
 
     return (
-        <div className="rounded-md bg-slate-700 w-min h-min m-2 flex flex-row border-[1px] border-black">
+        <div className="rounded-md bg-slate-700 m-2 flex flex-row h-fit border-[1px] border-black">
             <p className="px-2 py-1">
                 {name}
             </p>
-            <span className="bg-black w-[1px]" />
-            <form className="px-2 py-1" onSubmit={submit}>
-                <button type="submit">DEL</button>
-            </form>
+            <button onClick={submit} className="px-1 py-1">
+                <Image src="/svg/delete.svg" width={20} height={20} alt="Delete SVG Image" />
+            </button>
         </div>
     )
 }

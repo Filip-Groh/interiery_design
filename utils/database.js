@@ -1,5 +1,7 @@
+"use server"
+
 import { PrismaClient } from "@prisma/client"
-import { writeFile, rm } from 'fs/promises'
+import { writeFile, rm } from "fs/promises"
 
 let prisma = new PrismaClient()
 

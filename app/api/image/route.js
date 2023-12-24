@@ -1,5 +1,10 @@
-import { setImage, delImage } from '@/utils/database'
+import { setImage, delImage, getImage } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    const images = await getImage()
+    return NextResponse.json({data: images}, { status: 200 })
+}
 
 export async function POST(request) {
     const formData = await request.formData()
