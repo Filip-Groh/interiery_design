@@ -19,12 +19,14 @@ const PreviewSettings = async () => {
                     <AddPreview modalId="addPreview" />
                     <PreviewDialog dialogId="addPreview" images={images} />
                     {firstHalfPreviews.map((preview) => {
-                        return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                        let isDependent = preview.realizationId !== null
+                        return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isDependent={isDependent} />
                     })}
                 </div>
                 <div className="flex flex-col basis-1/2">
                     {secondHalfPreviews.map((preview) => {
-                        return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                        let isDependent = preview.realizationId !== null
+                        return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isDependent={isDependent} />
                     })}
                 </div>
             </div>

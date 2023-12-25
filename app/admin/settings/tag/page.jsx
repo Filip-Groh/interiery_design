@@ -14,7 +14,8 @@ const TagSettings = async () => {
                 <AddTag modalId="addTag" />
                 <TagDialog dialogId="addTag" />
                 {tags.map((tag) => {
-                    return <TagEditable key={tag.id} id={tag.id} name={tag.name} />
+                    let isDependent = tag.articleId !== null || tag.realizationId !== null
+                    return <TagEditable key={tag.id} id={tag.id} name={tag.name} isDependent={isDependent} />
                 })}
             </div>
         </SettingsMenu>

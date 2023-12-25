@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const DatabaseImage = ({id, path, description}) => {
+const DatabaseImage = ({id, path, description, isDependent}) => {
     const handleDelete = async (event) => {
         event.preventDefault()
         const formData = new FormData()
@@ -19,7 +19,7 @@ const DatabaseImage = ({id, path, description}) => {
             <div className="w-full m-2 relative h-min">
                 <div className="absolute bottom-2 left-2 flex flex-row bg-black bg-opacity-50 rounded-2xl p-2">                
                     <h1 className="font-bold px-2 z-10">{description}</h1>
-                    <button onClick={handleDelete}>
+                    <button onClick={handleDelete} disabled={isDependent}>
                         <Image src="/svg/delete.svg" width={20} height={20} alt="Delete SVG Image" />
                     </button>
                 </div>

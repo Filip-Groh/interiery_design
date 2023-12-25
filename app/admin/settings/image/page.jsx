@@ -18,12 +18,14 @@ const ImageSettings = async () => {
                         <AddButton modalId="addImage" />
                         <ImageDialog dialogId="addImage" />
                         {firstHalfImages.map((image) => {
-                            return <DatabaseImage key={image.id} id={image.id} path={image.path} description={image.description} />
+                            let isDependent = image.realizationId !== null || image.articleId !== null || image.userId !== null || image.previewId !== null
+                            return <DatabaseImage key={image.id} id={image.id} path={image.path} description={image.description} isDependent={isDependent} />
                         })}
                     </div>
                     <div className="flex flex-col basis-1/2">
                         {secondHalfImages.map((image) => {
-                            return <DatabaseImage key={image.id} id={image.id} path={image.path} description={image.description} />
+                            let isDependent = image.realizationId !== null || image.articleId !== null || image.userId !== null || image.previewId !== null
+                            return <DatabaseImage key={image.id} id={image.id} path={image.path} description={image.description} isDependent={isDependent} />
                         })}
                     </div>
                 </div>
