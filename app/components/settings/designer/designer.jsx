@@ -2,14 +2,30 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { useState } from "react";
 
 const Designer = ({id, name, role, email, phone, image}) => {
+    const [nameState, setNameState] = useState(name)
+    const [roleState, setRoleState] = useState(role)
+    const [emailState, setEmailState] = useState(email)
+    const [phoneState, setPhoneState] = useState(phone)
+
     const handleDelete = async (event) => {
         event.preventDefault()
         const formData = new FormData()
         formData.append("id", id)
         const response = await fetch('/api/designer', {
             method: 'DELETE',
+            body: formData,
+        })
+    }
+
+    const submit = async (event) => {
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        formData.append("id", id)
+        const response = await fetch('/api/designer', {
+            method: 'PATCH',
             body: formData,
         })
     }
@@ -24,26 +40,26 @@ const Designer = ({id, name, role, email, phone, image}) => {
                 </div>
             </figure>
             <div className="card-body">
-                <form className="flex flex-col gap-1">
+                <form className="flex flex-col gap-1" onSubmit={submit}>
                     <div>
                         <label htmlFor="name">Name: </label>
                         <br />
-                        <input type="text" id="name" name="name" defaultValue={name} placeholder={name} required className="rounded w-full p-1" />
+                        <input type="text" id="name" name="name" value={nameState} placeholder={name} required className="rounded w-full p-1" onChange={(e) => setNameState(e.target.value)} />
                     </div>
                     <div>
                         <label htmlFor="role">Role: </label>
                         <br />
-                        <input type="text" id="role" name="role" defaultValue={role} placeholder={role} required className="rounded w-full p-1" />
+                        <input type="text" id="role" name="role" value={roleState} placeholder={role} required className="rounded w-full p-1" onChange={(e) => setRoleState(e.target.value)} />
                     </div>
                     <div>
                         <label htmlFor="email">E-mail: </label>
                         <br />
-                        <input type="email" id="email" name="email" defaultValue={email} placeholder={email} required className="rounded w-full p-1" />
+                        <input type="email" id="email" name="email" value={emailState} placeholder={email} required className="rounded w-full p-1" onChange={(e) => setEmailState(e.target.value)} />
                     </div>
                     <div>
                         <label htmlFor="phone">Phone: </label>
                         <br />
-                        <input type="text" id="phone" name="phone" defaultValue={phone} placeholder={phone} required className="rounded w-full p-1" />
+                        <input type="text" id="phone" name="phone" value={phoneState} placeholder={phone} required className="rounded w-full p-1" onChange={(e) => setPhoneState(e.target.value)} />
                     </div>
                     <div className="flex flex-row gap-2 my-2">
                         <input type="reset" value="Reset" className="rounded p-2 bg-base-200 w-full" />
