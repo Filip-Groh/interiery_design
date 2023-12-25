@@ -34,6 +34,24 @@ export const getArticle = async () => {
     }
 } 
 
+export const getArticleById = async (id) => {
+    try {
+        const query = prisma.article.findFirst({
+            where: {
+                id: id
+            },
+            include: {
+                tags: true,
+                images: true,
+                comments: true
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+} 
+
 export const modArticle = async (id, title, text) => {
     try {
         const query = prisma.article.update({
@@ -252,6 +270,25 @@ export const setRealization = async (title, task) => {
 export const getRealization = async () => {
     try {
         const query = prisma.realization.findMany({
+            include: {
+                image: true,
+                preview: true,
+                comments: true,
+                tags: true
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getRealizationById = async (id) => {
+    try {
+        const query = prisma.realization.findFirst({
+            where: {
+                id: id
+            },
             include: {
                 image: true,
                 preview: true,
