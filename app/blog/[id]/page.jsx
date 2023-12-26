@@ -1,7 +1,7 @@
 import { getArticleById } from '@/utils/database'
 import NavigationPath from '@/app/components/navigation/navigation'
 import React from 'react'
-import Article from '@/app/components/article'
+import Article from '@/app/components/article/article'
 import { notFound } from 'next/navigation'
 
 const BlogPage = async ({params: {id}}) => {

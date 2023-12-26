@@ -1,20 +1,17 @@
 import React from 'react'
-import NavigationPath from '../components/navigation/navigation'
 import { getRealization } from '@/utils/database'
-import Realization from '../components/realization'
+import RealizationPreview from '../components/realization/realizationPreview'
 
-const Gallery = async () => {
+const Realizations = async () => {
     const realizations = await getRealization()
-    console.log(realizations[0])
 
     return (
-        <>
-            <NavigationPath path={["Home", "Gallery", "Gallery 2"]}/>
+        <div className="flex flex-wrap justify-center w-full gap-10 my-10">
             {realizations.map((realization) => {
-                return <Realization key={realization.id} title={realization.title} task={realization.task} createDate={realization.createDate} tags={realization.tags} comments={realization.comments} images={realization.image} previews={realization.preview} />
+                return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} tags={realization.tags} />
             })}
-        </>
+        </div>
     )
 }
 
-export default Gallery
+export default Realizations

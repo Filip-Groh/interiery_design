@@ -1,7 +1,7 @@
 import React from 'react'
 import Comment from '@/app/components/comment/comment'
-import UserImage from './images/userImage'
-import UserPreview from './images/userPreview'
+import UserImage from '@/app/components/images/userImage'
+import UserPreview from '@/app/components/images/userPreview'
 
 const Realization = ({comments, images, previews, tags, title, task, createDate}) => {
     return (
@@ -37,7 +37,7 @@ const Realization = ({comments, images, previews, tags, title, task, createDate}
                 {comments?.length > 0 ? <h2>Komentáře</h2> : null}
                 <ul className="flex flex-col gap-2">
                     {comments?.map((comment) => {
-                        return <Comment />
+                        return <Comment key={comment.id} />
                     })}
                 </ul>
             </div>

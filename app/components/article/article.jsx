@@ -1,6 +1,6 @@
 import React from 'react'
 import Comment from '@/app/components/comment/comment'
-import UserImage from './images/userImage'
+import UserImage from '../images/userImage'
 
 const Article = ({comments, images, tags, title, text, createDate}) => {
     return (

@@ -2,7 +2,7 @@ import { getRealizationById } from '@/utils/database'
 import React from 'react'
 import NavigationPath from '@/app/components/navigation/navigation'
 import { notFound } from 'next/navigation'
-import Realization from '@/app/components/realization'
+import Realization from '@/app/components/realization/realization'
 
 const RealizationPage = async ({params: {id}}) => {
     try {
