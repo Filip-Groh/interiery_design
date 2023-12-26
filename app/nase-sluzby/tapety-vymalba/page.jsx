@@ -6,7 +6,7 @@ import Block from '@/app/components/block'
 const Wallpapers = () => {
     return (
         <>
-            <NavigationPath path={["Home", "Naše služby", "Tapety, výmalba"]}/>
+            <NavigationPath path={["Home", "Naše služby", "Tapety, výmalba"]} links={["/", "#", "/nase-sluzby/tapety-vymalba"]} />
             <Welcome heading="Tapety a výmalba" text="Dekorativní prvek, který dává místnosti nový rozměr a specifický styl."/>
             <Block isRight={false} image="/spiderman.jpg" heading="Atmosféra interiéru" text="Společně s vhodným použitím záclon, koberců, barev stěn a nábytkem dotváří osobitou atmosféru interiéru. V našem studiu jsou k nahlédnutí katalogy tapet od různých firem, s kterými spolupracujeme – KHROMA, GRANDECO, EIJFFINGER, LIMONTA, DESIGN ID. Provádíme odborné odstranění i nalepení tapet vč. sádrových stěrek a spec. nátěrů pod tapety." />
             <Block isRight={true} image="/spiderman.jpg" heading="Luxusní designové nebo dětské tapety" text="Na výběr jsou vzory abstraktní, ornamenty, geometrické, květinové a přírodní motivy. Luxusní designové tapety The Wall – Dietr Langer, Scala – Ulf Moritz – jsou vzorované zdobené kamínky. Do dětských interiérů jsou tapety s motivy zvířátek, motýlů, pohádkových bytostí, dále fototapety, bordury a nálepky. Výběr se provádí z našich katalogů po zapůjčení přímo ve Vašem interiéru." />

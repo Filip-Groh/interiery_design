@@ -5,7 +5,7 @@ import Gallery1Card from '../components/gallery/1/card'
 const Gallery = () => {
     return (
         <>
-            <NavigationPath path={["Home", "Gallery", "Gallery 1"]}/>
+            <NavigationPath path={["Home", "Galerie"]} links={["/", "/galerie"]} />
             <div className="flex flex-wrap justify-center w-full gap-10 my-10">
                 <Gallery1Card />
                 <Gallery1Card />

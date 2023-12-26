@@ -17,7 +17,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link className="btn btn-ghost p-0 normal-case text-xl flex justify-center content-center overflow-hidden" href="/">
-                    <Image className="rounded-xl" width={150} height={150} src="/logo.jpg" alt="Company logo" />
+                    <Image className="rounded-xl" width={150} height={150} src="/static/logo.jpg" alt="Company logo" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

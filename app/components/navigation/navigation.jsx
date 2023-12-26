@@ -1,11 +1,12 @@
 import React from 'react'
+import Link from 'next/link'
 
-const NavigationPath = (props) => {
+const NavigationPath = ({path, links}) => {
     return (
         <div className="text-sm breadcrumbs">
             <ul className="justify-center">
-                {props.path.map((destination) => 
-                    <li key="destination"><a>{destination}</a></li>
+                {path.map((destination, index) => 
+                    <li key="destination"><Link href={links[index]}>{destination}</Link></li>
                 )}
             </ul>
         </div>
