@@ -5,12 +5,25 @@ import { writeFile, rm } from "fs/promises"
 
 let prisma = new PrismaClient()
 
-export const setArticle = async (title, text) => {
+export const setArticle = async (title, text, images, tags) => {
     try {
+        images = images.map(image => {
+            return { id: Number(image) }
+        })
+        tags = tags.map(tag => {
+            return { id: Number(tag) }
+        })
+
         const query = prisma.article.create({
             data: {
                 title: title,
-                text: text
+                text: text,
+                images: {
+                    connect: images
+                },
+                tags: {
+                    connect: tags
+                }
             }
         })
         return query
@@ -253,12 +266,31 @@ export const delPreview = async (id) => {
     }
 }
 
-export const setRealization = async (title, task) => {
+export const setRealization = async (title, task, images, previews, tags) => {
     try {
+        images = images.map(image => {
+            return { id: Number(image) }
+        })
+        previews = previews.map(preview => {
+            return { id: Number(preview) }
+        })
+        tags = tags.map(tag => {
+            return { id: Number(tag) }
+        })
+
         const query = prisma.realization.create({
             data: {
                 title: title,
-                task: task
+                task: task,
+                image: {
+                    connect: images
+                },
+                preview: {
+                    connect: previews
+                },
+                tags: {
+                    connect: tags
+                }
             }
         })
         return query

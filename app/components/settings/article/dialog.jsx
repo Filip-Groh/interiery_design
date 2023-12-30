@@ -19,6 +19,10 @@ const ArticleDialog = ({dialogId}) => {
                 <form onSubmit={submit}>
                     <label htmlFor="title">Title: </label>
                     <input type="text" id="title" name="title" placeholder="title" className="file-input file-input-bordered w-full" />
+                    <label htmlFor="images">Id of Images: </label>
+                    <input type="text" id="images" name="images" placeholder="Id of Images" className="file-input file-input-bordered w-full" />
+                    <label htmlFor="tags">Id of Tags: </label>
+                    <input type="text" id="tags" name="tags" placeholder="Id of Tags" className="file-input file-input-bordered w-full" />
                     <label htmlFor="text">Text: </label>
                     <div className="flex flex-row">
                         <input type="text" id="text" name="text" placeholder="Text" className="rounded w-full p-2" />

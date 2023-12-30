@@ -19,6 +19,12 @@ const RealizationDialog = ({dialogId}) => {
                 <form onSubmit={submit}>
                     <label htmlFor="title">Title: </label>
                     <input type="text" id="title" name="title" placeholder="Title" className="file-input file-input-bordered w-full" />
+                    <label htmlFor="images">Id of Images: </label>
+                    <input type="text" id="images" name="images" placeholder="Id of Images" className="file-input file-input-bordered w-full" />
+                    <label htmlFor="previews">Id of Previews: </label>
+                    <input type="text" id="previews" name="previews" placeholder="Id of Previews" className="file-input file-input-bordered w-full" />
+                    <label htmlFor="tags">Id of Tags: </label>
+                    <input type="text" id="tags" name="tags" placeholder="Id of Tags" className="file-input file-input-bordered w-full" />
                     <label htmlFor="task">Task: </label>
                     <div className="flex flex-row">
                         <input type="text" id="task" name="task" placeholder="Task" className="rounded w-full p-2" />

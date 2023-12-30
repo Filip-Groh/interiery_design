@@ -12,18 +12,20 @@ const RealizationSettings = async () => {
 
     return (
         <SettingsMenu activeTabName="Realization">
-            <div className="flex flex-row w-full">
-                <div className="flex flex-col basis-1/2">
-                    <AddRealization modalId="addRealization" />
-                    <RealizationDialog dialogId="addRealization" />
-                    {firstHalfRealizations.map((realization) => {
-                        return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} />
-                    })}
-                </div>
-                <div className="flex flex-col basis-1/2">
-                    {secondHalfRealization.map((realization) => {
-                        return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} />
-                    })}
+            <div className="flex flex-col">
+                <div className="flex flex-row w-full">
+                    <div className="flex flex-col basis-1/2">
+                        <AddRealization modalId="addRealization" />
+                        <RealizationDialog dialogId="addRealization" />
+                        {firstHalfRealizations.map((realization) => {
+                            return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} />
+                        })}
+                    </div>
+                    <div className="flex flex-col basis-1/2">
+                        {secondHalfRealization.map((realization) => {
+                            return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} />
+                        })}
+                    </div>
                 </div>
             </div>
         </SettingsMenu>
