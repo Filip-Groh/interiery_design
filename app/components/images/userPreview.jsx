@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 const UserPreview = ({title, beforePath, beforeDescription, afterPath, afterDescription}) => {
     return (
-        <div className="flex justify-center w-full">
-            <div className="diff aspect-[16/9] w-full rounded-2xl relative m-2">
+        <div className="flex justify-center">
+            <div className="diff aspect-[16/9] rounded-2xl m-2">
                 <div className="diff-item-1">
                     <Image width={1000} height={1000} src={beforePath || "/logo.jpg"} alt={beforeDescription} />
                 </div>

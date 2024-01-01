@@ -2,13 +2,17 @@ import React from 'react'
 import SettingsMenu from '@/app/components/settings/menu'
 import AddRealization from '@/app/components/settings/realization/add'
 import RealizationDialog from '@/app/components/settings/realization/dialog'
-import { getRealization } from '@/utils/database'
+import { getRealization, getImage, getPreview, getTag } from '@/utils/database'
 import RealizationPreview from '@/app/components/gallery/2/realizationPreview'
 
 const RealizationSettings = async () => {
-    const previews = await getRealization()
-    const firstHalfRealizations = previews.filter((realization, index) => {return index % 2 == 0})
-    const secondHalfRealization = previews.filter((realization, index) => {return index % 2 == 1})
+    const realizations = await getRealization()
+    const firstHalfRealizations = realizations.filter((realization, index) => {return index % 2 == 0})
+    const secondHalfRealization = realizations.filter((realization, index) => {return index % 2 == 1})
+
+    const images = await getImage()
+    const previews = await getPreview()
+    const tags = await getTag()
 
     return (
         <SettingsMenu activeTabName="Realization">
@@ -16,7 +20,7 @@ const RealizationSettings = async () => {
                 <div className="flex flex-row w-full">
                     <div className="flex flex-col basis-1/2">
                         <AddRealization modalId="addRealization" />
-                        <RealizationDialog dialogId="addRealization" />
+                        <RealizationDialog dialogId="addRealization" imagePass={images} previewPass={previews} tagsPass={tags} />
                         {firstHalfRealizations.map((realization) => {
                             return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} />
                         })}
