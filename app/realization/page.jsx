@@ -11,7 +11,7 @@ const Realizations = async () => {
             <NavigationPath path={["Home", "Realizace"]} links={["/", "/realization"]} />
             <div className="flex flex-wrap justify-center w-full gap-10 my-10">
                 {realizations.map((realization) => {
-                    return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} tags={realization.tags} />
+                    return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} tags={realization.tags} path={realization.image[0]?.path} alt={realization.image[0]?.description} />
                 })}
             </div>
         </>

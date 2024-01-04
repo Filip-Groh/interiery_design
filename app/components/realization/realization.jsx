@@ -13,7 +13,7 @@ const Realization = ({comments, images, previews, tags, title, task, createDate}
                         <p>{createDate.toLocaleString()}</p>
                     </div>
 
-                    <UserImage path="/logo.jpg" description="aaa"/>
+                    <UserImage path={images[0]?.path} description={images[0]?.description}/>
                 </div>
 
                 <ul className="flex flex-row gap-2">
@@ -31,7 +31,7 @@ const Realization = ({comments, images, previews, tags, title, task, createDate}
                 })}
 
                 {previews.map((preview) => {
-                    return <UserPreview key={preview.id} title={preview.title} beforePath={preview.path} beforeDescription={preview.description} afterPath={preview.path} afterDescription={preview.description} />
+                    return <UserPreview key={preview.id} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
                 })}
 
                 {comments?.length > 0 ? <h2>Komentáře</h2> : null}

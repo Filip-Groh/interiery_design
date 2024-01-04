@@ -10,7 +10,7 @@ const Articles = async () => {
             <NavigationPath path={["Home", "Blog"]} links={["/", "/blog"]} />
             <div className="flex flex-wrap justify-center w-full gap-10 my-10">
                 {articles.map((article) => {
-                    return <ArticlePreview key={article.id} id={article.id} title={article.title} tags={article.tags} />
+                    return <ArticlePreview key={article.id} id={article.id} title={article.title} tags={article.tags} path={article.images[0]?.path} alt={article.images[0]?.description} />
                 })}
             </div>
         </>

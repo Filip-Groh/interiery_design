@@ -85,11 +85,9 @@ model Tag {
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 
-  name          String       @unique
-  realization   Realization? @relation(fields: [realizationId], references: [id])
-  realizationId Int?
-  article       Article?     @relation(fields: [articleId], references: [id])
-  articleId     Int?
+  name        String        @unique
+  realization Realization[]
+  article     Article[]
 }
 
 model Preview {
@@ -97,10 +95,9 @@ model Preview {
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 
-  title         String
-  images        Image[]
-  realization   Realization? @relation(fields: [realizationId], references: [id])
-  realizationId Int?
+  title       String
+  images      Image[]
+  realization Realization[]
 }
 
 model Image {
@@ -111,12 +108,9 @@ model Image {
   path        String
   description String
 
-  realization   Realization? @relation(fields: [realizationId], references: [id])
-  realizationId Int?
-  article       Article?     @relation(fields: [articleId], references: [id])
-  articleId     Int?
-  user          User?        @relation(fields: [userId], references: [id])
-  userId        Int?         @unique
-  preview       Preview?     @relation(fields: [previewId], references: [id])
-  previewId     Int?
+  realization Realization[]
+  article     Article[]
+  preview     Preview[]
+  user        User?         @relation(fields: [userId], references: [id])
+  userId      Int?          @unique
 }

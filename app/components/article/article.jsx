@@ -25,14 +25,16 @@ const Article = ({comments, images, tags, title, text, createDate}) => {
                     {text}
                 </p>
 
-                {images.map((image) => {
-                    <UserImage key={image.id} path={image.path} description={image.description} />
-                })}
+                <ul>
+                    {images.map((image) => {
+                        return <UserImage key={image.id} path={image.path} description={image.description} />
+                    })}
+                </ul>
 
                 {comments?.length > 0 ? <h2>Komentáře</h2> : null}
                 <ul className="flex flex-col gap-2">
                     {comments?.map((comment) => {
-                        <Comment />
+                        return <Comment key={comment.id} />
                     })}
                 </ul>
             </div>

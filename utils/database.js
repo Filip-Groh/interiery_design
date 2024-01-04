@@ -174,7 +174,11 @@ export const setImage = async (file, description) => {
 
 export const getImage = async () => {
     try {
-        const query = prisma.image.findMany()
+        const query = prisma.image.findMany({
+            include: {
+                _count: true
+            }
+        })
         return query
     } catch (error) {
         console.log(error)
@@ -228,7 +232,8 @@ export const getPreview = async () => {
     try {
         const query = prisma.preview.findMany({
             include: {
-                images: true
+                images: true,
+                _count: true
             }
         })
         return query
@@ -323,7 +328,11 @@ export const getRealizationById = async (id) => {
             },
             include: {
                 image: true,
-                preview: true,
+                preview: {
+                    include: {
+                        images: true
+                    }
+                },
                 comments: true,
                 tags: true
             }
@@ -379,7 +388,11 @@ export const setTag = async (name) => {
 
 export const getTag = async () => {
     try {
-        const query = prisma.tag.findMany()
+        const query = prisma.tag.findMany({
+            include: {
+                _count: true
+            }
+        })
         return query
     } catch (error) {
         console.log(error)

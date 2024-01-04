@@ -14,11 +14,6 @@ const ItemGroup = () => {
                 <NavbarItem name="Zastínění, dekorace oken a stínící systémy" url="/nase-sluzby/zastineni-dekorace-oken-stinici-systemy"/>
             </DropItem>
             <NavbarItem name="Kontakty" url="/kontakty"/>
-            <DropItem name="Prototypes">
-                <NavbarItem name="Images" url="/prototypes/images"/>
-                <NavbarItem name="Comments" url="/prototypes/comments"/>
-                <NavbarItem name="Realization" url="/prototypes/realization"/>
-            </DropItem>
             <NavbarItem name="Admin" url="/admin"/>
             <NavbarItem name="Blog" url="/blog"/>
             <NavbarItem name="Realization" url="/realization"/>
@@ -27,3 +22,11 @@ const ItemGroup = () => {
 }
 
 export default ItemGroup
+
+/*
+            <DropItem name="Prototypes">
+                <NavbarItem name="Images" url="/prototypes/images"/>
+                <NavbarItem name="Comments" url="/prototypes/comments"/>
+                <NavbarItem name="Realization" url="/prototypes/realization"/>
+            </DropItem>
+*/
