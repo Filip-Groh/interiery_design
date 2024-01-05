@@ -19,9 +19,9 @@ const JoinImages = ({dialogId, update, images}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Selecting Images</h3>
+                <h3 className="font-bold text-lg mb-2">Vybírání fotek</h3>
                 <form onSubmit={submit} className="flex flex-col">
-                    <input type="submit" value="Submit" className="btn" />
+                    <input type="submit" value="Připojit" className="btn" />
                     <div className="flex flex-row w-full">
                         <div className="flex flex-col basis-1/2">
                             {firstHalfImages.map((image) => {

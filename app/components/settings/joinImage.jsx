@@ -8,7 +8,7 @@ const JoinImage = ({dialogId, update, images}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Selecting Image</h3>
+                <h3 className="font-bold text-lg mb-2">Vybírání fotky</h3>
                 <div className="flex flex-col">
                     <div className="flex flex-row w-full">
                         <div className="flex flex-col basis-1/2">

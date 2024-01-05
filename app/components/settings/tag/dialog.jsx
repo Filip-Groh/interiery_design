@@ -15,12 +15,12 @@ const TagDialog = ({dialogId}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Creating of Tag</h3>
+                <h3 className="font-bold text-lg mb-2">Vytváření tagu</h3>
                 <form onSubmit={submit}>
-                    <label htmlFor="name">Name: </label>
+                    <label htmlFor="name">Jméno: </label>
                     <div className="flex flex-row">
-                        <input type="text" id="name" name="name" placeholder="Name" className="rounded w-full p-2" required />
-                        <input type="submit" value="Upload" className="btn"/>
+                        <input type="text" id="name" name="name" placeholder="Jméno" className="rounded w-full p-2" required />
+                        <input type="submit" value="Vytvořit" className="btn"/>
                     </div>
                 </form>
                 <div className="modal-action">

@@ -21,22 +21,22 @@ const PreviewDialog = ({dialogId, images}) => {
         <>
             <dialog id={dialogId} className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg mb-2">Creating of Preview</h3>
+                    <h3 className="font-bold text-lg mb-2">Vytváření porovnání</h3>
                     <form onSubmit={submit}>
-                        <label htmlFor="image1">Id of image 1: </label>
+                        <label htmlFor="image1">Id fotky 1: </label>
                         <div className="flex flex-row">
-                            <input type="text" accept="image/*" id="image1" name="image1" placeholder="Id" value={image1Id} className="file-input file-input-bordered w-full" onChange={(e) => setimage1Id(e.target.value)} required />
-                            <button className='btn' onClick={()=>document.getElementById("joinImage1").showModal()}>Select</button>
+                            <input type="text" accept="image/*" id="image1" name="image1" placeholder="Id fotky 1" value={image1Id} className="file-input file-input-bordered w-full" onChange={(e) => setimage1Id(e.target.value)} required />
+                            <button className='btn' onClick={()=>document.getElementById("joinImage1").showModal()}>Připojit</button>
                         </div>
-                        <label htmlFor="image2">Id of image 2: </label>
+                        <label htmlFor="image2">Id fotky 2: </label>
                         <div className="flex flex-row">
-                            <input type="text" accept="image/*" id="image2" name="image2" placeholder="Id" value={image2Id} className="file-input file-input-bordered w-full" onChange={(e) => setimage2Id(e.target.value)} required />
-                            <button className='btn' onClick={()=>document.getElementById("joinImage2").showModal()}>Select</button>
+                            <input type="text" accept="image/*" id="image2" name="image2" placeholder="Id fotky 2" value={image2Id} className="file-input file-input-bordered w-full" onChange={(e) => setimage2Id(e.target.value)} required />
+                            <button className='btn' onClick={()=>document.getElementById("joinImage2").showModal()}>Připojit</button>
                         </div>
-                        <label htmlFor="title">Title: </label>
+                        <label htmlFor="title">Nadpis: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="title" name="title" placeholder="Title" className="rounded w-full p-2" required />
-                            <input type="submit" value="Upload" className="btn"/>
+                            <input type="text" id="title" name="title" placeholder="Nadpis" className="rounded w-full p-2" required />
+                            <input type="submit" value="Vytvořit" className="btn"/>
                         </div>
                     </form>
                     <div className="modal-action">

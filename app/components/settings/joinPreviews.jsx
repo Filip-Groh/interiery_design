@@ -19,9 +19,9 @@ const JoinPreviews = ({dialogId, update, previews}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Selecting Previews</h3>
+                <h3 className="font-bold text-lg mb-2">Vybírání porovnání</h3>
                 <form onSubmit={submit} className="flex flex-col">
-                    <input type="submit" value="Submit" className="btn" />
+                    <input type="submit" value="Připojit" className="btn" />
                     <div className="flex flex-row w-full">
                         <div className="flex flex-col basis-1/2">
                             {firstHalfPreviews.map((preview) => {

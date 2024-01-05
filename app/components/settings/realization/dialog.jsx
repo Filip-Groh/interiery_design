@@ -24,29 +24,29 @@ const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass}) => {
         <>
             <dialog id={dialogId} className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg mb-2">Creating of Realization</h3>
+                    <h3 className="font-bold text-lg mb-2">Vytváření realizace</h3>
                     <form onSubmit={submit}>
-                        <label htmlFor="title">Title: </label>
-                        <input type="text" id="title" name="title" placeholder="Title" className="file-input file-input-bordered w-full" required />
-                        <label htmlFor="images">Id of Images: </label>
+                        <label htmlFor="title">Nadpis: </label>
+                        <input type="text" id="title" name="title" placeholder="Nadpis" className="file-input file-input-bordered w-full" required />
+                        <label htmlFor="images">Id fotek: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="images" name="images" placeholder="Id of Images" value={images} className="file-input file-input-bordered w-full" onChange={(e) => setImages(e.target.value)} required />
-                            <button className='btn' onClick={()=>document.getElementById("joinImages").showModal()}>Select</button>
+                            <input type="text" id="images" name="images" placeholder="Id fotek" value={images} className="file-input file-input-bordered w-full" onChange={(e) => setImages(e.target.value)} required />
+                            <button className='btn' onClick={()=>document.getElementById("joinImages").showModal()}>Připojit</button>
                         </div>
-                        <label htmlFor="previews">Id of Previews: </label>
+                        <label htmlFor="previews">Id porovnání: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="previews" name="previews" placeholder="Id of Previews" value={previews} className="file-input file-input-bordered w-full" onChange={(e) => setPreviews(e.target.value)} required />
-                            <button className='btn' onClick={()=>document.getElementById("joinPreviews").showModal()}>Select</button>
+                            <input type="text" id="previews" name="previews" placeholder="Id porovnání" value={previews} className="file-input file-input-bordered w-full" onChange={(e) => setPreviews(e.target.value)} required />
+                            <button className='btn' onClick={()=>document.getElementById("joinPreviews").showModal()}>Připojit</button>
                         </div>
-                        <label htmlFor="tags">Id of Tags: </label>
+                        <label htmlFor="tags">Id tagů: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="tags" name="tags" placeholder="Id of Tags" value={tags} className="file-input file-input-bordered w-full" onChange={(e) => setTags(e.target.value)} required />
-                            <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Select</button>
+                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full" onChange={(e) => setTags(e.target.value)} required />
+                            <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Připojit</button>
                         </div>
-                        <label htmlFor="task">Task: </label>
+                        <label htmlFor="task">Popis: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="task" name="task" placeholder="Task" className="rounded w-full p-2" required />
-                            <input type="submit" value="Upload" className="btn"/>
+                            <input type="text" id="task" name="task" placeholder="Popis" className="rounded w-full p-2" required />
+                            <input type="submit" value="Vytvořit" className="btn"/>
                         </div>
                     </form>
                     <div className="modal-action">

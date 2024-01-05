@@ -42,7 +42,7 @@ const Designer = ({id, name, role, email, phone, image}) => {
             <div className="card-body">
                 <form className="flex flex-col gap-1" onSubmit={submit}>
                     <div>
-                        <label htmlFor="name">Name: </label>
+                        <label htmlFor="name">Jméno: </label>
                         <br />
                         <input type="text" id="name" name="name" value={nameState} placeholder={name} required className="rounded w-full p-1" onChange={(e) => setNameState(e.target.value)} />
                     </div>
@@ -57,7 +57,7 @@ const Designer = ({id, name, role, email, phone, image}) => {
                         <input type="email" id="email" name="email" value={emailState} placeholder={email} required className="rounded w-full p-1" onChange={(e) => setEmailState(e.target.value)} />
                     </div>
                     <div>
-                        <label htmlFor="phone">Phone: </label>
+                        <label htmlFor="phone">Telefon: </label>
                         <br />
                         <input type="text" id="phone" name="phone" value={phoneState} placeholder={phone} required className="rounded w-full p-1" onChange={(e) => setPhoneState(e.target.value)} />
                     </div>

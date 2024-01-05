@@ -15,14 +15,14 @@ const ImageDialog = ({dialogId}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Creating of Image</h3>
+                <h3 className="font-bold text-lg mb-2">Vytváření fotky</h3>
                 <form onSubmit={submit}>
-                    <label htmlFor="file">File of image: </label>
+                    <label htmlFor="file">Soubor s fotkou: </label>
                     <input type="file" accept="image/*" id="file" name="file" className="file-input file-input-bordered w-full" required />
-                    <label htmlFor="description">Description: </label>
+                    <label htmlFor="description">Popis: </label>
                     <div className="flex flex-row">
-                        <input type="text" id="description" name="description" placeholder="Description" className="rounded w-full p-2" required />
-                        <input type="submit" value="Upload" className="btn"/>
+                        <input type="text" id="description" name="description" placeholder="Popis" className="rounded w-full p-2" required />
+                        <input type="submit" value="Vytvořit" className="btn"/>
                     </div>
                 </form>
                 <div className="modal-action">
