@@ -15,6 +15,8 @@ export default function Home() {
                 <li>Vyhledávání pomocí tagů</li>
                 <li>Statické obrázky</li>
                 <li>Footer obsah</li>
+                <li>Propisování do sociálních sítí + sdílení</li>
+                <li>Komentáře</li>
             </ul>
         </>
     )
