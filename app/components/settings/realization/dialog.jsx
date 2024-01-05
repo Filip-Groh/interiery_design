@@ -27,25 +27,25 @@ const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass}) => {
                     <h3 className="font-bold text-lg mb-2">Creating of Realization</h3>
                     <form onSubmit={submit}>
                         <label htmlFor="title">Title: </label>
-                        <input type="text" id="title" name="title" placeholder="Title" className="file-input file-input-bordered w-full" />
+                        <input type="text" id="title" name="title" placeholder="Title" className="file-input file-input-bordered w-full" required />
                         <label htmlFor="images">Id of Images: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="images" name="images" placeholder="Id of Images" value={images} className="file-input file-input-bordered w-full" onChange={(e) => setImages(e.target.value)} />
+                            <input type="text" id="images" name="images" placeholder="Id of Images" value={images} className="file-input file-input-bordered w-full" onChange={(e) => setImages(e.target.value)} required />
                             <button className='btn' onClick={()=>document.getElementById("joinImages").showModal()}>Select</button>
                         </div>
                         <label htmlFor="previews">Id of Previews: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="previews" name="previews" placeholder="Id of Previews" value={previews} className="file-input file-input-bordered w-full" onChange={(e) => setPreviews(e.target.value)} />
+                            <input type="text" id="previews" name="previews" placeholder="Id of Previews" value={previews} className="file-input file-input-bordered w-full" onChange={(e) => setPreviews(e.target.value)} required />
                             <button className='btn' onClick={()=>document.getElementById("joinPreviews").showModal()}>Select</button>
                         </div>
                         <label htmlFor="tags">Id of Tags: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="tags" name="tags" placeholder="Id of Tags" value={tags} className="file-input file-input-bordered w-full" onChange={(e) => setTags(e.target.value)} />
+                            <input type="text" id="tags" name="tags" placeholder="Id of Tags" value={tags} className="file-input file-input-bordered w-full" onChange={(e) => setTags(e.target.value)} required />
                             <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Select</button>
                         </div>
                         <label htmlFor="task">Task: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="task" name="task" placeholder="Task" className="rounded w-full p-2" />
+                            <input type="text" id="task" name="task" placeholder="Task" className="rounded w-full p-2" required />
                             <input type="submit" value="Upload" className="btn"/>
                         </div>
                     </form>

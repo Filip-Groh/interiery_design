@@ -1,33 +1,18 @@
 import React from 'react'
 import NavigationPath from '../components/navigation/navigation'
 import Gallery1Card from '../components/gallery/1/card'
+import { getImage } from '@/utils/database'
 
-const Gallery = () => {
+const Gallery = async () => {
+    const images = await getImage()
+
     return (
         <>
             <NavigationPath path={["Home", "Galerie"]} links={["/", "/galerie"]} />
             <div className="flex flex-wrap justify-center w-full gap-10 my-10">
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
-                <Gallery1Card />
+                {images.map((image) => {
+                    return <Gallery1Card key={image.id} path={image.path} description={image.description} />
+                })}
             </div>
         </>
     )

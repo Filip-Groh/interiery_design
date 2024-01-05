@@ -18,14 +18,14 @@ const DesignerDialog = ({dialogId}) => {
                 <h3 className="font-bold text-lg mb-2">Creating of Image</h3>
                 <form onSubmit={submit} className="flex flex-col gap-1">
                     <label htmlFor="name">Name: </label>
-                    <input type="text" id="name" name="name" placeholder="Name" className="rounded w-full p-2" />
+                    <input type="text" id="name" name="name" placeholder="Name" className="rounded w-full p-2" required />
                     <label htmlFor="role">Role: </label>
-                    <input type="text" id="role" name="role" placeholder="Role" className="rounded w-full p-2" />
+                    <input type="text" id="role" name="role" placeholder="Role" className="rounded w-full p-2" required />
                     <label htmlFor="email">E-mail: </label>
-                    <input type="email" id="email" name="email" placeholder="E-mail" className="rounded w-full p-2" />
+                    <input type="email" id="email" name="email" placeholder="E-mail" className="rounded w-full p-2" required />
                     <label htmlFor="phone">Phone: </label>
                     <div className="flex flex-row">
-                        <input type="text" id="phone" name="phone" placeholder="Phone" className="rounded w-full p-2" />
+                        <input type="text" id="phone" name="phone" placeholder="Phone" className="rounded w-full p-2" required />
                         <input type="submit" value="Upload" className="btn"/>
                     </div>
                 </form>

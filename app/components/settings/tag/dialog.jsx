@@ -19,7 +19,7 @@ const TagDialog = ({dialogId}) => {
                 <form onSubmit={submit}>
                     <label htmlFor="name">Name: </label>
                     <div className="flex flex-row">
-                        <input type="text" id="name" name="name" placeholder="Name" className="rounded w-full p-2" />
+                        <input type="text" id="name" name="name" placeholder="Name" className="rounded w-full p-2" required />
                         <input type="submit" value="Upload" className="btn"/>
                     </div>
                 </form>
