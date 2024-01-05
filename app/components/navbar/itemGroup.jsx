@@ -14,9 +14,9 @@ const ItemGroup = () => {
                 <NavbarItem name="Zastínění, dekorace oken a stínící systémy" url="/nase-sluzby/zastineni-dekorace-oken-stinici-systemy"/>
             </DropItem>
             <NavbarItem name="Kontakty" url="/kontakty"/>
-            <NavbarItem name="Admin" url="/admin"/>
             <NavbarItem name="Blog" url="/blog"/>
-            <NavbarItem name="Realization" url="/realization"/>
+            <NavbarItem name="Realizace" url="/realization"/>
+            <NavbarItem name="Admin" url="/admin"/>
         </>
     )
 }
