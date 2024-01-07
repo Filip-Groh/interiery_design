@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import DeleteButton from '../settings/deleteButton'
 
 const DatabasePreview = ({id, title, beforePath, afterPath, beforeDescription, afterDescription, isDependent}) => {
     const handleDelete = async (event) => {
@@ -32,9 +33,7 @@ const DatabasePreview = ({id, title, beforePath, afterPath, beforeDescription, a
                 </div>
                 <div className="font-bold absolute bottom-2 left-1/2 -translate-x-1/2 z-10 bg-black bg-opacity-50 rounded-lg px-2 py-1 flex flex-row">
                     <p className="leading-4 text-center pr-1">{title}</p>
-                    <button onClick={handleDelete} disabled={isDependent}>
-                        <Image src="/svg/delete.svg" width={20} height={20} alt="Delete SVG Image" />
-                    </button>
+                    <DeleteButton handleDelete={handleDelete} isDependent={isDependent} />
                 </div>
             </div>
         </div>

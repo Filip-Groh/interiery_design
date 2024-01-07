@@ -22,12 +22,12 @@ const RealizationSettings = async () => {
                         <AddButton modalId="addRealization" />
                         <RealizationDialog dialogId="addRealization" imagePass={images} previewPass={previews} tagsPass={tags} />
                         {firstHalfRealizations.map((realization) => {
-                            return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} previewImage={realization.image[0]} />
+                            return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} previewImage={realization.image[0]} tags={realization.tags} />
                         })}
                     </div>
                     <div className="flex flex-col basis-1/2">
                         {secondHalfRealization.map((realization) => {
-                            return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} previewImage={realization.image[0]} />
+                            return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} description={realization.task} previewImage={realization.image[0]} tags={realization.tags} />
                         })}
                     </div>
                 </div>

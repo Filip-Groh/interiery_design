@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import DeleteButton from '../../settings/deleteButton'
 
 const RealizationPreview = ({id, title, description, tags, previewImage}) => {
     const handleDelete = async (event) => {
@@ -22,9 +23,7 @@ const RealizationPreview = ({id, title, description, tags, previewImage}) => {
             <div className="card-body">
                 <h2 className="card-title">
                     {title}
-                    <button onClick={handleDelete}>
-                        <Image src="/svg/delete.svg" width={25} height={25} alt="Delete SVG Image" />
-                    </button>
+                    <DeleteButton handleDelete={handleDelete} />
                 </h2>
                 <p>{description}</p>
                 <div className="card-actions justify-end">
