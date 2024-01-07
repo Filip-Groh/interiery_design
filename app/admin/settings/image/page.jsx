@@ -1,7 +1,7 @@
 import React from 'react'
 import { getImage } from '@/utils/database'
 import DatabaseImage from '@/app/components/images/databaseImage'
-import AddButton from '@/app/components/settings/image/add'
+import AddButton from '@/app/components/settings/add'
 import ImageDialog from '@/app/components/settings/image/dialog'
 import SettingsMenu from '@/app/components/settings/menu'
 

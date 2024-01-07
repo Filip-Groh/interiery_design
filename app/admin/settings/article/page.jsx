@@ -1,5 +1,5 @@
 import ArticlePreview from '@/app/components/gallery/2/articlePreview'
-import AddArticle from '@/app/components/settings/article/add'
+import AddButton from '@/app/components/settings/add'
 import ArticleDialog from '@/app/components/settings/article/dialog'
 import SettingsMenu from '@/app/components/settings/menu'
 import { getArticle, getImage, getTag } from '@/utils/database'
@@ -18,7 +18,7 @@ const ArticleSettings = async () => {
             <div className="flex flex-col">
                 <div className="flex flex-row w-full">
                     <div className="flex flex-col basis-1/2">
-                        <AddArticle modalId="addArticle" />
+                        <AddButton modalId="addArticle" />
                         <ArticleDialog dialogId="addArticle" imagesPass={images} tagsPass={tags} />
                         {firstHalfArticles.map((article) => {
                             return <ArticlePreview key={article.id} id={article.id} title={article.title} description={article.text} tags={article.tags} previewImage={article.images[0]} />

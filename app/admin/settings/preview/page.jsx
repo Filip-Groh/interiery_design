@@ -2,8 +2,8 @@ import React from 'react'
 import DatabasePreview from '@/app/components/images/databasePreview'
 import { getImage, getPreview } from '@/utils/database'
 import SettingsMenu from '@/app/components/settings/menu'
-import AddPreview from '@/app/components/settings/preview/add'
 import PreviewDialog from '@/app/components/settings/preview/dialog'
+import AddButton from '@/app/components/settings/add'
 
 const PreviewSettings = async () => {
     const previews = await getPreview()
@@ -16,7 +16,7 @@ const PreviewSettings = async () => {
         <SettingsMenu activeTabName="Preview">
             <div className="flex flex-row w-full">
                 <div className="flex flex-col basis-1/2">
-                    <AddPreview modalId="addPreview" />
+                    <AddButton modalId="addPreview" />
                     <PreviewDialog dialogId="addPreview" images={images} />
                     {firstHalfPreviews.map((preview) => {
                         let isDependent = preview._count.realization !== 0
