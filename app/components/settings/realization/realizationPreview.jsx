@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import DeleteButton from '../../settings/deleteButton'
+import DeleteButton from '@/app/components/settings/deleteButton'
 
 const RealizationPreview = ({id, title, description, tags, previewImage}) => {
     const handleDelete = async (event) => {

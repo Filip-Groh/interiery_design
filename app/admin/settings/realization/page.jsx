@@ -2,7 +2,7 @@ import React from 'react'
 import SettingsMenu from '@/app/components/settings/menu'
 import RealizationDialog from '@/app/components/settings/realization/dialog'
 import { getRealization, getImage, getPreview, getTag } from '@/utils/database'
-import RealizationPreview from '@/app/components/gallery/2/realizationPreview'
+import RealizationPreview from '@/app/components/settings/realization/realizationPreview'
 import AddButton from '@/app/components/settings/add'
 
 const RealizationSettings = async () => {

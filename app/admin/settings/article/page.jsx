@@ -1,4 +1,4 @@
-import ArticlePreview from '@/app/components/gallery/2/articlePreview'
+import ArticlePreview from '@/app/components/settings/article/articlePreview'
 import AddButton from '@/app/components/settings/add'
 import ArticleDialog from '@/app/components/settings/article/dialog'
 import SettingsMenu from '@/app/components/settings/menu'

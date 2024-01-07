@@ -1,6 +1,6 @@
 import React from 'react'
 import NavigationPath from '../components/navigation/navigation'
-import Gallery1Card from '../components/gallery/1/card'
+import Gallery1Card from '../components/gallery/card'
 import { getImage } from '@/utils/database'
 
 const Gallery = async () => {
