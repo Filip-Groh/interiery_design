@@ -1,8 +1,9 @@
+import Link from 'next/link'
 import React from 'react'
 
 const LoginButton = () => {
     return (
-        <div>LoginButton</div>
+        <Link href="/api/auth/signin">Login</Link>
     )
 }
 

@@ -3,8 +3,12 @@ import DarkmodeSwap from './darkmodeSwap'
 import ItemGroup from './itemGroup'
 import Image from 'next/image'
 import Link from 'next/link'
+import { auth } from '/app/api/auth/[...nextauth]/auth'
+import LoginButton from './user/login'
+import LogoutButton from './user/logout'
 
-const Navbar = () => {
+const Navbar = async () => {
+    const session = await auth()
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -26,6 +30,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                {session ? <LogoutButton /> : <LoginButton />}
                 <DarkmodeSwap />
             </div>
         </div>
