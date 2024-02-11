@@ -62,6 +62,8 @@ model Comment {
   title         String
   text          String
   likes         Int
+  likers        User[]       @relation("like")
+  dislikers     User[]       @relation("dislike")
   user          User         @relation(fields: [userId], references: [id])
   userId        String
   realization   Realization? @relation(fields: [realizationId], references: [id])
@@ -147,6 +149,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
   comment       Comment[]
+  liked         Comment[] @relation("like")
+  disliked      Comment[] @relation("dislike")
 }
 
 model VerificationToken {

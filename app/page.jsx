@@ -10,13 +10,10 @@ export default function Home() {
                 <li>Design - barvičky</li>
                 <li>Google Analytics</li>
                 <li>Basic nastavení</li>
-                <li>Přihlášení uživatele / admina</li>
-                <li>Zabezpečení</li>
                 <li>Vyhledávání pomocí tagů</li>
                 <li>Statické obrázky</li>
                 <li>Footer obsah</li>
                 <li>Propisování do sociálních sítí + sdílení</li>
-                <li>Komentáře</li>
             </ul>
         </>
     )

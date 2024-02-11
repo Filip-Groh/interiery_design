@@ -18,7 +18,7 @@ const RealizationPage = async ({params: {id}}) => {
     return (
         <>
             <NavigationPath path={["Home", "Realizace", realization.title]} links={["/", "/realization", `/realization/${id}`]} />
-            <Realization key={realization.id} title={realization.title} task={realization.task} createDate={realization.createDate} tags={realization.tags} comments={realization.comments} images={realization.image} previews={realization.preview} />
+            <Realization key={realization.id} id={realization.id} title={realization.title} task={realization.task} createDate={realization.createDate} tags={realization.tags} comments={realization.comments} images={realization.image} previews={realization.preview} />
         </>
     )
 }

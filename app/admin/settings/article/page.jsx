@@ -2,7 +2,7 @@ import ArticlePreview from '@/app/components/settings/article/articlePreview'
 import AddButton from '@/app/components/settings/add'
 import ArticleDialog from '@/app/components/settings/article/dialog'
 import SettingsMenu from '@/app/components/settings/menu'
-import { getArticle, getImage, getTag } from '@/utils/database'
+import { getArticle, getImage, getComment } from '@/utils/database'
 import React from 'react'
 
 const ArticleSettings = async () => {
@@ -11,7 +11,7 @@ const ArticleSettings = async () => {
     const secondHalfArticles = articles.filter((article, index) => {return index % 2 == 1})
 
     const images = await getImage()
-    const tags = await getTag()
+    const tags = await getComment()
 
     return (
         <SettingsMenu activeTabName="Article">

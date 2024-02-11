@@ -1,7 +1,7 @@
 import React from 'react'
 import SettingsMenu from '@/app/components/settings/menu'
 import RealizationDialog from '@/app/components/settings/realization/dialog'
-import { getRealization, getImage, getPreview, getTag } from '@/utils/database'
+import { getRealization, getImage, getPreview, getComment } from '@/utils/database'
 import RealizationPreview from '@/app/components/settings/realization/realizationPreview'
 import AddButton from '@/app/components/settings/add'
 
@@ -12,7 +12,7 @@ const RealizationSettings = async () => {
 
     const images = await getImage()
     const previews = await getPreview()
-    const tags = await getTag()
+    const tags = await getComment()
 
     return (
         <SettingsMenu activeTabName="Realization">

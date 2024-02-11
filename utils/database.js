@@ -56,7 +56,13 @@ export const getArticleById = async (id) => {
             include: {
                 tags: true,
                 images: true,
-                comments: true
+                comments: {
+                    include: {
+                        user: true,
+                        likers: true,
+                        dislikers: true
+                    }
+                }
             }
         })
         return query
@@ -333,7 +339,13 @@ export const getRealizationById = async (id) => {
                         images: true
                     }
                 },
-                comments: true,
+                comments: {
+                    include: {
+                        user: true,
+                        likers: true,
+                        dislikers: true
+                    }
+                },
                 tags: true
             }
         })
@@ -420,6 +432,219 @@ export const delTag = async (id) => {
         const query = prisma.tag.delete({
             where: {
                 id: id
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const setRealizationComment = async (title, text, userName, userEmail, realizationId) => {
+    try {
+        const query = prisma.comment.create({
+            data: {
+                title: title,
+                text: text,
+                likes: 0,
+                user: { 
+                    connect: {
+                        name: userName,
+                        email: userEmail
+                    }  
+                },
+                realization: {
+                    connect: {
+                        id: realizationId
+                    }
+                }
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const setArticleComment = async (title, text, userName, userEmail, articleId) => {
+    try {
+        const query = prisma.comment.create({
+            data: {
+                title: title,
+                text: text,
+                likes: 0,
+                user: { 
+                    connect: {
+                        name: userName,
+                        email: userEmail
+                    }  
+                },
+                article: {
+                    connect: {
+                        id: articleId
+                    }
+                }
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getComment = async () => {
+    try {
+        const query = prisma.comment.findMany({
+            include: {
+                _count: true
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getCommentById = async (id) => {
+    try {
+        const query = prisma.comment.findFirst({
+            where: {
+                id: id
+            },
+            include: {
+                likers: true,
+                dislikers: true
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const modComment = async (id, title, text) => {
+    try {
+        const query = prisma.comment.update({
+            where: {
+                id: id
+            },
+            data: {
+                title: title,
+                text: text
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const delComment = async (id) => {
+    try {
+        const query = prisma.comment.delete({
+            where: {
+                id: id
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const likeComment = async (userEmail, commentId) => {
+    try {
+        const query = prisma.comment.update({
+            where: {
+                id: commentId
+            },
+            data: {
+                likers: {
+                    connect: [
+                        {
+                            email: userEmail
+                        }
+                    ]
+                }
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const dislikeComment = async (userEmail, commentId) => {
+    try {
+        const query = prisma.comment.update({
+            where: {
+                id: commentId
+            },
+            data: {
+                dislikers: {
+                    connect: [
+                        {
+                            email: userEmail
+                        }
+                    ]
+                }
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const unComment = async (userEmail, commentId) => {
+    try {
+        const query = prisma.comment.update({
+            where: {
+                id: commentId
+            },
+            data: {
+                likers: {
+                    disconnect: [
+                        {
+                            email: userEmail
+                        }
+                    ]
+                },
+                dislikers: {
+                    disconnect: [
+                        {
+                            email: userEmail
+                        }
+                    ]
+                }
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const updateLikesOnComment = async (id) => {
+    try {
+        const numberOfLikers = await prisma.comment.findFirst({
+            where: {
+                id: id
+            },
+            include: {
+                likers: true,
+                dislikers: true
+            }
+        })
+        const likes = numberOfLikers.likers.length - numberOfLikers.dislikers.length
+        const query = prisma.comment.update({
+            where: {
+                id: id
+            },
+            data: {
+                likes: {
+                    set: likes
+                }
             }
         })
         return query

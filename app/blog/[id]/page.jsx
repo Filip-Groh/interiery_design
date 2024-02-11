@@ -18,7 +18,7 @@ const BlogPage = async ({params: {id}}) => {
     return (
         <>
             <NavigationPath path={["Home", "Blog", article.title]} links={["/", "/blog", `/blog/${id}`]} />
-            <Article key={article.id} title={article.title} text={article.text} createDate={article.createDate} tags={article.tags} images={article.images} comments={article.comments} />
+            <Article key={article.id} id={article.id} title={article.title} text={article.text} createDate={article.createDate} tags={article.tags} images={article.images} comments={article.comments} />
         </>
     )
 }

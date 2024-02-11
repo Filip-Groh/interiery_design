@@ -1,8 +1,27 @@
 import React from 'react'
 import Comment from '@/app/components/comment/comment'
 import UserImage from '../images/userImage'
+import WriteComment from '../comment/writeComment'
+import { auth } from '@/app/api/auth/[...nextauth]/auth'
 
-const Article = ({comments, images, tags, title, text, createDate}) => {
+const Article = async ({id, comments, images, tags, title, text, createDate}) => {
+    const session = await auth()
+    const state = comments.map((comment) => {
+        if (comment.likers.length > 0 && comment.likers.reduce((previousValue, currentValue, index) => {
+            return previousValue || currentValue.id == session?.user?.id
+        })) {
+            return 1
+        } else if (comment.dislikers.length > 0 && comment.dislikers.reduce((previousValue, currentValue, index) => {
+            return previousValue || currentValue.id == session?.user?.id
+        })) {
+            return -1
+        }
+        return 0
+    })
+    // -1 = dislike
+    // 0 = neutral
+    // 1 = like
+
     return (
         <div className="flex flex-row justify-center">
             <div className="w-3/4">
@@ -31,10 +50,12 @@ const Article = ({comments, images, tags, title, text, createDate}) => {
                     })}
                 </ul>
 
+                <WriteComment session={session} id={id} realizationOrArticle="ARTICLE" />
+
                 {comments?.length > 0 ? <h2>Komentáře</h2> : null}
                 <ul className="flex flex-col gap-2">
-                    {comments?.map((comment) => {
-                        return <Comment key={comment.id} />
+                    {comments?.map((comment, index) => {
+                        return <Comment key={comment.id} session={session} id={comment.id} name={comment.user.name} email={comment.user.email} image={comment.user.image} title={comment.title} text={comment.text} likes={comment.likes} createdDate={comment.createDate} updatedDate={comment.updateDate} state={state[index]} />
                     })}
                 </ul>
             </div>
