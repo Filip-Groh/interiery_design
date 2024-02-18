@@ -71,6 +71,32 @@ export const getArticleById = async (id) => {
     }
 } 
 
+export const getArticleBySet = async (pageSize, currentPage) => {
+    try {
+        const query = prisma.article.findMany({
+            include: {
+                images: true,
+                comments: true,
+                tags: true
+            },
+            skip: pageSize * (currentPage - 1),
+            take: pageSize
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getNumberOfArticles = async () => {
+    try {
+        const query = prisma.article.count()
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const modArticle = async (id, title, text) => {
     try {
         const query = prisma.article.update({
@@ -326,6 +352,24 @@ export const getRealization = async () => {
     }
 }
 
+export const getRealizationBySet = async (pageSize, currentPage) => {
+    try {
+        const query = prisma.realization.findMany({
+            include: {
+                image: true,
+                preview: true,
+                comments: true,
+                tags: true
+            },
+            skip: pageSize * (currentPage - 1),
+            take: pageSize
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getRealizationById = async (id) => {
     try {
         const query = prisma.realization.findFirst({
@@ -349,6 +393,15 @@ export const getRealizationById = async (id) => {
                 tags: true
             }
         })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getNumberOfRealizations = async () => {
+    try {
+        const query = prisma.realization.count()
         return query
     } catch (error) {
         console.log(error)

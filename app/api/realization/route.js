@@ -1,5 +1,18 @@
-import { delRealization, setRealization } from '@/utils/database'
+import { getRealizationBySet, delRealization, setRealization, getNumberOfRealizations } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    let count = await getNumberOfRealizations()
+    return NextResponse.json({data: count}, { status: 200 })
+}
+
+export async function PATCH(request) {
+    const formData = await request.formData()
+    const pageSize = Number(formData.get('pageSize'))
+    const currentPage = Number(formData.get('currentPage'))
+    let realizations = await getRealizationBySet(pageSize, currentPage)
+    return NextResponse.json({data: realizations}, { status: 200 })
+}
 
 export async function POST(request) {
     const formData = await request.formData()

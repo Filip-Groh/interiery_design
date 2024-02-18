@@ -1,5 +1,18 @@
-import { setArticle, delArticle } from '@/utils/database'
+import { setArticle, delArticle, getArticleBySet, getNumberOfArticles } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    let count = await getNumberOfArticles()
+    return NextResponse.json({data: count}, { status: 200 })
+}
+
+export async function PATCH(request) {
+    const formData = await request.formData()
+    const pageSize = Number(formData.get('pageSize'))
+    const currentPage = Number(formData.get('currentPage'))
+    let articles = await getArticleBySet(pageSize, currentPage)
+    return NextResponse.json({data: articles}, { status: 200 })
+}
 
 export async function POST(request) {
     const formData = await request.formData()
