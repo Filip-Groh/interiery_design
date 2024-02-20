@@ -44,11 +44,13 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                     {text}
                 </p>
 
-                <ul>
+                <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl'>
                     {images.map((image) => {
-                        return <UserImage key={image.id} path={image.path} description={image.description} />
+                        return (<div key={image.id} className='h-auto w-[40rem] shrink-0 snap-center'>
+                            <UserImage path={image.path} description={image.description} />
+                        </div>)
                     })}
-                </ul>
+                </div>
 
                 <WriteComment session={session} id={id} realizationOrArticle="ARTICLE" />
 

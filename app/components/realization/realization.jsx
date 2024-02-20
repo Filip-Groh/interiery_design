@@ -45,9 +45,13 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                     {task}
                 </p>
 
-                {images.map((image) => {
-                    return <UserImage key={image.id} path={image.path} description={image.description} />
-                })}
+                <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl'>
+                    {images.map((image) => {
+                        return (<div key={image.id} className='h-auto w-[40rem] shrink-0 snap-center'>
+                            <UserImage path={image.path} description={image.description} />
+                        </div>)
+                    })}
+                </div>
 
                 {previews.map((preview) => {
                     return <UserPreview key={preview.id} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
