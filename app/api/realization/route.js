@@ -1,7 +1,18 @@
-import { getRealizationBySet, delRealization, setRealization, getNumberOfRealizations } from '@/utils/database'
+import { getRealizationBySet, delRealization, setRealization, getNumberOfRealizations, getRealizationBySetWithTags, getNumberOfRealizationsWithTags } from '@/utils/database'
 import { NextResponse } from 'next/server'
 
-export async function GET() {
+export async function PUT(request) {
+    const formData = await request.formData()
+    let tags = formData.get('tags')
+    if (tags.length > 0) {
+        tags = tags.split(",")
+        tags = tags.map(tag => {
+            return Number(tag.trim())
+        })
+
+        let count = await getNumberOfRealizationsWithTags(tags)
+        return NextResponse.json({data: count}, { status: 200 })
+    }
     let count = await getNumberOfRealizations()
     return NextResponse.json({data: count}, { status: 200 })
 }
@@ -10,6 +21,15 @@ export async function PATCH(request) {
     const formData = await request.formData()
     const pageSize = Number(formData.get('pageSize'))
     const currentPage = Number(formData.get('currentPage'))
+    let tags = formData.get('tags')
+    if (tags.length > 0) {
+        tags = tags.split(",")
+        tags = tags.map(tag => {
+            return Number(tag.trim())
+        })
+        let realizations = await getRealizationBySetWithTags(pageSize, currentPage, tags)
+        return NextResponse.json({data: realizations}, { status: 200 })
+    }
     let realizations = await getRealizationBySet(pageSize, currentPage)
     return NextResponse.json({data: realizations}, { status: 200 })
 }

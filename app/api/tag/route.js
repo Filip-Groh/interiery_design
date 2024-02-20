@@ -1,21 +1,21 @@
-import { getComment, setComment, delComment } from '@/utils/database'
+import { getTag, setTag, delTag } from '@/utils/database'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-    const tags = await getComment()
+    const tags = await getTag()
     return NextResponse.json({data: tags}, { status: 200 })
 }
 
 export async function POST(request) {
     const formData = await request.formData()
     const name = formData.get('name')
-    const tag = await setComment(name)
+    const tag = await setTag(name)
     return NextResponse.json({data: tag}, { status: 200 })
 }
 
 export async function DELETE(request) {
     const formData = await request.formData()
     const id = Number(formData.get('id'))
-    const tag = await delComment(id)
+    const tag = await delTag(id)
     return NextResponse.json({data: tag}, { status: 200 })
 }

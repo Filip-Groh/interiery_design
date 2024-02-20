@@ -6,10 +6,14 @@ const Pager = ({children, numberOfPages, currentPage, setCurrentPage}) => {
     let pages = []
     for (let index = 1; index <= numberOfPages; index++) {
         if (index == currentPage) {
-            pages.push(<button className="join-item btn btn-active" onClick={async () => {setCurrentPage(index)}}>{index}</button>)
+            pages.push(<button key={index} className="join-item btn btn-active" onClick={async () => {setCurrentPage(index)}}>{index}</button>)
             continue
         }
-        pages.push(<button className="join-item btn" onClick={async () => {setCurrentPage(index)}}>{index}</button>)
+        pages.push(<button key={index} className="join-item btn" onClick={async () => {setCurrentPage(index)}}>{index}</button>)
+    }
+
+    if (pages.length < currentPage) {
+        setCurrentPage(pages.length)
     }
 
     const handleFirstPage = async () => {
@@ -30,7 +34,7 @@ const Pager = ({children, numberOfPages, currentPage, setCurrentPage}) => {
 
 
     return (
-        <>
+        <div>
             <div className="join w-full justify-center my-2">
                 <button className={"join-item btn " + (currentPage > 1 ? "" : "btn-disabled")} onClick={handleFirstPage}>{"<<"}</button>
                 <button className={"join-item btn " + (currentPage > 1 ? "" : "btn-disabled")} onClick={handlePreviousPage}>{"<"}</button>
@@ -46,7 +50,7 @@ const Pager = ({children, numberOfPages, currentPage, setCurrentPage}) => {
                 <button className={"join-item btn " + (currentPage < numberOfPages ? "" : "btn-disabled")} onClick={handleNextPage}>{">"}</button>
                 <button className={"join-item btn " + (currentPage < numberOfPages ? "" : "btn-disabled")} onClick={handleLastPage}>{">>"}</button>
             </div>
-        </>
+        </div>
     )
 }
 

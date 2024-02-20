@@ -6,7 +6,7 @@ const NavigationPath = ({path, links}) => {
         <div className="text-sm breadcrumbs">
             <ul className="justify-center">
                 {path.map((destination, index) => 
-                    <li key="destination"><Link href={links[index]}>{destination}</Link></li>
+                    <li key={destination}><Link href={links[index]}>{destination}</Link></li>
                 )}
             </ul>
         </div>
