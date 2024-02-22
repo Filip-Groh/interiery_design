@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import TagButton from './tagbutton'
 
 const Tagsearch = ({tags, setTags}) => {
     const [localTags, setLocalTags] = React.useState([])
@@ -19,19 +20,21 @@ const Tagsearch = ({tags, setTags}) => {
     }, [])
 
     const toggleButton = (event) => {
-        if (event.target.className == "bg-red-600") {
+        if (event.target.value == "active") {
             setTags(tags.toSpliced(tags.indexOf(event.target.id), 1))
-            event.target.className = ""
+            event.target.value = ""
+            event.target.className = "rounded-md bg-slate-500 px-2"
         } else {
             setTags(tags.concat(event.target.id))
-            event.target.className = "bg-red-600"
+            event.target.value = "active"
+            event.target.className = "rounded-md bg-slate-500 px-2 text-cyan-400"
         }
     }
 
     return (
         <div>
             {localTags.map((tag) => {
-                return <button key={tag.id} id={tag.id} onClick={toggleButton}>{tag.name}</button>
+                return <TagButton key={tag.id} tag={tag} toggleButton={toggleButton} />
             })}
         </div>
     )

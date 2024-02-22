@@ -12,10 +12,6 @@ const Pager = ({children, numberOfPages, currentPage, setCurrentPage}) => {
         pages.push(<button key={index} className="join-item btn" onClick={async () => {setCurrentPage(index)}}>{index}</button>)
     }
 
-    if (pages.length < currentPage) {
-        setCurrentPage(pages.length)
-    }
-
     const handleFirstPage = async () => {
         setCurrentPage(1)
     }

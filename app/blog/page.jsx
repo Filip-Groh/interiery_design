@@ -25,7 +25,6 @@ const Articles = () => {
         response.then(
             function(value) { 
                 value.json().then(function(value) {
-                    console.log(value.data)
                     setArticles(value.data)
                 })
             }
@@ -47,6 +46,16 @@ const Articles = () => {
             }
           );
     }, [tags])
+
+    React.useEffect(() => {
+        if (numberOfPages == 0) {
+
+        } else if (numberOfPages < currentPage) {
+            setCurrentPage(numberOfPages)
+        } else if (currentPage < 1) {
+            setCurrentPage(1)
+        }
+    }, [currentPage, numberOfPages])
 
     return (
         <>

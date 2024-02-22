@@ -47,6 +47,16 @@ const Realizations = () => {
           );
     }, [tags])
 
+    React.useEffect(() => {
+        if (numberOfPages == 0) {
+
+        } else if (numberOfPages < currentPage) {
+            setCurrentPage(numberOfPages)
+        } else if (currentPage < 1) {
+            setCurrentPage(1)
+        }
+    }, [currentPage, numberOfPages])
+
     return (
         <>
             <NavigationPath path={["Home", "Realizace"]} links={["/", "/realization"]} />
