@@ -35,9 +35,9 @@ export default function Home() {
             <div className='flex justify-center relative overflow-hidden mb-4'>
                 <div className="flex justify-center w-7/12 aspect-video">
                     <p className='outline-1 z-20 absolute top-10 right-[50%] text-white rounded-xl px-4 py-2 text-4xl font-bold drop-shadow-2xl [text-shadow:_2px_2px_2px_var(--tw-shadow-color)] shadow-black bg-slate-600'>{motto[counter]}</p>
-                    <Image className="rounded-2xl w-max absolute h-[80%] z-10" width={1000} height={1000} src="/homepage/foto1.webp" alt="Home foto" />
-                    <Image className="rounded-2xl w-1/3 absolute left-[10%] bottom-0" width={1000} height={1000} src="/homepage/foto2.webp" alt="Home foto" />
-                    <Image className="rounded-2xl w-1/3 absolute right-[10%] bottom-0" width={1000} height={1000} src="/homepage/foto3.webp" alt="Home foto" />
+                    <Image className="rounded-2xl w-max absolute h-[80%] z-10" width={1000} height={1000} src="/static/homepage/foto1.webp" alt="Home foto" />
+                    <Image className="rounded-2xl w-1/3 absolute left-[10%] bottom-0" width={1000} height={1000} src="/static/homepage/foto2.webp" alt="Home foto" />
+                    <Image className="rounded-2xl w-1/3 absolute right-[10%] bottom-0" width={1000} height={1000} src="/static/homepage/foto3.webp" alt="Home foto" />
                 </div>
             </div>
             
@@ -123,5 +123,4 @@ export default function Home() {
 // Design - barvičky
 // Google Analytics
 // Basic nastavení
-// Statické obrázky
 // Propisování do sociálních sítí + sdílení

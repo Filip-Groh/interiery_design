@@ -6,7 +6,7 @@ const Company = () => {
         <div className="card card-compact w-72 bg-base-100 shadow-xl">
             <figure className="p-0 pb-2">
                 <div className="hover:scale-[150%] transition-transform">
-                    <Image width={500} height={200} src="/logo.jpg" alt="Company logo"/>
+                    <Image width={500} height={200} src="/static/logo.jpg" alt="Company logo"/>
                 </div>
             </figure>
             <div className="card-body">
