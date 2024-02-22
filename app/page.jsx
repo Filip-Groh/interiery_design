@@ -124,5 +124,4 @@ export default function Home() {
 // Google Analytics
 // Basic nastavení
 // Statické obrázky
-// Footer obsah
 // Propisování do sociálních sítí + sdílení
