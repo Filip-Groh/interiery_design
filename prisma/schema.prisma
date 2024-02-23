@@ -162,3 +162,10 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+// Basic settings
+
+model Settings {
+  key   String @id
+  value String
+}

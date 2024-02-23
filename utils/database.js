@@ -796,3 +796,49 @@ export const updateLikesOnComment = async (id) => {
         console.log(error)
     }
 }
+
+export const setSettings = async (key, value) => {
+    try {
+        const query = prisma.settings.upsert({
+            create: {
+                key: key,
+                value: value
+            },
+            update: {
+                value: value
+            },
+            where: {
+                key: key
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getSettings = async (key) => {
+    try {
+        const query = prisma.settings.findFirst({
+            where: {
+                key: key
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const delSettings = async (key) => {
+    try {
+        const query = prisma.settings.delete({
+            where: {
+                key: key
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
