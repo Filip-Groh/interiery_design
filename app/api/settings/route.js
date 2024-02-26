@@ -1,7 +1,7 @@
 import { setSettings, delSettings, getSettings } from '@/utils/database'
 import { NextResponse } from 'next/server'
 
-export async function GET(request) {
+export async function PUT(request) {
     const formData = await request.formData()
     const key = formData.get('key')
     let settings = await getSettings(key)

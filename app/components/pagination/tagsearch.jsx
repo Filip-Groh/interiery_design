@@ -3,22 +3,7 @@
 import React from 'react'
 import TagButton from './tagbutton'
 
-const Tagsearch = ({tags, setTags}) => {
-    const [localTags, setLocalTags] = React.useState([])
-
-    React.useEffect(() => {
-        const response = fetch('/api/tag', {
-            method: 'GET'
-        })
-        response.then(
-            function(value) { 
-                value.json().then(function(value) {
-                    setLocalTags(value.data)
-                })
-            }
-          );
-    }, [])
-
+const Tagsearch = ({tags, setTags, defaultTags}) => {
     const toggleButton = (event) => {
         if (event.target.value == "active") {
             setTags(tags.toSpliced(tags.indexOf(event.target.id), 1))
@@ -33,7 +18,7 @@ const Tagsearch = ({tags, setTags}) => {
 
     return (
         <div>
-            {localTags.map((tag) => {
+            {defaultTags.map((tag) => {
                 return <TagButton key={tag.id} tag={tag} toggleButton={toggleButton} />
             })}
         </div>
