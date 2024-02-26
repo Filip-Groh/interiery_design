@@ -23,7 +23,7 @@ const AdminLogin = ({defaultAdmin}) => {
     }
 
     return (
-        <ul className='m-2 p-4'>
+        <ul>
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-row">
                     <input type="email" id="login" name="login" placeholder="Email" className="file-input file-input-bordered w-full" required />

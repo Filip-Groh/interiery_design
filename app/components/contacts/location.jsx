@@ -1,6 +1,14 @@
+import { getSettings } from '@/utils/database'
 import React from 'react'
 
-const Location = () => {
+const Location = async () => {
+    let query = await getSettings("address")
+    query = JSON.parse(query?.value || '""')
+    const address = query.address
+    const city = query.city
+    const psc = query.psc
+    const contact = query.contact
+
     return (
         <div className="card card-compact w-72 bg-base-100 shadow-xl">
             <figure className="p-0 pb-2">
@@ -9,10 +17,10 @@ const Location = () => {
             <div className="card-body">
                 <h2 className="card-title">Kde se nacházíme</h2>
                 <p>
-                    Barvířská  č.31/ 8 – 1.patro <br />
-                    Liberec 3 <br />
-                    460 07 <br />
-                    tel.  :  485 102 179,   fax. :  482 710 412
+                    {address}<br />
+                    {city}<br />
+                    {psc}<br />
+                    {contact}
                 </p>
             </div>
         </div>
