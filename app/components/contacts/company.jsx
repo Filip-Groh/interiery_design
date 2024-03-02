@@ -1,13 +1,11 @@
-import Image from 'next/image'
 import React from 'react'
+import DisplayImage from '../images/image'
 
 const Company = () => {
     return (
         <div className="card card-compact w-72 bg-base-100 shadow-xl">
             <figure className="p-0 pb-2">
-                <div className="hover:scale-[150%] transition-transform">
-                    <Image width={500} height={200} src="/static/logo.jpg" alt="Company logo"/>
-                </div>
+                <DisplayImage width={500} height={200} src="/static/logo.jpg" alt="Company logo"/>
             </figure>
             <div className="card-body">
                 <h2 className="card-title">Firemní údaje</h2>

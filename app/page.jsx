@@ -4,6 +4,7 @@ import Image from 'next/image'
 import NavigationPath from './components/navigation/navigation'
 import React from 'react';
 import Link from 'next/link';
+import DisplayImage from './components/images/image';
 
 export default function Home() {
     const [counter, setCouter] = React.useState(0)
@@ -55,32 +56,32 @@ export default function Home() {
                     <h2 className='text-2xl'>Co už umíme</h2>
                     <div className="grid grid-cols-3 gap-4">
                         <div className='m-4 w-full'>
-                            <Image className="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/privatni.webp" alt="Privátní Design" />
+                            <DisplayImage classes="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/privatni.webp" alt="Privátní Design" />
                             <h3 className='text-lg my-1 pl-4'>Privátní Design</h3>
                             <p className='text-sm pl-4'>Rekonstrukce, redesign, nové vybavení interiérů.</p>
                         </div>
                         <div className='m-4 w-full'>
-                            <Image className="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/navrhy.webp" alt="Návrhy Interierů" />
+                            <DisplayImage classes="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/navrhy.webp" alt="Návrhy Interierů" />
                             <h3 className='text-lg my-1 pl-4'>Návrhy Interiérů</h3>
                             <p className='text-sm pl-4'>Návrhy, studie a vizualizace interiérů.</p>
                         </div>
                         <div className='m-4 w-full'>
-                            <Image className="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/komercni.webp" alt="Komerční Design" />
+                            <DisplayImage classes="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/komercni.webp" alt="Komerční Design" />
                             <h3 className='text-lg my-1 pl-4'>Komerční Design</h3>
                             <p className='text-sm pl-4'>Realizace interiérů pro firemní klientelu.</p>
                         </div>
                         <div className='m-4 w-full'>
-                            <Image className="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/dekorace.webp" alt="Dekorace Oken" />
+                            <DisplayImage classes="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/dekorace.webp" alt="Dekorace Oken" />
                             <h3 className='text-lg my-1 pl-4'>Dekorace Oken</h3>
                             <p className='text-sm pl-4'>Záclony, závěsy, japonské stěny, rolety žaluzie.</p>
                         </div>
                         <div className='m-4 w-full'>
-                            <Image className="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/vzorove.webp" alt="Vzorové byty" />
+                            <DisplayImage classes="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/vzorove.webp" alt="Vzorové byty" />
                             <h3 className='text-lg my-1 pl-4'>Vzorové Byty</h3>
                             <p className='text-sm pl-4'>Vybavení vzorových bytů nové výstavby.</p>
                         </div>
                         <div className='m-4 w-full'>
-                            <Image className="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/nabytek.webp" alt="Nábytek na Míru" />
+                            <DisplayImage classes="rounded-2xl aspect-video object-cover" width={1000} height={1000} src="/static/homepage/umime/nabytek.webp" alt="Nábytek na Míru" />
                             <h3 className='text-lg my-1 pl-4'>Nábytek Na Míru</h3>
                             <p className='text-sm pl-4'>Vlastní výroba nábytku dle prostor a ...</p>
                         </div>

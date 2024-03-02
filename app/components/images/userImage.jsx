@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import DisplayImage from './image'
 
 const UserImage = ({path, description}) => {
     return (
@@ -8,7 +8,7 @@ const UserImage = ({path, description}) => {
                 <div className="absolute bottom-2 left-2 flex flex-row bg-black bg-opacity-50 rounded-2xl p-2">                
                     <h1 className="font-bold px-2 z-10">{description}</h1>
                 </div>
-                <Image className="rounded-2xl" width={1000} height={1000} src={path || "/logo.jpg"} alt={description} />
+                <DisplayImage classes='rounded-2xl' width={1000} height={1000} src={path} alt={description} isScaling={false}/>
             </div>
         </div>
     )
