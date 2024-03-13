@@ -39,6 +39,9 @@ export const getArticle = async () => {
                 tags: true,
                 images: true,
                 comments: true
+            },
+            orderBy: {
+                createDate: "desc"
             }
         })
         return query
@@ -80,7 +83,10 @@ export const getArticleBySet = async (pageSize, currentPage) => {
                 tags: true
             },
             skip: pageSize * (currentPage - 1),
-            take: pageSize
+            take: pageSize,
+            orderBy: {
+                createDate: "desc"
+            }
         })
         return query
     } catch (error) {
@@ -106,7 +112,10 @@ export const getArticleBySetWithTags = async (pageSize, currentPage, tags) => {
                 tags: true
             },
             skip: pageSize * (currentPage - 1),
-            take: pageSize
+            take: pageSize,
+            orderBy: {
+                createDate: "desc"
+            }
         })
         return query
     } catch (error) {
@@ -172,14 +181,19 @@ export const delArticle = async (id) => {
     }
 } 
 
-export const setDesigner = async (name, role, email, mobil) => {
+export const setDesigner = async (name, role, email, mobil, image) => {
     try {
         const query = prisma.designer.create({
             data: {
                 name: name,
                 role: role,
                 email: email,
-                mobil: mobil
+                mobil: mobil,
+                image: {
+                    connect: {
+                        id: image
+                    }
+                }
             }
         })
         return query
@@ -190,7 +204,11 @@ export const setDesigner = async (name, role, email, mobil) => {
 
 export const getDesigner = async () => {
     try {
-        const query = prisma.designer.findMany()
+        const query = prisma.designer.findMany({
+            include: {
+                image: true                
+            }
+        })
         return query
     } catch (error) {
         console.log(error)
@@ -254,6 +272,9 @@ export const getImage = async () => {
         const query = prisma.image.findMany({
             include: {
                 _count: true
+            },
+            orderBy: {
+                createDate: "desc"
             }
         })
         return query
@@ -311,6 +332,9 @@ export const getPreview = async () => {
             include: {
                 images: true,
                 _count: true
+            },
+            orderBy: {
+                createDate: "desc"
             }
         })
         return query
@@ -389,6 +413,9 @@ export const getRealization = async () => {
                 preview: true,
                 comments: true,
                 tags: true
+            },
+            orderBy: {
+                createDate: "desc"
             }
         })
         return query
@@ -407,7 +434,10 @@ export const getRealizationBySet = async (pageSize, currentPage) => {
                 tags: true
             },
             skip: pageSize * (currentPage - 1),
-            take: pageSize
+            take: pageSize,
+            orderBy: {
+                createDate: "desc"
+            }
         })
         return query
     } catch (error) {
@@ -434,7 +464,10 @@ export const getRealizationBySetWithTags = async (pageSize, currentPage, tags) =
                 tags: true
             },
             skip: pageSize * (currentPage - 1),
-            take: pageSize
+            take: pageSize,
+            orderBy: {
+                createDate: "desc"
+            }
         })
         return query
     } catch (error) {
@@ -547,6 +580,9 @@ export const getTag = async () => {
         const query = prisma.tag.findMany({
             include: {
                 _count: true
+            },
+            orderBy: {
+                createDate: "desc"
             }
         })
         return query
@@ -641,6 +677,9 @@ export const getComment = async () => {
         const query = prisma.comment.findMany({
             include: {
                 _count: true
+            },
+            orderBy: {
+                createDate: "desc"
             }
         })
         return query

@@ -19,7 +19,7 @@ const JoinPreviews = ({dialogId, update, previews}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Vybírání porovnání</h3>
+                <h3 className="font-bold text-lg mb-2 text-neutral">Vybírání porovnání</h3>
                 <form onSubmit={submit} className="flex flex-col">
                     <input type="submit" value="Připojit" className="btn" />
                     <div className="flex flex-row w-full">
@@ -57,7 +57,7 @@ const JoinPreviews = ({dialogId, update, previews}) => {
                 </form>
                 <div className="modal-action">
                     <form method="dialog">
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-neutral">✕</button>
                     </form>
                 </div>
             </div>

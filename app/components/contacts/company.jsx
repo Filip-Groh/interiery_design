@@ -7,7 +7,7 @@ const Company = () => {
             <figure className="p-0 pb-2">
                 <DisplayImage width={500} height={200} src="/static/logo.jpg" alt="Company logo"/>
             </figure>
-            <div className="card-body">
+            <div className="card-body text-neutral">
                 <h2 className="card-title">Firemní údaje</h2>
                 <h3>IČO :   22773525</h3>
                 <h3>DIČ :   CZ22773525</h3>

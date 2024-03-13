@@ -21,10 +21,12 @@ model Designer {
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 
-  name  String
-  role  String
-  email String
-  mobil String
+  name    String
+  role    String
+  email   String
+  mobil   String
+  image   Image  @relation(fields: [imageId], references: [id])
+  imageId Int
 }
 
 model Realization {
@@ -103,6 +105,7 @@ model Image {
   realization Realization[]
   article     Article[]
   preview     Preview[]
+  Designer    Designer[]
 }
 
 // OAuth

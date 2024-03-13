@@ -2,6 +2,7 @@
 
 import React from 'react'
 import DeleteButton from '../deleteButton'
+import Tag from '../../tag'
 
 const TagEditable = ({id, name, isDependent}) => {
     const handleDelete = async (event) => {
@@ -15,11 +16,12 @@ const TagEditable = ({id, name, isDependent}) => {
     }
 
     return (
-        <div className="rounded-md bg-slate-700 m-2 flex flex-row h-fit border-[1px] border-black px-1">
-            <p className="px-1 py-1 pr-2">
-                {name}
-            </p>
-            <DeleteButton handleDelete={handleDelete} isDependent={isDependent} />
+        <div className="h-8 my-2 flex flex-col justify-center">
+            <Tag name={name}>
+                <div className='ml-1 flex flex-col justify-center'>
+                    <DeleteButton handleDelete={handleDelete} isDependent={isDependent} width={15} height={15}/>
+                </div>
+            </Tag>
         </div>
     )
 }

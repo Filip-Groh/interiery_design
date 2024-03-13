@@ -1,4 +1,5 @@
 import React from 'react'
+import Tag from '../tag'
 
 const JoinTags = ({dialogId, update, tags}) => {
     const submit = (event) => {
@@ -15,7 +16,7 @@ const JoinTags = ({dialogId, update, tags}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Vybírání tagů</h3>
+                <h3 className="font-bold text-lg mb-2 text-neutral">Vybírání tagů</h3>
                 <form onSubmit={submit} className="flex flex-col">
                     <input type="submit" value="Připojit" className="btn" />
                     <div className="flex flex-row w-full">
@@ -24,10 +25,10 @@ const JoinTags = ({dialogId, update, tags}) => {
                                 <label key={tag.id} className="swap swap-flip">
                                     <input type="checkbox" id={tag.id} name={tag.id} className="min-h-full min-w-full" />
                                     <div className="swap-on text-cyan-400">
-                                        <p className="rounded-md bg-slate-500 px-2">{tag.name}</p>
+                                        <Tag name={tag.name} isHighlighted={true} />
                                     </div>
                                     <div className="swap-off">
-                                        <p className="rounded-md bg-slate-500 px-2">{tag.name}</p>
+                                        <Tag name={tag.name} isHighlighted={false} />
                                     </div>
                                 </label>
                             )
@@ -36,7 +37,7 @@ const JoinTags = ({dialogId, update, tags}) => {
                 </form>
                 <div className="modal-action">
                     <form method="dialog">
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-neutral">✕</button>
                     </form>
                 </div>
             </div>

@@ -1,9 +1,24 @@
-import React from 'react'
+"use client"
 
-const TagButton = ({tag, toggleButton}) => {
+import React from 'react'
+import Tag from '../tag'
+
+const TagButton = ({tag, tags, setTags}) => {
+    const [active, setActive] = React.useState(false)
+
+    const handleToggle = () => {
+        if (active) {
+            setTags(tags.toSpliced(tags.indexOf(tag.id), 1))
+            setActive(false)
+        } else {
+            setTags(tags.concat(tag.id))
+            setActive(true)
+        }
+    }
+
     return (
-        <button key={tag.id} id={tag.id} onClick={toggleButton} className='rounded-md bg-slate-500 px-2'>
-            {tag.name}
+        <button id={tag.id} onClick={handleToggle} >
+            <Tag name={tag.name} isHighlighted={active}/>
         </button>
     )
 }

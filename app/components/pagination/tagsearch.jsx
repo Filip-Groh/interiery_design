@@ -4,22 +4,11 @@ import React from 'react'
 import TagButton from './tagbutton'
 
 const Tagsearch = ({tags, setTags, defaultTags}) => {
-    const toggleButton = (event) => {
-        if (event.target.value == "active") {
-            setTags(tags.toSpliced(tags.indexOf(event.target.id), 1))
-            event.target.value = ""
-            event.target.className = "rounded-md bg-slate-500 px-2"
-        } else {
-            setTags(tags.concat(event.target.id))
-            event.target.value = "active"
-            event.target.className = "rounded-md bg-slate-500 px-2 text-cyan-400"
-        }
-    }
-
     return (
-        <div>
+        <div className='ml-16'>
+            <h2 className='text-neutral'>Vyhledávání pomocí tagů:</h2>
             {defaultTags.map((tag) => {
-                return <TagButton key={tag.id} tag={tag} toggleButton={toggleButton} />
+                return <TagButton key={tag.id} tag={tag} tags={tags} setTags={setTags} />
             })}
         </div>
     )

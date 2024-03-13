@@ -7,7 +7,8 @@ export async function POST(request) {
     const role = formData.get('role')
     const email = formData.get('email')
     const phone = formData.get('phone')
-    const designer = await setDesigner(name, role, email, phone)
+    const image = Number(formData.get('image'))
+    const designer = await setDesigner(name, role, email, phone, image)
     return NextResponse.json({data: designer}, { status: 200 })
 }
 

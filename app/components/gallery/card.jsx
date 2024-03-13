@@ -7,7 +7,7 @@ const Gallery1Card = ({path, description}) => {
             <figure>
                 <DisplayImage width={500} height={295} src={path} alt={description} />
             </figure>
-            <div className="card-body">
+            <div className="card-body text-neutral">
                 <h2 className="card-title">
                     {description}
                 </h2>

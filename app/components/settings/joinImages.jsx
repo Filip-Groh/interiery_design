@@ -19,7 +19,7 @@ const JoinImages = ({dialogId, update, images}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Vybírání fotek</h3>
+                <h3 className="font-bold text-lg mb-2 text-neutral">Vybírání fotek</h3>
                 <form onSubmit={submit} className="flex flex-col">
                     <input type="submit" value="Připojit" className="btn" />
                     <div className="flex flex-row w-full">
@@ -29,10 +29,10 @@ const JoinImages = ({dialogId, update, images}) => {
                                     <label key={image.id} className="swap swap-flip">
                                         <input type="checkbox" id={image.id} name={image.id} />
                                         <div className="swap-on text-cyan-400">
-                                            <UserImage path={image.path} description={image.description} />
+                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                         </div>
                                         <div className="swap-off">
-                                            <UserImage path={image.path} description={image.description} />
+                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                         </div>
                                     </label>
                                 )
@@ -44,10 +44,10 @@ const JoinImages = ({dialogId, update, images}) => {
                                     <label key={image.id} className="swap swap-flip">
                                         <input type="checkbox" id={image.id} name={image.id} />
                                         <div className="swap-on text-cyan-400">
-                                            <UserImage path={image.path} description={image.description} />
+                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                         </div>
                                         <div className="swap-off">
-                                            <UserImage path={image.path} description={image.description} />
+                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                         </div>
                                     </label>
                                 )
@@ -57,7 +57,7 @@ const JoinImages = ({dialogId, update, images}) => {
                 </form>
                 <div className="modal-action">
                     <form method="dialog">
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-neutral">✕</button>
                     </form>
                 </div>
             </div>

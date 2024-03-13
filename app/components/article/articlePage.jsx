@@ -6,7 +6,7 @@ import Tagsearch from '../pagination/tagsearch'
 import Pager from '../pagination/pager'
 import ArticlePreview from './articlePreview'
 
-const ArticlePage = ({pageSize, defaultNumberOfPages, defaultArticles, defaultTags}) => {
+const ArticlePage = ({pageSize, defaultNumberOfPages, defaultArticles, defaultTags, defaultNewDuration}) => {
     const [currentPage, setCurrentPage] = React.useState(1)
     const [numberOfPages, setNumberOfPages] = React.useState(defaultNumberOfPages)
     const [articles, setArticles] = React.useState(defaultArticles)
@@ -60,15 +60,19 @@ const ArticlePage = ({pageSize, defaultNumberOfPages, defaultArticles, defaultTa
         <>
             <NavigationPath path={["Home", "Blog"]} links={["/", "/blog"]} />
             <div className='flex flex-row justify-between'>
-                <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags} />
-                <Pager numberOfPages={numberOfPages} currentPage={currentPage} setCurrentPage={setCurrentPage}>
-                    <div className="flex flex-wrap justify-center w-full gap-10 my-10">
-                        {articles.map((article) => {
-                            return <ArticlePreview key={article.id} id={article.id} title={article.title} tags={article.tags} path={article.images[0]?.path} alt={article.images[0]?.description} />
-                        })}
-                    </div>
-                </Pager>
-                <span />
+                <div className='basis-1/5'>
+                    <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags} />
+                </div>
+                <div className='basis-3/5'>
+                    <Pager numberOfPages={numberOfPages} currentPage={currentPage} setCurrentPage={setCurrentPage}>
+                        <div className="flex flex-wrap justify-center w-full gap-10 my-10">
+                            {articles.map((article) => {
+                                return <ArticlePreview key={article.id} id={article.id} title={article.title} tags={article.tags} path={article.images[0]?.path} alt={article.images[0]?.description} defaultNewDuration={defaultNewDuration} createDate={article.createDate}/>
+                            })}
+                        </div>
+                    </Pager>
+                </div>
+                <div className='basis-1/5' />
             </div>
         </>
     )

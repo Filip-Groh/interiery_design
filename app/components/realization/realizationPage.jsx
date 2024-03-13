@@ -6,7 +6,7 @@ import Pager from '../pagination/pager'
 import RealizationPreview from './realizationPreview'
 import Tagsearch from '../pagination/tagsearch'
 
-const RealizationPage = ({pageSize, defaultNumberOfPages, defaultRealizations, defaultTags}) => {
+const RealizationPage = ({pageSize, defaultNumberOfPages, defaultRealizations, defaultTags, defaultNewDuration}) => {
     const [currentPage, setCurrentPage] = React.useState(1)
     const [numberOfPages, setNumberOfPages] = React.useState(defaultNumberOfPages)
     const [realizations, setRealizations] = React.useState(defaultRealizations)
@@ -60,15 +60,19 @@ const RealizationPage = ({pageSize, defaultNumberOfPages, defaultRealizations, d
         <>
             <NavigationPath path={["Home", "Realizace"]} links={["/", "/realization"]} />
             <div className='flex flex-row justify-between'>
-                <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags}/>
-                <Pager numberOfPages={numberOfPages} currentPage={currentPage} setCurrentPage={setCurrentPage}>
-                    <div className="flex flex-wrap justify-center w-full gap-10 my-10">
-                        {realizations.map((realization) => {
-                            return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} tags={realization.tags} path={realization.image[0]?.path} alt={realization.image[0]?.description} />
-                        })}
-                    </div>
-                </Pager>
-                <span />
+                <div className='basis-1/5'>
+                    <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags}/>
+                </div>
+                <div className='basis-3/5'>
+                    <Pager numberOfPages={numberOfPages} currentPage={currentPage} setCurrentPage={setCurrentPage}>
+                        <div className="flex flex-wrap justify-center w-full gap-10 my-10">
+                            {realizations.map((realization) => {
+                                return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} tags={realization.tags} path={realization.image[0]?.path} alt={realization.image[0]?.description} defaultNewDuration={defaultNewDuration} createDate={realization.createDate}/>
+                            })}
+                        </div>
+                    </Pager>
+                </div>
+                <div className='basis-1/5' />
             </div>
         </>
     )

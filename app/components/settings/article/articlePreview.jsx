@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import React from 'react'
 import DeleteButton from '@/app/components/settings/deleteButton'
+import Tag from '../../tag'
 
 const ArticlePreview = ({id, title, description, tags, previewImage}) => {
     const handleDelete = async (event) => {
@@ -20,7 +21,7 @@ const ArticlePreview = ({id, title, description, tags, previewImage}) => {
             <figure>
                 <Image width={500} height={295} src={previewImage?.path || "/logo.jpg"} alt={previewImage?.description}/>
             </figure>
-            <div className="card-body">
+            <div className="card-body text-neutral">
                 <h2 className="card-title">
                     {title}
                     <DeleteButton handleDelete={handleDelete} />
@@ -28,7 +29,7 @@ const ArticlePreview = ({id, title, description, tags, previewImage}) => {
                 <p>{description}</p>
                 <div className="card-actions justify-end">
                     {tags?.map((tag) => {
-                        return <div key={tag.id} className="badge badge-outline">{tag.name}</div>
+                        return <Tag key={tag.id} name={tag.name} />
                     })}
                 </div>
             </div>

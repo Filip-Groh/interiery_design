@@ -9,7 +9,7 @@ const NavbarItem = async ({url, name, authRequired=false}) => {
 
     if (!authRequired || (session && JSON.parse(admins?.value).findIndex((value) => {return value == session.user.email}) != -1)) {
         return (
-            <li>
+            <li className='bg-base-100 text-neutral'>
                 <Link href={url}>{name}</Link>
             </li>
         )

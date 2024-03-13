@@ -9,7 +9,7 @@ const DropItem = async ({name, children, authRequired=false}) => {
     if (!authRequired || (session && JSON.parse(admins?.value).findIndex((value) => {return value == session.user.email}) != -1)) {
         return (
             <li tabIndex={1}>
-                <details>
+                <details className="text-neutral">
                     <summary>{name}</summary>
                     <ul className="p-2 z-10">
                         {children}

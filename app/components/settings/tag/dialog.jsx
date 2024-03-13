@@ -14,7 +14,7 @@ const TagDialog = ({dialogId}) => {
 
     return (
         <dialog id={dialogId} className="modal">
-            <div className="modal-box">
+            <div className="modal-box text-neutral">
                 <h3 className="font-bold text-lg mb-2">Vytváření tagu</h3>
                 <form onSubmit={submit}>
                     <label htmlFor="name">Jméno: </label>

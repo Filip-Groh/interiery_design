@@ -4,6 +4,7 @@ import UserImage from '@/app/components/images/userImage'
 import UserPreview from '@/app/components/images/userPreview'
 import WriteComment from '../comment/writeComment'
 import { auth } from '@/app/api/auth/[...nextauth]/auth'
+import Tag from '../tag'
 
 const Realization = async ({id, comments, images, previews, tags, title, task, createDate}) => {
     const session = await auth()
@@ -27,7 +28,7 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
         <div className="flex flex-row justify-center">
             <div className="w-3/4">
                 <div>
-                    <div className="flex flex-row justify-between">
+                    <div className="flex flex-row justify-between text-neutral">
                         <h1>{title}</h1>
                         <p>{createDate.toLocaleString()}</p>
                     </div>
@@ -35,13 +36,13 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                     <UserImage path={images[0]?.path} description={images[0]?.description}/>
                 </div>
 
-                <ul className="flex flex-row gap-2">
+                <div className="flex flex-row gap-2">
                     {tags.map((tag) => {
-                        return <li key={tag.id} className="rounded-md bg-slate-500 px-2">{tag.name}</li>
+                        return <Tag key={tag.id} name={tag.name} />
                     })}
-                </ul>
+                </div>
 
-                <p className="m-4">
+                <p className="m-4 text-neutral">
                     {task}
                 </p>
 

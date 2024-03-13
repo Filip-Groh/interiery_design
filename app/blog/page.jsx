@@ -6,6 +6,9 @@ const Articles = async () => {
     const pageSize = await getSettings("pageSize")
     const defaultPageSize = JSON.parse(pageSize?.value || "0")
 
+    const newDuration = await getSettings("newDuration")
+    const defaultNewDuration = JSON.parse(newDuration?.value || "0")
+
     const numberOfPages = await getNumberOfArticles()
     const defaultNumberOfPages = Math.ceil(numberOfPages / defaultPageSize)
 
@@ -14,7 +17,7 @@ const Articles = async () => {
     const tags = await getTag()
 
     return (
-        <ArticlePage pageSize={defaultPageSize} defaultNumberOfPages={defaultNumberOfPages} defaultArticles={articles} defaultTags={tags}/>
+        <ArticlePage pageSize={defaultPageSize} defaultNumberOfPages={defaultNumberOfPages} defaultArticles={articles} defaultTags={tags} defaultNewDuration={defaultNewDuration}/>
     )
 }
 

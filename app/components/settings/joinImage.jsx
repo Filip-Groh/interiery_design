@@ -8,7 +8,7 @@ const JoinImage = ({dialogId, update, images}) => {
     return (
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
-                <h3 className="font-bold text-lg mb-2">Vybírání fotky</h3>
+                <h3 className="font-bold text-lg mb-2 text-neutral">Vybírání fotky</h3>
                 <div className="flex flex-col">
                     <div className="flex flex-row w-full">
                         <div className="flex flex-col basis-1/2">
@@ -18,7 +18,7 @@ const JoinImage = ({dialogId, update, images}) => {
                                         update(image.id)
                                         document.getElementById(dialogId).close()
                                     }}>
-                                        <UserImage path={image.path} description={image.description} />
+                                        <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                     </button>
                                 )
                             })}
@@ -30,7 +30,7 @@ const JoinImage = ({dialogId, update, images}) => {
                                         update(image.id)
                                         document.getElementById(dialogId).close()
                                     }}>
-                                        <UserImage path={image.path} description={image.description} />
+                                        <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                     </button>
                                 )
                             })}
@@ -39,7 +39,7 @@ const JoinImage = ({dialogId, update, images}) => {
                 </div>
                 <div className="modal-action">
                     <form method="dialog">
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-neutral">✕</button>
                     </form>
                 </div>
             </div>

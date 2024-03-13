@@ -30,7 +30,7 @@ const Pager = ({children, numberOfPages, currentPage, setCurrentPage}) => {
 
 
     return (
-        <div>
+        <div className="text-neutral">
             <div className="join w-full justify-center my-2">
                 <button className={"join-item btn " + (currentPage > 1 ? "" : "btn-disabled")} onClick={handleFirstPage}>{"<<"}</button>
                 <button className={"join-item btn " + (currentPage > 1 ? "" : "btn-disabled")} onClick={handlePreviousPage}>{"<"}</button>

@@ -14,7 +14,7 @@ const People = ({name, role, email, phone, image}) => {
                         </div>
                     </div>
                 </figure>
-                <div className="card-body">
+                <div className="card-body text-neutral">
                     <h2 className="card-title">{name}</h2>
                     <h3>{role}</h3>
                     <p>e-mail:  {email}<br />mobil: (+420) {phone}
@@ -25,7 +25,7 @@ const People = ({name, role, email, phone, image}) => {
                 <div className="modal-box max-w-[90vw] max-h-[90vh] flex justify-center align-middle">
                     <Image className="rounded-lg shadow-2xl max-h-full max-w-full object-contain block" width={2000} height={0} src={image} alt="Human" />
                     <form method="dialog">
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-1 top-1 bg-base-200 caret-transparent">✕</button>
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-1 top-1 bg-base-200 caret-transparent text-neutral">✕</button>
                     </form>
                 </div>
                 <form method="dialog" className="modal-backdrop h-screen">

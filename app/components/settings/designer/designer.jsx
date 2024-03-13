@@ -2,13 +2,22 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Designer = ({id, name, role, email, phone, image}) => {
     const [nameState, setNameState] = useState(name)
     const [roleState, setRoleState] = useState(role)
     const [emailState, setEmailState] = useState(email)
     const [phoneState, setPhoneState] = useState(phone)
+    const [valueChanged, setValueChanged] = useState(false)
+
+    useEffect(() => {
+        if (nameState == name && roleState == role && emailState == email && phoneState == phone) {
+            setValueChanged(false)
+        } else {
+            setValueChanged(true)
+        }
+    }, [nameState, roleState, emailState, phoneState, name, role, email, phone])
 
     const handleDelete = async (event) => {
         event.preventDefault()
@@ -18,6 +27,13 @@ const Designer = ({id, name, role, email, phone, image}) => {
             method: 'DELETE',
             body: formData,
         })
+    }
+
+    const handleReset = () => {
+        setNameState(name)
+        setRoleState(role)
+        setEmailState(email)
+        setPhoneState(phone)
     }
 
     const submit = async (event) => {
@@ -40,7 +56,7 @@ const Designer = ({id, name, role, email, phone, image}) => {
                 </div>
             </figure>
             <div className="card-body">
-                <form className="flex flex-col gap-1" onSubmit={submit}>
+                <form className="flex flex-col gap-1 text-neutral" onSubmit={submit}>
                     <div>
                         <label htmlFor="name">Jméno: </label>
                         <br />
@@ -61,11 +77,11 @@ const Designer = ({id, name, role, email, phone, image}) => {
                         <br />
                         <input type="text" id="phone" name="phone" value={phoneState} placeholder={phone} required className="rounded w-full p-1" onChange={(e) => setPhoneState(e.target.value)} />
                     </div>
-                    <div className="flex flex-row gap-2 my-2">
-                        <input type="reset" value="Reset" className="rounded p-2 bg-base-200 w-full" />
-                        <input type="submit" value="Update" className="rounded p-2 bg-base-200 w-full" />
+                    <div className="flex flex-row gap-2 my-2 w-full">
+                        <input type="reset" value="Reset" onClick={handleReset} className={"btn flex-grow" + (valueChanged ? "" : " btn-disabled")} />
+                        <input type="submit" value="Update" className={"btn flex-grow" + (valueChanged ? "" : " btn-disabled")} />
                         <button onClick={handleDelete}>
-                            <Image src="/svg/delete.svg" width={100} height={100} alt="Delete SVG Image" />
+                            <Image src="/svg/delete.svg" width={50} height={50} alt="Delete SVG Image" />
                         </button>
                     </div>
                 </form>

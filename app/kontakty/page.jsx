@@ -13,7 +13,7 @@ const Contact = async () => {
             <NavigationPath path={["Home", "Kontakty"]} links={["/", "/kontakty"]} />
             <div className="flex flex-wrap justify-evenly gap-8 my-10">
                 {peoples.map((people) => {
-                    return <People key={people.id} name={people.name} role={people.role} email={people.email} phone={people.mobil} image="/people.jpg"/>
+                    return <People key={people.id} name={people.name} role={people.role} email={people.email} phone={people.mobil} image={people.image.path}/>
                 })}
                 <Location />
                 <Company />

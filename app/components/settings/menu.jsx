@@ -8,7 +8,7 @@ const SettingsMenu = ({children, activeTabName}) => {
             <AdminMenu activeId={1} />
             <div className="flex justify-center">
                 <div className="flex flex-row bg-base-200 w-10/12 rounded-lg mb-2">
-                    <ul className="menu bg-base-100 w-56 rounded-lg m-2">
+                    <ul className="menu bg-base-100 w-56 rounded-lg m-2 text-neutral">
                         <li><Link href="/admin/settings" className={activeTabName == "Basic" && "active"}>Basic</Link></li>
                         <li><Link href="/admin/settings/designer" className={activeTabName == "Designer" && "active"}>Pracovníci</Link></li>
                         <li><Link href="/admin/settings/realization" className={activeTabName == "Realization" && "active"}>Realizace</Link></li>
