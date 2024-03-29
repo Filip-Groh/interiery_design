@@ -133,14 +133,14 @@ export default function Home() {
 }
 
 // TODO:
-// Design - barvičky
+// Design
 // Google Analytics
 // Metadata
+// Mobile
 
 // Pager design
 // Better login
 // Submit auto refresh
-// Preview mekanism
 
 // TS / TSX
 // Bug fix

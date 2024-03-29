@@ -26,8 +26,8 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
     return (
         <div className="flex flex-row justify-center">
             <div className="w-3/4">
-                <div>
-                    <div className="flex flex-row justify-between text-neutral">
+                <div className='text-neutral'>
+                    <div className="flex flex-row justify-between">
                         <h1>{title}</h1>
                         <p>{createDate.toLocaleString()}</p>
                     </div>
@@ -45,7 +45,7 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                     {text}
                 </p>
 
-                <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl'>
+                <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl text-neutral'>
                     {images.map((image) => {
                         return (<div key={image.id} className='h-auto w-[40rem] shrink-0 snap-center'>
                             <UserImage path={image.path} description={image.description} />

@@ -28,7 +28,7 @@ const JoinImages = ({dialogId, update, images}) => {
                                 return (
                                     <label key={image.id} className="swap swap-flip">
                                         <input type="checkbox" id={image.id} name={image.id} />
-                                        <div className="swap-on text-cyan-400">
+                                        <div className="swap-on text-primary">
                                             <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                         </div>
                                         <div className="swap-off">
@@ -43,7 +43,7 @@ const JoinImages = ({dialogId, update, images}) => {
                                 return (
                                     <label key={image.id} className="swap swap-flip">
                                         <input type="checkbox" id={image.id} name={image.id} />
-                                        <div className="swap-on text-cyan-400">
+                                        <div className="swap-on text-primary">
                                             <UserImage path={image.path} description={image.description} isOpenable={false}/>
                                         </div>
                                         <div className="swap-off">

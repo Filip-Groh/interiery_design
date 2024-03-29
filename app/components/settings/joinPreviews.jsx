@@ -28,7 +28,7 @@ const JoinPreviews = ({dialogId, update, previews}) => {
                                 return (
                                     <label key={preview.id} className="swap swap-flip grid-cols-1">
                                         <input type="checkbox" id={preview.id} name={preview.id} />
-                                        <div className="swap-on text-cyan-400">
+                                        <div className="swap-on text-primary">
                                             <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
                                         </div>
                                         <div className="swap-off">
@@ -43,7 +43,7 @@ const JoinPreviews = ({dialogId, update, previews}) => {
                                 return (
                                     <label key={preview.id} className="swap swap-flip grid-cols-1">
                                         <input type="checkbox" id={preview.id} name={preview.id} />
-                                        <div className="swap-on text-cyan-400">
+                                        <div className="swap-on text-primary">
                                             <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
                                         </div>
                                         <div className="swap-off">

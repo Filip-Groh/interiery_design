@@ -18,8 +18,8 @@ const DatabaseImage = ({id, path, description, isDependent}) => {
     return (
         <div className="flex justify-center">
             <div className="w-full m-2 relative h-min">
-                <div className="absolute bottom-2 left-2 flex flex-row bg-black bg-opacity-50 rounded-2xl p-2">                
-                    <h1 className="font-bold px-2 z-10">{description}</h1>
+                <div className="absolute bottom-2 left-2 flex flex-row bg-opacity-75 bg-base-300 rounded-lg text-neutral px-2 gap-2">                
+                    <p className='font-bold py-1 leading-[100%] z-10'>{description}</p>
                     <DeleteButton handleDelete={handleDelete} isDependent={isDependent}/>
                 </div>
                 <Image className="rounded-2xl" width={1000} height={1000} src={path} alt={description} />
