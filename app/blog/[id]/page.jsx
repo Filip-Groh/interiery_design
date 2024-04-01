@@ -4,6 +4,15 @@ import React from 'react'
 import Article from '@/app/components/article/article'
 import { notFound } from 'next/navigation'
 
+export async function generateMetadata({ params }) {
+    const id = params.id
+    const article = await getArticleById(Number(id))
+    
+    return {
+      title: article.title,
+    }
+}
+
 const BlogPage = async ({params: {id}}) => {
     try {
         var article = await getArticleById(Number(id))

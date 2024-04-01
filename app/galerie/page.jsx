@@ -3,6 +3,10 @@ import NavigationPath from '../components/navigation/navigation'
 import Gallery1Card from '../components/gallery/card'
 import { getImage } from '@/utils/database'
 
+export const metadata = {
+    title: 'Galerie',
+}
+
 const Gallery = async () => {
     const images = await getImage()
 

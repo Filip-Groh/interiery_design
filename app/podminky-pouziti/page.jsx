@@ -1,13 +1,17 @@
 import React from 'react'
 import NavigationPath from '../components/navigation/navigation'
 
+export const metadata = {
+    title: 'Podmínky použití',
+}
+
 const Page = () => {
     return (
         <>
-            <NavigationPath path={["Home", "Osobní údaje"]} links={["/", "/osobni-udaje"]} />
+            <NavigationPath path={["Home", "Podmínky použití"]} links={["/", "/podminky-pouziti"]} />
             <div className='w-full flex justify-center my-4'>
                 <div className='w-8/12 items-center flex flex-col text-neutral'>
-                    <h1 className='text-4xl my-8 pl-4'>Osobní údaje</h1>
+                    <h1 className='text-4xl my-8 pl-4'>Podmínky použití</h1>
                     <p className='text-sm'>
                         Tyto zásady ochrany osobních údajů jsou platné pro Interiéry design s.r.o. se sídlem Barvířská 31/8, 460 07 Liberec, Česká republika IČO: 22773525, DIČ: CZ22773525 (dále jen ,,společnost”).
                     </p>

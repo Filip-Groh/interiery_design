@@ -59,11 +59,11 @@ const ArticlePage = ({pageSize, defaultNumberOfPages, defaultArticles, defaultTa
     return (
         <>
             <NavigationPath path={["Home", "Blog"]} links={["/", "/blog"]} />
-            <div className='flex flex-row justify-between'>
-                <div className='basis-1/5'>
+            <div className='flex md:flex-row flex-col justify-between'>
+                <div className='md:basis-1/5'>
                     <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags} />
                 </div>
-                <div className='basis-3/5'>
+                <div className='md:basis-3/5'>
                     <Pager numberOfPages={numberOfPages} currentPage={currentPage} setCurrentPage={setCurrentPage}>
                         <div className="flex flex-wrap justify-center w-full gap-10 my-10">
                             {articles.map((article) => {
@@ -72,7 +72,7 @@ const ArticlePage = ({pageSize, defaultNumberOfPages, defaultArticles, defaultTa
                         </div>
                     </Pager>
                 </div>
-                <div className='basis-1/5' />
+                <div className='md:basis-1/5' />
             </div>
         </>
     )

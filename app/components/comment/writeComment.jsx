@@ -18,13 +18,13 @@ const WriteComment = ({session, id, realizationOrArticle}) => {
     }
 
     return (
-        <div className="flex flex-col w-full bg-base-300 my-2 relative">
-            <form onSubmit={submit} className={`flex flex-row w-full ${session ? "opacity-100": "opacity-0 invisible"}`} >
+        <div className="flex flex-col w-full bg-base-200 rounded-lg my-2 relative">
+            <form onSubmit={submit} className={`flex md:flex-row flex-col items-center md:items-stretch w-full ${session ? "opacity-100": "opacity-0 invisible"}`} >
                 <div className="p-2 flex flex-col max-w-min">
                     <span className="w-full aspect-square rounded-full">
                         <Image src={session?.user?.image || "/svg/user.svg"} alt='User avatar image' width={1000} height={1000} className="rounded-full" />
                     </span>
-                    <p className="p-1 text-xs text-neutral">{session?.user?.name || "Anonym"}</p>
+                    <p className="p-1 text-xs text-neutral text-center">{session?.user?.name || "Anonym"}</p>
                     <input type="submit" value="Okomentovat" className="btn" />
                 </div>
                 <div className='flex flex-col p-2 gap-2 w-full text-neutral'>

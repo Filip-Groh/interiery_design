@@ -13,7 +13,7 @@ const ArticlePreview = ({id, title, tags, path, alt, createDate, defaultNewDurat
                 <div className="card-body">
                     <h2 className="card-title text-neutral">
                         {title}
-                        {(Date.now() - Date.parse(createDate)) < (defaultNewDuration * 24 * 60 * 60 * 1000) ? <div className="badge badge-secondary">NEW</div> : <></>}
+                        {(Date.now() - Date.parse(createDate)) < (defaultNewDuration * 24 * 60 * 60 * 1000) ? <div className="badge badge-secondary">NOVINKA</div> : <></>}
                     </h2>
                     <div className="card-actions justify-end">
                         {tags.map((tag) => {

@@ -47,18 +47,19 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
 
                 <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl text-neutral'>
                     {images.map((image) => {
-                        return (<div key={image.id} className='h-auto w-[40rem] shrink-0 snap-center'>
+                        return (<div key={image.id} className='h-auto w-[min(40rem,80vw)] shrink-0 snap-center'>
                             <UserImage path={image.path} description={image.description} />
                         </div>)
                     })}
                 </div>
 
+                <h2>Komentáře</h2>
+
                 <WriteComment session={session} id={id} realizationOrArticle="ARTICLE" />
 
-                {comments?.length > 0 ? <h2>Komentáře</h2> : null}
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2 mb-4">
                     {comments?.map((comment, index) => {
-                        return <Comment key={comment.id} session={session} id={comment.id} name={comment.user.name} email={comment.user.email} image={comment.user.image} title={comment.title} text={comment.text} likes={comment.likes} createdDate={comment.createDate} updatedDate={comment.updateDate} state={state[index]} />
+                        return <Comment key={comment.id} session={session} id={comment.id} name={comment.user.name} email={comment.user.email} image={comment.user.image} title={comment.title} text={comment.text} likes={comment.likes} state={state[index]} />
                     })}
                 </ul>
             </div>

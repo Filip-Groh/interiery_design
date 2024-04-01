@@ -18,7 +18,7 @@ const User = async () => {
                             </div>
                         </div>
                     </summary>
-                    <ul className="p-2 z-10 dropdown-content menu shadow bg-base-100 rounded-box w-max text-neutral">
+                    <ul className="p-2 z-50 dropdown-content menu shadow bg-base-100 rounded-box w-max text-neutral">
                         <li className="p-2">{session?.user?.name || "Anonym"}</li>
                         <li>
                             {session ? <LogoutButton /> : <LoginButton />}

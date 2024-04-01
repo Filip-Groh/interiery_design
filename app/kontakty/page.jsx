@@ -5,6 +5,10 @@ import Location from '../components/contacts/location'
 import Company from '../components/contacts/company'
 import { getDesigner } from '@/utils/database'
 
+export const metadata = {
+    title: 'Kontakty',
+}
+
 const Contact = async () => {
     const peoples = await getDesigner()
 

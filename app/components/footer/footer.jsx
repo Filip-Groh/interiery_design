@@ -26,7 +26,7 @@ const Footer = () => {
                 <Link href="/o-nas" className="link link-hover">O nás</Link> 
                 <Link href="/kontakty" className="link link-hover">Kontakty</Link> 
                 <Link href="/kontakty" className="link link-hover">Kde se nacházíme</Link> 
-                <Link href="/osobni-udaje" className="link link-hover">Osobní údaje</Link>
+                <Link href="/podminky-pouziti" className="link link-hover">Podmínky použití</Link>
             </nav> 
         </footer>
     )

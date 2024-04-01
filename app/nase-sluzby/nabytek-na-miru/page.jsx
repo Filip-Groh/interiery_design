@@ -3,6 +3,10 @@ import NavigationPath from '../../components/navigation/navigation'
 import Welcome from '@/app/components/welcome'
 import Block from '@/app/components/block'
 
+export const metadata = {
+    title: 'Nábytek na míru',
+}
+
 const CustomFurniture = () => {
     return (
         <>

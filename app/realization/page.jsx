@@ -2,6 +2,10 @@ import React from 'react'
 import RealizationPage from '../components/realization/realizationPage'
 import { getNumberOfRealizations, getRealizationBySet, getSettings, getTag } from '@/utils/database'
 
+export const metadata = {
+    title: 'Realizace',
+}
+
 const Realizations = async () => {
     const pageSize = await getSettings("pageSize")
     const defaultPageSize = JSON.parse(pageSize?.value || "0")

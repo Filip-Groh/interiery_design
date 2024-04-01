@@ -3,6 +3,10 @@ import NavigationPath from '../components/navigation/navigation'
 import Welcome from '../components/welcome'
 import Block from '../components/block'
 
+export const metadata = {
+    title: 'O nás',
+}
+
 const AboutPage = () => {
     return (
         <>

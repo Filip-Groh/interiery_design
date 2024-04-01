@@ -20,6 +20,8 @@ const AdminLogin = ({defaultAdmin}) => {
         event.preventDefault()
         const formData = new FormData(event.target)
         setAdmins(admins.concat(formData.get("login")))
+
+        event.target.elements.login.value = ""
     }
 
     return (

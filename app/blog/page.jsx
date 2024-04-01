@@ -2,6 +2,10 @@ import React from 'react'
 import ArticlePage from '../components/article/articlePage'
 import { getSettings, getNumberOfArticles, getArticleBySet, getTag } from '@/utils/database'
 
+export const metadata = {
+    title: 'Blog',
+}
+
 const Articles = async () => {
     const pageSize = await getSettings("pageSize")
     const defaultPageSize = JSON.parse(pageSize?.value || "0")

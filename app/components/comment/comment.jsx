@@ -4,7 +4,7 @@ import React from 'react'
 import Image from "next/image"
 import DeleteButton from '../settings/deleteButton'
 
-const Comment = ({session, id, name, email, image, title, text, likes, createdDate, updatedDate, state}) => {
+const Comment = ({session, id, name, email, image, title, text, likes, state}) => {
     const [like, setLike] = React.useState(likes)
 
     const [activeButton, setActiveButton] = React.useState(state)
@@ -78,29 +78,16 @@ const Comment = ({session, id, name, email, image, title, text, likes, createdDa
         clipRule: "evenodd"
     }
     return (
-        <div className="flex flex-col w-fit bg-base-300 rounded p-2">
-            <div className="flex flex-row">
-                <div className="p-2 flex flex-col max-w-min">
-                    <span className="block w-16 h-16">
-                        <Image src={image || "/svg/user.svg"} alt='User avatar image' width={1000} height={1000} className="rounded-full" />
-                    </span>
-                    <p className="p-1 text-xs text-neutral">{name}</p>
+        <div className="flex flex-row w-[min(100%,40rem)] bg-base-200 rounded p-2">
+            <div className="p-2 flex flex-col max-w-min relative">
+                <div className='absolute top-0 left-0 bg-base-200 rounded-full flex justify-center items-center'>
+                    {sameUser ? <DeleteButton handleDelete={handleDelete} width={20} height={20}/> : undefined}
                 </div>
-                <div className='w-full relative text-neutral'>
-                    <h1 className="text-2xl p-1">{title}</h1>
-                    <p className="text-sm p-1">{text}</p>
-                    <span className="absolute top-0 right-0">
-                        {sameUser ? <DeleteButton handleDelete={handleDelete} /> : undefined}
-                    </span>
-                </div>
-            </div>
-            <div className="h-0.5 bg-base-100 my-1" />
-            <div className="flex flex-row gap-4 bg-base-200 px-2 rounded text-neutral">
-                <div className="flex flex-row justify-between p-1 text-xs gap-2 align-middle">
-                    <p className="">{`Vytvořeno: ${createdDate.toLocaleString()}`}</p>
-                    <p className="">{`Upraveno: ${updatedDate.toLocaleString()}`}</p>
-                </div>
-                <div className="join join-horizontal text-xs">
+                <span className="block w-16 h-16">
+                    <Image src={image || "/svg/user.svg"} alt='User avatar image' width={1000} height={1000} className="rounded-full" />
+                </span>
+                <p className="p-1 text-xs text-neutral">{name}</p>
+                <div className="join join-horizontal text-xs items-center">
                     <button className={"join-item p-1 " + (session ? "": "disabled pointer-events-none text-gray-600")} onClick={handleLike} >
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width={20} height={20} x="0px" y="0px" viewBox="0 0 122.88 106.16" style={{enableBackground: "new 0 0 122.88 106.16"}} xmlSpace="preserve">
                             <g>
@@ -108,7 +95,7 @@ const Comment = ({session, id, name, email, image, title, text, likes, createdDa
                             </g>
                         </svg>
                     </button>
-                    <p className="join-item p-1 w-8 text-center">{like}</p>
+                    <p className="join-item p-1 w-8 text-center align-middle h-min">{like}</p>
                     <button className={"join-item p-1 " + (session ? "": "disabled pointer-events-none text-gray-600")} onClick={handleDislike} >
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width={20} height={20} x="0px" y="0px" viewBox="0 0 122.88 106.16" style={{enableBackground: "new 0 0 122.88 106.16"}} xmlSpace="preserve">
                             <g>
@@ -117,6 +104,10 @@ const Comment = ({session, id, name, email, image, title, text, likes, createdDa
                         </svg>
                     </button>
                 </div>
+            </div>
+            <div className='text-neutral max-w-full overflow-auto'>
+                <h1 className="text-2xl p-1">{title}</h1>
+                <p className="text-sm p-1">{text}</p>
             </div>
         </div>
     )
