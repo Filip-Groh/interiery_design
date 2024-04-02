@@ -134,7 +134,6 @@ export default function Home() {
 
 // TODO:
 // Google Analytics
-// Login throw Google
 
 // Pager design + Limited pages
 // Better login
