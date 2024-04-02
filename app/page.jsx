@@ -133,8 +133,6 @@ export default function Home() {
 }
 
 // TODO:
-// Google Analytics
-
 // Pager design + Limited pages
 // Better login
 
@@ -146,3 +144,4 @@ export default function Home() {
 
 // TS / TSX
 // Deploy
+// Google Analytics

@@ -8,6 +8,7 @@ const Admin = () => {
             <div className="flex justify-center">
                 <div className="bg-base-200 w-10/12 rounded-lg mb-2 text-neutral">
                     <h1>Google Analytics</h1>
+                    <p>Po zavedení URL adresy, nastavit Google Analytics</p>
                 </div>
             </div>
         </>
