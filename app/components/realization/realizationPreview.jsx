@@ -6,7 +6,7 @@ import Tag from '../tag'
 const RealizationPreview = ({id, title, tags, path, alt, createDate, defaultNewDuration}) => {
     return (
         <Link href={`realization/${id}`}>
-            <div className="card w-80 bg-base-100 shadow-xl">
+            <div className="card w-80 bg-base-100 shadow-xl animate-fade-up">
                 <figure>
                     <Image width={500} height={295} src={path || "/shoes.jpg"} alt={alt} />
                 </figure>

@@ -28,24 +28,24 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
             <div className="w-3/4">
                 <div className='text-neutral'>
                     <div className="flex flex-row justify-between">
-                        <h1>{title}</h1>
-                        <p>{createDate.toLocaleString()}</p>
+                        <h1 className="animate-fade-right">{title}</h1>
+                        <p className="animate-fade-left">{createDate.toLocaleString()}</p>
                     </div>
 
-                    <UserImage path={images[0]?.path} description={images[0]?.description}/>
+                    <UserImage path={images[0]?.path} description={images[0]?.description} isAnimated={true}/>
                 </div>
 
                 <div className="flex flex-row gap-2">
                     {tags.map((tag) => {
-                        return <Tag key={tag.id} name={tag.name} />
+                        return <Tag key={tag.id} name={tag.name} isAnimated={true}/>
                     })}
                 </div>
 
-                <p className="m-4 text-neutral">
+                <p className="m-4 text-neutral animate-fade-up">
                     {text}
                 </p>
 
-                <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl text-neutral'>
+                <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl text-neutral animate-fade-right'>
                     {images.map((image) => {
                         return (<div key={image.id} className='h-auto w-[min(40rem,80vw)] shrink-0 snap-center'>
                             <UserImage path={image.path} description={image.description} />
@@ -53,7 +53,7 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                     })}
                 </div>
 
-                <h2>Komentáře</h2>
+                <h2 className='animate-fade-right'>Komentáře</h2>
 
                 <WriteComment session={session} id={id} realizationOrArticle="ARTICLE" />
 

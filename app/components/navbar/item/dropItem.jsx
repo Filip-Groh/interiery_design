@@ -11,7 +11,7 @@ const DropItem = async ({name, children, authRequired=false}) => {
             <li tabIndex={1}>
                 <details className="text-neutral">
                     <summary>{name}</summary>
-                    <ul className="p-2 z-10">
+                    <ul className="p-2 z-10 animate-fade-down animate-duration-500">
                         {children}
                     </ul>
                 </details>

@@ -6,7 +6,7 @@ import Image from 'next/image'
 const People = ({name, role, email, phone, image}) => {
     return (
         <>
-            <div className="card card-compact w-72 bg-base-100 shadow-xl overflow-visible">
+            <div className="card card-compact w-72 bg-base-100 shadow-xl overflow-visible animate-fade-up">
                 <figure className="p-8 pb-2 overflow-visible">
                     <div className="avatar">
                         <div className="w-48 mask mask-squircle hover:scale-[150%] transition-transform shadow-2xl cursor-pointer" onClick={()=>document.getElementById(name).showModal()}>

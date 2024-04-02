@@ -18,7 +18,7 @@ const WriteComment = ({session, id, realizationOrArticle}) => {
     }
 
     return (
-        <div className="flex flex-col w-full bg-base-200 rounded-lg my-2 relative">
+        <div className="flex flex-col w-full bg-base-200 rounded-lg my-2 relative animate-fade-left">
             <form onSubmit={submit} className={`flex md:flex-row flex-col items-center md:items-stretch w-full ${session ? "opacity-100": "opacity-0 invisible"}`} >
                 <div className="p-2 flex flex-col max-w-min">
                     <span className="w-full aspect-square rounded-full">

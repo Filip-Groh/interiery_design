@@ -3,7 +3,7 @@ import DisplayImage from '../images/image'
 
 const Company = () => {
     return (
-        <div className="card card-compact w-72 bg-base-100 shadow-xl">
+        <div className="card card-compact w-72 bg-base-100 shadow-xl animate-fade-up">
             <figure className="p-0 pb-2">
                 <DisplayImage width={500} height={200} src="/static/logo.jpg" alt="Company logo"/>
             </figure>

@@ -4,9 +4,9 @@ import React from 'react'
 import Image from 'next/image'
 import { ImgComparisonSlider } from '@img-comparison-slider/react'
 
-const UserPreview = ({title, beforePath, beforeDescription, afterPath, afterDescription}) => {
+const UserPreview = ({title, beforePath, beforeDescription, afterPath, afterDescription, isAnimated=false}) => {
     return (
-        <ImgComparisonSlider className='focus:outline-none rounded-2xl m-2 w-fit'>
+        <ImgComparisonSlider className={`focus:outline-none rounded-2xl m-2 w-fit ${isAnimated ? "animate-fade-up" : ""}`}>
             <figure slot="first" class="before">
                 <Image width={1000} height={1000} src={beforePath} alt={beforeDescription} />
                 <p className='absolute bottom-4 left-1/2 -translate-x-1/2 font-bold px-2 py-1 leading-[100%] bg-opacity-75 bg-base-300 rounded-lg z-10'>{title}</p>
