@@ -1,0 +1,18 @@
+Metatitle:
+- Page specific info + - Interiery Design
+- 50 - 60 chars
+- Focus keyword
+
+Metadescription:
+- Description
+- 160 chars
+- Call to action words (Learn more, Get it now, Try for free)
+- Original
+- Prioritize important pages
+- Backlinks form another websides
+
+Types:
+- Title
+- Description
+- Author
+- Keywords

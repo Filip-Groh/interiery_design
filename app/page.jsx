@@ -133,8 +133,8 @@ export default function Home() {
 }
 
 // TODO:
-// Animation
 // Google Analytics
+// Login throw Google
 
 // Pager design + Limited pages
 // Better login
@@ -142,8 +142,8 @@ export default function Home() {
 // Sociální sítě
 // Homepage rebuild
 
-// TS / TSX
-// Bug fix
-
 // Submit auto refresh
 // Settings + Comment Hydratation
+
+// TS / TSX
+// Deploy
