@@ -1,10 +1,9 @@
 import React from 'react'
-import Comment from '@/app/components/comment/comment'
 import UserImage from '@/app/components/images/userImage'
 import UserPreview from '@/app/components/images/userPreview'
-import WriteComment from '../comment/writeComment'
 import { auth } from '@/app/api/auth/[...nextauth]/auth'
 import Tag from '../tag'
+import CommentSection from '../comment/commentSection'
 
 const Realization = async ({id, comments, images, previews, tags, title, task, createDate}) => {
     const session = await auth()
@@ -61,14 +60,7 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                 </div>
 
                 <h2 className='animate-fade-right'>Komentáře</h2>
-
-                <WriteComment session={session} id={id} realizationOrArticle="REALIZATION" />
-
-                <ul className="flex flex-col gap-2">
-                    {comments?.map((comment, index) => {
-                        return <Comment key={comment.id} session={session} id={comment.id} name={comment.user.name} email={comment.user.email} image={comment.user.image} title={comment.title} text={comment.text} likes={comment.likes} state={state[index]} />
-                    })}
-                </ul>
+                <CommentSection session={session} id={id} realizationOrArticle={"REALIZATION"} defaultComments={comments} state={state}/>
             </div>
         </div>
     )

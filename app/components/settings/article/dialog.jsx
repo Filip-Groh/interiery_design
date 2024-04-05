@@ -5,7 +5,7 @@ import JoinImages from '../joinImages'
 import { useState } from "react"
 import JoinTags from '../joinTags'
 
-const ArticleDialog = ({dialogId, imagesPass, tagsPass}) => {
+const ArticleDialog = ({dialogId, imagesPass, tagsPass, articles, setArticles}) => {
     const [images, setImages] = useState()
     const [tags, setTags] = useState()
 
@@ -16,6 +16,29 @@ const ArticleDialog = ({dialogId, imagesPass, tagsPass}) => {
             method: 'POST',
             body: formData,
         })
+
+        const newArticle = await response.json()
+        setArticles(() => {return [newArticle.data, ...articles]})
+
+        event.target.elements.title.value = ""
+        event.target.elements.images.value = ""
+        event.target.elements.tags.value = ""
+        event.target.elements.text.value = ""
+
+        setImages()
+        setTags()
+
+        let tagsToReset = document.getElementsByClassName("tag-reset")
+        for (let i = 0; i < tagsToReset.length; i++) {
+            tagsToReset.item(i).checked = false
+        }
+
+        let imagesToReset = document.getElementsByClassName("image-reset")
+        for (let i = 0; i < imagesToReset.length; i++) {
+            imagesToReset.item(i).checked = false
+        }
+
+        document.getElementById(dialogId).close()
     }
 
     return (

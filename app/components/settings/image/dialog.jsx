@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const ImageDialog = ({dialogId}) => {
+const ImageDialog = ({dialogId, images, setImages}) => {
     const submit = async (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -10,6 +10,14 @@ const ImageDialog = ({dialogId}) => {
             method: 'POST',
             body: formData,
         })
+
+        const newImage = await response.json()
+        setImages(() => {return [newImage.data, ...images]})
+
+        event.target.elements.file.value = ""
+        event.target.elements.description.value = ""
+
+        document.getElementById(dialogId).close()
     }
 
     return (

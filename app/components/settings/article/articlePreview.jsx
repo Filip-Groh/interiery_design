@@ -5,7 +5,7 @@ import React from 'react'
 import DeleteButton from '@/app/components/settings/deleteButton'
 import Tag from '../../tag'
 
-const ArticlePreview = ({id, title, description, tags, previewImage}) => {
+const ArticlePreview = ({id, title, description, tags, previewImage, articles, setArticles}) => {
     const handleDelete = async (event) => {
         event.preventDefault()
         const formData = new FormData()
@@ -13,6 +13,12 @@ const ArticlePreview = ({id, title, description, tags, previewImage}) => {
         const response = await fetch('/api/article', {
             method: 'DELETE',
             body: formData,
+        })
+
+        articles.forEach((article, index) => {
+            if (article.id == id) {
+                setArticles(articles.toSpliced(index, 1))
+            }
         })
     }
 

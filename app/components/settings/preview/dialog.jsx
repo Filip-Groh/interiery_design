@@ -4,7 +4,7 @@ import React from 'react'
 import JoinImage from '../joinImage'
 import { useState } from "react";
 
-const PreviewDialog = ({dialogId, images}) => {
+const PreviewDialog = ({dialogId, images, previews, setPreviews}) => {
     const [image1Id, setimage1Id] = useState()
     const [image2Id, setimage2Id] = useState()
 
@@ -15,6 +15,17 @@ const PreviewDialog = ({dialogId, images}) => {
             method: 'POST',
             body: formData,
         })
+
+        const newPreview = await response.json()
+        setPreviews(() => {return [newPreview.data, ...previews]})
+
+        event.target.elements.image1.value = ""
+        event.target.elements.image2.value = ""
+        event.target.elements.title.value = ""
+        setimage1Id()
+        setimage2Id()
+
+        document.getElementById(dialogId).close()
     }
 
     return (

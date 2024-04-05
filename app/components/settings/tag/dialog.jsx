@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const TagDialog = ({dialogId}) => {
+const TagDialog = ({dialogId, tags, setTags}) => {
     const submit = async (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -10,6 +10,13 @@ const TagDialog = ({dialogId}) => {
             method: 'POST',
             body: formData,
         })
+
+        const newTag = await response.json()
+        setTags(() => {return [newTag.data, ...tags]})
+
+        event.target.elements.name.value = ""
+
+        document.getElementById(dialogId).close()
     }
 
     return (

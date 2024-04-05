@@ -24,6 +24,11 @@ export const setArticle = async (title, text, images, tags) => {
                 tags: {
                     connect: tags
                 }
+            },
+            include: {
+                tags: true,
+                images: true,
+                comments: true
             }
         })
         return query
@@ -64,6 +69,9 @@ export const getArticleById = async (id) => {
                         user: true,
                         likers: true,
                         dislikers: true
+                    },
+                    orderBy: {
+                        createDate: "desc"
                     }
                 }
             }
@@ -259,6 +267,9 @@ export const setImage = async (file, description) => {
             data: {
                 path: pathOfData,
                 description: description
+            },
+            include: {
+                _count: true
             }
         })
         return query
@@ -318,6 +329,10 @@ export const setPreview = async (title, image1Id, image2Id) => {
                         }
                     ]
                 }
+            },
+            include: {
+                images: true,
+                _count: true
             }
         })
         return query
@@ -397,6 +412,12 @@ export const setRealization = async (title, task, images, previews, tags) => {
                 tags: {
                     connect: tags
                 }
+            },
+            include: {
+                image: true,
+                preview: true,
+                comments: true,
+                tags: true
             }
         })
         return query
@@ -493,6 +514,9 @@ export const getRealizationById = async (id) => {
                         user: true,
                         likers: true,
                         dislikers: true
+                    },
+                    orderBy: {
+                        createDate: "desc"
                     }
                 },
                 tags: true
@@ -567,6 +591,9 @@ export const setTag = async (name) => {
         const query = prisma.tag.create({
             data: {
                 name: name
+            },
+            include: {
+                _count: true
             }
         })
         return query
@@ -638,6 +665,9 @@ export const setRealizationComment = async (title, text, userName, userEmail, re
                         id: realizationId
                     }
                 }
+            },
+            include: {
+                user: true
             }
         })
         return query
@@ -664,6 +694,9 @@ export const setArticleComment = async (title, text, userName, userEmail, articl
                         id: articleId
                     }
                 }
+            },
+            include: {
+                user: true
             }
         })
         return query

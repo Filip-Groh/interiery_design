@@ -135,12 +135,16 @@ export default function Home() {
 // TODO:
 // Pager design + Limited pages
 // Better login
+// Tag search in gallery
+// Address in footer
+// Better admin dialogs
+// Anonym comment
+// Full content editable
+// Progress animations
 
 // Sociální sítě
 // Homepage rebuild
-
-// Submit auto refresh
-// Settings + Comment Hydratation
+// Comment only text no title
 
 // TS / TSX
 // Deploy

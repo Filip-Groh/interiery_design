@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useState, useEffect } from "react";
+import DeleteButton from '../deleteButton';
 
 const Designer = ({id, name, role, email, phone, image}) => {
     const [nameState, setNameState] = useState(name)
@@ -80,9 +81,7 @@ const Designer = ({id, name, role, email, phone, image}) => {
                     <div className="flex flex-row gap-2 my-2 w-full">
                         <input type="reset" value="Reset" onClick={handleReset} className={"btn flex-grow" + (valueChanged ? "" : " btn-disabled")} />
                         <input type="submit" value="Update" className={"btn flex-grow" + (valueChanged ? "" : " btn-disabled")} />
-                        <button onClick={handleDelete}>
-                            <Image src="/svg/delete.svg" width={50} height={50} alt="Delete SVG Image" />
-                        </button>
+                        <DeleteButton handleDelete={handleDelete} width={50} height={50} />
                     </div>
                 </form>
             </div>

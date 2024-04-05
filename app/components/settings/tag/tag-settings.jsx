@@ -4,7 +4,7 @@ import React from 'react'
 import DeleteButton from '../deleteButton'
 import Tag from '../../tag'
 
-const TagEditable = ({id, name, isDependent}) => {
+const TagEditable = ({id, name, isDependent, tags, setTags}) => {
     const handleDelete = async (event) => {
         event.preventDefault()
         const formData = new FormData()
@@ -12,6 +12,12 @@ const TagEditable = ({id, name, isDependent}) => {
         const response = await fetch('/api/tag', {
             method: 'DELETE',
             body: formData,
+        })
+
+        tags.forEach((tag, index) => {
+            if (tag.id == id) {
+                setTags(tags.toSpliced(index, 1))
+            }
         })
     }
 

@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import DeleteButton from '../settings/deleteButton'
 
-const DatabaseImage = ({id, path, description, isDependent}) => {
+const DatabaseImage = ({id, path, description, isDependent, images, setImages}) => {
     const handleDelete = async (event) => {
         event.preventDefault()
         const formData = new FormData()
@@ -12,6 +12,12 @@ const DatabaseImage = ({id, path, description, isDependent}) => {
         const response = await fetch('/api/image', {
             method: 'DELETE',
             body: formData,
+        })
+
+        images.forEach((image, index) => {
+            if (image.id == id) {
+                setImages(images.toSpliced(index, 1))
+            }
         })
     }
 

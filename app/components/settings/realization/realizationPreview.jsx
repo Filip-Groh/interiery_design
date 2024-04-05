@@ -5,7 +5,7 @@ import Image from 'next/image'
 import DeleteButton from '@/app/components/settings/deleteButton'
 import Tag from '../../tag'
 
-const RealizationPreview = ({id, title, description, tags, previewImage}) => {
+const RealizationPreview = ({id, title, description, tags, previewImage, realizations, setRealizations}) => {
     const handleDelete = async (event) => {
         event.preventDefault()
         const formData = new FormData()
@@ -13,6 +13,12 @@ const RealizationPreview = ({id, title, description, tags, previewImage}) => {
         const response = await fetch('/api/realization', {
             method: 'DELETE',
             body: formData,
+        })
+
+        realizations.forEach((realization, index) => {
+            if (realization.id == id) {
+                setRealizations(realizations.toSpliced(index, 1))
+            }
         })
     }
 

@@ -6,7 +6,7 @@ import { useState } from "react"
 import JoinPreviews from '../joinPreviews'
 import JoinTags from '../joinTags'
 
-const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass}) => {
+const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass, realizations, setRealizations}) => {
     const [images, setImages] = useState()
     const [previews, setPreviews] = useState()
     const [tags, setTags] = useState()
@@ -18,6 +18,34 @@ const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass}) => {
             method: 'POST',
             body: formData,
         })
+
+        const newRealization = await response.json()
+        setRealizations(() => {return [newRealization.data, ...realizations]})
+
+        event.target.elements.title.value = ""
+        event.target.elements.images.value = ""
+        event.target.elements.previews.value = ""
+        event.target.elements.tags.value = ""
+        event.target.elements.task.value = ""
+
+        setImages()
+        setPreviews()
+        setTags()
+
+        let tagsToReset = document.getElementsByClassName("tag-reset")
+        for (let i = 0; i < tagsToReset.length; i++) {
+            tagsToReset.item(i).checked = false
+        }
+        let imagesToReset = document.getElementsByClassName("image-reset")
+        for (let i = 0; i < imagesToReset.length; i++) {
+            imagesToReset.item(i).checked = false
+        }
+        let previewsToReset = document.getElementsByClassName("preview-reset")
+        for (let i = 0; i < previewsToReset.length; i++) {
+            previewsToReset.item(i).checked = false
+        }
+
+        document.getElementById(dialogId).close()
     }
 
     return (

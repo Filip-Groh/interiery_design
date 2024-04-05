@@ -2,9 +2,6 @@ import React from 'react'
 import UserPreview from '../images/userPreview'
 
 const JoinPreviews = ({dialogId, update, previews}) => {
-    const firstHalfPreviews = previews.filter((preview, index) => {return index % 2 == 0})
-    const secondHalfPreviews = previews.filter((preview, index) => {return index % 2 == 1})
-
     const submit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -24,33 +21,37 @@ const JoinPreviews = ({dialogId, update, previews}) => {
                     <input type="submit" value="Připojit" className="btn" />
                     <div className="flex flex-row w-full">
                         <div className="flex flex-col basis-1/2">
-                            {firstHalfPreviews.map((preview) => {
-                                return (
-                                    <label key={preview.id} className="swap swap-flip grid-cols-1">
-                                        <input type="checkbox" id={preview.id} name={preview.id} />
-                                        <div className="swap-on text-primary">
-                                            <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
-                                        </div>
-                                        <div className="swap-off">
-                                            <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
-                                        </div>
-                                    </label>
-                                )
+                            {previews.map((preview, index) => {
+                                if (index % 2 == 0) {
+                                    return (
+                                        <label key={preview.id} className="swap swap-flip grid-cols-1">
+                                            <input type="checkbox" id={preview.id} name={preview.id} className='preview-reset'/>
+                                            <div className="swap-on text-primary">
+                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                            </div>
+                                            <div className="swap-off">
+                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                            </div>
+                                        </label>
+                                    )
+                                }
                             })}
                         </div>
                         <div className="flex flex-col basis-1/2">
-                            {secondHalfPreviews.map((preview) => {
-                                return (
-                                    <label key={preview.id} className="swap swap-flip grid-cols-1">
-                                        <input type="checkbox" id={preview.id} name={preview.id} />
-                                        <div className="swap-on text-primary">
-                                            <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
-                                        </div>
-                                        <div className="swap-off">
-                                            <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
-                                        </div>
-                                    </label>
-                                )
+                            {previews.map((preview, index) => {
+                                if (index % 2 == 1) {
+                                    return (
+                                        <label key={preview.id} className="swap swap-flip grid-cols-1">
+                                            <input type="checkbox" id={preview.id} name={preview.id} className='preview-reset'/>
+                                            <div className="swap-on text-primary">
+                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                            </div>
+                                            <div className="swap-off">
+                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                            </div>
+                                        </label>
+                                    )
+                                }
                             })}
                         </div>
                     </div>

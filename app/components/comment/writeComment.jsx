@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const WriteComment = ({session, id, realizationOrArticle}) => {
+const WriteComment = ({session, id, realizationOrArticle, comments, setComments}) => {
     const submit = async (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -15,6 +15,12 @@ const WriteComment = ({session, id, realizationOrArticle}) => {
             method: 'POST',
             body: formData,
         })
+
+        const newComment = await response.json()
+        setComments(() => {return [newComment.data, ...comments]})
+
+        event.target.elements.title.value = ""
+        event.target.elements.text.value = ""
     }
 
     return (

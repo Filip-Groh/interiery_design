@@ -4,7 +4,7 @@ import React from 'react'
 import Image from "next/image"
 import DeleteButton from '../settings/deleteButton'
 
-const Comment = ({session, id, name, email, image, title, text, likes, state}) => {
+const Comment = ({session, id, name, email, image, title, text, likes, state, comments, setComments}) => {
     const [like, setLike] = React.useState(likes)
 
     const [activeButton, setActiveButton] = React.useState(state)
@@ -68,6 +68,12 @@ const Comment = ({session, id, name, email, image, title, text, likes, state}) =
         const response = await fetch('/api/comment', {
             method: 'DELETE',
             body: formData,
+        })
+
+        comments.forEach((comment, index) => {
+            if (comment.id == id) {
+                setComments(comments.toSpliced(index, 1))
+            }
         })
     }
 

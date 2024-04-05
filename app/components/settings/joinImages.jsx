@@ -2,9 +2,6 @@ import React from 'react'
 import UserImage from '../images/userImage'
 
 const JoinImages = ({dialogId, update, images}) => {
-    const firstHalfImages = images.filter((image, index) => {return index % 2 == 0})
-    const secondHalfImages = images.filter((image, index) => {return index % 2 == 1})
-
     const submit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -24,33 +21,37 @@ const JoinImages = ({dialogId, update, images}) => {
                     <input type="submit" value="Připojit" className="btn" />
                     <div className="flex flex-row w-full">
                         <div className="flex flex-col basis-1/2">
-                            {firstHalfImages.map((image) => {
-                                return (
-                                    <label key={image.id} className="swap swap-flip">
-                                        <input type="checkbox" id={image.id} name={image.id} />
-                                        <div className="swap-on text-primary">
-                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
-                                        </div>
-                                        <div className="swap-off">
-                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
-                                        </div>
-                                    </label>
-                                )
+                            {images.map((image, index) => {
+                                if (index % 2 == 0) {
+                                    return (
+                                        <label key={image.id} className="swap swap-flip">
+                                            <input type="checkbox" id={image.id} name={image.id} className='image-reset'/>
+                                            <div className="swap-on text-primary">
+                                                <UserImage path={image.path} description={image.description} isOpenable={false}/>
+                                            </div>
+                                            <div className="swap-off">
+                                                <UserImage path={image.path} description={image.description} isOpenable={false}/>
+                                            </div>
+                                        </label>
+                                    )
+                                }
                             })}
                         </div>
                         <div className="flex flex-col basis-1/2">
-                            {secondHalfImages.map((image) => {
-                                return (
-                                    <label key={image.id} className="swap swap-flip">
-                                        <input type="checkbox" id={image.id} name={image.id} />
-                                        <div className="swap-on text-primary">
-                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
-                                        </div>
-                                        <div className="swap-off">
-                                            <UserImage path={image.path} description={image.description} isOpenable={false}/>
-                                        </div>
-                                    </label>
-                                )
+                            {images.map((image, index) => {
+                                if (index % 2 == 1) {
+                                    return (
+                                        <label key={image.id} className="swap swap-flip">
+                                            <input type="checkbox" id={image.id} name={image.id} className='image-reset'/>
+                                            <div className="swap-on text-primary">
+                                                <UserImage path={image.path} description={image.description} isOpenable={false}/>
+                                            </div>
+                                            <div className="swap-off">
+                                                <UserImage path={image.path} description={image.description} isOpenable={false}/>
+                                            </div>
+                                        </label>
+                                    )
+                                }
                             })}
                         </div>
                     </div>

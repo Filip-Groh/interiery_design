@@ -1,9 +1,8 @@
 import React from 'react'
-import Comment from '@/app/components/comment/comment'
 import UserImage from '../images/userImage'
-import WriteComment from '../comment/writeComment'
 import { auth } from '@/app/api/auth/[...nextauth]/auth'
 import Tag from '../tag'
+import CommentSection from '../comment/commentSection'
 
 const Article = async ({id, comments, images, tags, title, text, createDate}) => {
     const session = await auth()
@@ -54,14 +53,7 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                 </div>
 
                 <h2 className='animate-fade-right'>Komentáře</h2>
-
-                <WriteComment session={session} id={id} realizationOrArticle="ARTICLE" />
-
-                <ul className="flex flex-col gap-2 mb-4">
-                    {comments?.map((comment, index) => {
-                        return <Comment key={comment.id} session={session} id={comment.id} name={comment.user.name} email={comment.user.email} image={comment.user.image} title={comment.title} text={comment.text} likes={comment.likes} state={state[index]} />
-                    })}
-                </ul>
+                <CommentSection session={session} id={id} realizationOrArticle={"ARTICLE"} defaultComments={comments} state={state}/>
             </div>
         </div>
     )
