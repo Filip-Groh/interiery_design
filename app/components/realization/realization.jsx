@@ -32,7 +32,7 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                         <p className='animate-fade-left'>{createDate.toLocaleString()}</p>
                     </div>
 
-                    <UserImage path={images[0]?.path} description={images[0]?.description} isAnimated={true}/>
+                    <UserImage path={images[0]?.path} description={images[0]?.description} isAnimated={true} tags={images[0]?.tags}/>
                 </div>
 
                 <div className="flex flex-row gap-2">
@@ -48,14 +48,14 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                 <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl text-neutral animate-fade-right'>
                     {images.map((image) => {
                         return (<div key={image.id} className='h-auto w-[min(40rem,80vw)] shrink-0 snap-center'>
-                            <UserImage path={image.path} description={image.description} />
+                            <UserImage path={image.path} description={image.description} tags={image.tags}/>
                         </div>)
                     })}
                 </div>
 
                 <div className='text-neutral flex flex-col items-center'>
                     {previews.map((preview) => {
-                        return <UserPreview key={preview.id} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isAnimated={true}/>
+                        return <UserPreview key={preview.id} tags={preview.tags} title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isAnimated={true}/>
                     })}
                 </div>
 

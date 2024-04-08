@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from "react"
 import JoinImage from '../joinImage'
 
-const DesignerDialog = ({dialogId, imagesPass}) => {
+const DesignerDialog = ({dialogId, imagesPass, tagsPass}) => {
     const [image, setImage] = useState()
 
     const submit = async (event) => {
@@ -46,7 +46,7 @@ const DesignerDialog = ({dialogId, imagesPass}) => {
                     </div>
                 </div>
             </dialog>
-            <JoinImage dialogId={"joinImage"} update={setImage} images={imagesPass} />
+            <JoinImage dialogId={"joinImage"} update={setImage} images={imagesPass} tagsPass={tagsPass}/>
         </>
     )
 }

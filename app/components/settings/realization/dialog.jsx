@@ -84,8 +84,8 @@ const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass, realizat
                     </div>
                 </div>
             </dialog>
-            <JoinImages dialogId="joinImages" update={setImages} images={imagePass} />
-            <JoinPreviews dialogId="joinPreviews" update={setPreviews} previews={previewPass} />
+            <JoinImages dialogId="joinImages" update={setImages} images={imagePass} tagsPass={tagsPass}/>
+            <JoinPreviews dialogId="joinPreviews" update={setPreviews} previews={previewPass} tagsPass={tagsPass}/>
             <JoinTags dialogId="joinTags" update={setTags} tags={tagsPass}/>
         </>
     )

@@ -63,7 +63,11 @@ export const getArticleById = async (id) => {
             },
             include: {
                 tags: true,
-                images: true,
+                images: {
+                    include: {
+                        tags: true
+                    }
+                },
                 comments: {
                     include: {
                         user: true,
@@ -255,8 +259,12 @@ export const delDesigner = async (id) => {
     }
 } 
 
-export const setImage = async (file, description) => {
+export const setImage = async (file, description, tags) => {
     try {
+        tags = tags.map(tag => {
+            return { id: Number(tag) }
+        })
+
         const bytes = await file.arrayBuffer()
         const buffer = Buffer.from(bytes)
         const pathOfFile = `./public/${file.name}`
@@ -266,7 +274,10 @@ export const setImage = async (file, description) => {
         const query = prisma.image.create({
             data: {
                 path: pathOfData,
-                description: description
+                description: description,
+                tags: {
+                    connect: tags
+                }
             },
             include: {
                 _count: true
@@ -282,7 +293,34 @@ export const getImage = async () => {
     try {
         const query = prisma.image.findMany({
             include: {
-                _count: true
+                _count: true,
+                tags: true
+            },
+            orderBy: {
+                createDate: "desc"
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getImageWithTags = async (tags) => {
+    try {
+        const query = prisma.image.findMany({
+            where: {
+                AND: tags.map(tag => ({
+                    tags: {
+                        some: {
+                            id: tag
+                        }
+                    }
+                }))
+            },
+            include: {
+                _count: true,
+                tags: true
             },
             orderBy: {
                 createDate: "desc"
@@ -314,8 +352,12 @@ export const delImage = async (id) => {
     }
 }
 
-export const setPreview = async (title, image1Id, image2Id) => {
+export const setPreview = async (title, image1Id, image2Id, tags) => {
     try {
+        tags = tags.map(tag => {
+            return { id: Number(tag) }
+        })
+
         const query = prisma.preview.create({
             data: {
                 title: title,
@@ -328,6 +370,9 @@ export const setPreview = async (title, image1Id, image2Id) => {
                             id: image2Id
                         }
                     ]
+                },
+                tags: {
+                    connect: tags
                 }
             },
             include: {
@@ -346,7 +391,35 @@ export const getPreview = async () => {
         const query = prisma.preview.findMany({
             include: {
                 images: true,
-                _count: true
+                _count: true,
+                tags: true
+            },
+            orderBy: {
+                createDate: "desc"
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getPreviewWithTags = async (tags) => {
+    try {
+        const query = prisma.preview.findMany({
+            where: {
+                AND: tags.map(tag => ({
+                    tags: {
+                        some: {
+                            id: tag
+                        }
+                    }
+                }))
+            },
+            include: {
+                images: true,
+                _count: true,
+                tags: true
             },
             orderBy: {
                 createDate: "desc"
@@ -503,10 +576,15 @@ export const getRealizationById = async (id) => {
                 id: id
             },
             include: {
-                image: true,
+                image: {
+                    include: {
+                        tags: true
+                    }
+                },
                 preview: {
                     include: {
-                        images: true
+                        images: true,
+                        tags: true
                     }
                 },
                 comments: {

@@ -10,7 +10,12 @@ export async function POST(request) {
     const formData = await request.formData()
     const file = formData.get('file')
     const description = formData.get('description')
-    const image = await setImage(file, description)
+    let tags = formData.get('tags')
+    tags = tags.split(",")
+    tags = tags.map(tag => {
+        return tag.trim()
+    })
+    const image = await setImage(file, description, tags)
     return NextResponse.json({data: image}, { status: 200 })
 }
 

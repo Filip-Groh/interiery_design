@@ -4,8 +4,9 @@ import React from 'react'
 import Image from 'next/image'
 import DeleteButton from '../settings/deleteButton'
 import { ImgComparisonSlider } from '@img-comparison-slider/react'
+import Tag from '../tag'
 
-const DatabasePreview = ({id, title, beforePath, afterPath, beforeDescription, afterDescription, isDependent, previews, setPreviews}) => {
+const DatabasePreview = ({id, title, beforePath, afterPath, beforeDescription, afterDescription, isDependent, previews, setPreviews, tags}) => {
     const handleDelete = async (event) => {
         event.preventDefault()
         const formData = new FormData()
@@ -43,9 +44,16 @@ const DatabasePreview = ({id, title, beforePath, afterPath, beforeDescription, a
                     <path stroke="#fff" d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2" strokeWidth="1" fill="#fff" vectorEffect="non-scaling-stroke" />
                 </svg>
             </ImgComparisonSlider>
-            <span className='absolute top-4 left-4 bg-base-300 rounded-full w-6 h-6 flex flex-row justify-center'>
-                <DeleteButton handleDelete={handleDelete} isDependent={isDependent} />
-            </span>
+            <div className='absolute top-4 left-4 flex flex-row justify-between right-4 gap-2'>
+                <span className='bg-base-300 rounded-full w-6 h-6 shrink-0 flex flex-row justify-center'>
+                    <DeleteButton handleDelete={handleDelete} isDependent={isDependent} />
+                </span>
+                <div>
+                    {tags.map((tag) => {
+                        return <Tag key={tag.id} name={tag.name} />
+                    })}
+                </div>
+            </div>
         </div>
     )
 }

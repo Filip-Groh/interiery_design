@@ -27,7 +27,7 @@ const RealizationPage = ({pageSize, defaultNumberOfPages, defaultRealizations, d
                     setRealizations(value.data)
                 })
             }
-          );
+        );
     }, [currentPage, tags, pageSize])
 
     React.useEffect(() => {
@@ -43,7 +43,7 @@ const RealizationPage = ({pageSize, defaultNumberOfPages, defaultRealizations, d
                     setNumberOfPages(Math.ceil(value.data / pageSize))
                 })
             }
-          );
+        );
     }, [tags, pageSize])
 
     React.useEffect(() => {
@@ -60,7 +60,7 @@ const RealizationPage = ({pageSize, defaultNumberOfPages, defaultRealizations, d
         <>
             <NavigationPath path={["Home", "Realizace"]} links={["/", "/realization"]} />
             <div className='flex md:flex-row flex-col justify-between'>
-                <div className='md:basis-1/5'>
+                <div className='md:basis-1/5 pl-16'>
                     <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags}/>
                 </div>
                 <div className='md:basis-3/5'>

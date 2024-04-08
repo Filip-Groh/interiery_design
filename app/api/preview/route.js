@@ -6,7 +6,12 @@ export async function POST(request) {
     const title = formData.get('title')
     const image1 = Number(formData.get('image1'))
     const image2 = Number(formData.get('image2'))
-    const tag = await setPreview(title, image1, image2)
+    let tags = formData.get('tags')
+    tags = tags.split(",")
+    tags = tags.map(tag => {
+        return tag.trim()
+    })
+    const tag = await setPreview(title, image1, image2, tags)
     return NextResponse.json({data: tag}, { status: 200 })
 }
 

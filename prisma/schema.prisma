@@ -74,23 +74,15 @@ model Comment {
   articleId     Int?
 }
 
-model Tag {
-  id         Int      @id @default(autoincrement())
-  createDate DateTime @default(now())
-  updateDate DateTime @updatedAt
-
-  name        String        @unique
-  realization Realization[]
-  article     Article[]
-}
-
 model Preview {
   id         Int      @id @default(autoincrement())
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 
-  title       String
-  images      Image[]
+  title  String
+  images Image[]
+  tags   Tag[]
+
   realization Realization[]
 }
 
@@ -101,11 +93,24 @@ model Image {
 
   path        String
   description String
+  tags        Tag[]
 
   realization Realization[]
   article     Article[]
   preview     Preview[]
   Designer    Designer[]
+}
+
+model Tag {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  name        String        @unique
+  realization Realization[]
+  article     Article[]
+  image       Image[]
+  preview     Preview[]
 }
 
 // OAuth

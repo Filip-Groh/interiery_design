@@ -1,15 +1,21 @@
-import React from 'react'
-import { getImage, getPreview, getTag } from '@/utils/database'
-import GalleryPage from '../components/gallery/galleryPage'
+import { getImageWithTags, getPreviewWithTags, getImage, getPreview} from '@/utils/database'
+import { NextResponse } from 'next/server'
 
-export const metadata = {
-    title: 'Galerie',
-}
-
-const Gallery = async () => {
-    const images = await getImage()
-    const previews = await getPreview()
-    const tags = await getTag()
+export async function PATCH(request) {
+    let images, previews
+    const formData = await request.formData()
+    let tags = formData.get('tags')
+    if (tags.length > 0) {
+        tags = tags.split(",")
+        tags = tags.map(tag => {
+            return Number(tag.trim())
+        })
+        images = await getImageWithTags(tags)
+        previews = await getPreviewWithTags(tags)
+    } else {
+        images = await getImage()
+        previews = await getPreview()
+    }
 
     let output = []
     while (images.length > 0 || previews.length > 0) {
@@ -61,10 +67,5 @@ const Gallery = async () => {
             previews.shift()
         }
     }
-
-    return (
-        <GalleryPage defaultOutput={output} defaultTags={tags}/>
-    )
+    return NextResponse.json({data: output}, { status: 200 })
 }
-
-export default Gallery

@@ -31,7 +31,7 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                         <p className="animate-fade-left">{createDate.toLocaleString()}</p>
                     </div>
 
-                    <UserImage path={images[0]?.path} description={images[0]?.description} isAnimated={true}/>
+                    <UserImage path={images[0]?.path} description={images[0]?.description} isAnimated={true} tags={images[0]?.tags}/>
                 </div>
 
                 <div className="flex flex-row gap-2">
@@ -47,7 +47,7 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                 <div className='flex w-full snap-x items-center gap-4 overflow-x-auto bg-base-300 rounded-2xl text-neutral animate-fade-right'>
                     {images.map((image) => {
                         return (<div key={image.id} className='h-auto w-[min(40rem,80vw)] shrink-0 snap-center'>
-                            <UserImage path={image.path} description={image.description} />
+                            <UserImage path={image.path} description={image.description} tags={image.tags}/>
                         </div>)
                     })}
                 </div>

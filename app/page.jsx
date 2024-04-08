@@ -133,10 +133,9 @@ export default function Home() {
 }
 
 // TODO:
-// Tag search in gallery
+// Hydratation of designers in settings
 // Homepage rebuild
 
-// Address in footer
 // Comment only text no title
 
 // Pager design + Limited pages
@@ -144,6 +143,8 @@ export default function Home() {
 // Anonym comment
 // Sociální sítě
 // Progress animations
+// Click on displayimage open image in new tab
+// Delete modal confirm
 
 // Better admin dialogs
 // Full content editable

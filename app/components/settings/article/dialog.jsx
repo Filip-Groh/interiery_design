@@ -72,7 +72,7 @@ const ArticleDialog = ({dialogId, imagesPass, tagsPass, articles, setArticles}) 
                     </div>
                 </div>
             </dialog>
-            <JoinImages dialogId="joinImages" update={setImages} images={imagesPass} />
+            <JoinImages dialogId="joinImages" update={setImages} images={imagesPass} tagsPass={tagsPass}/>
             <JoinTags dialogId="joinTags" update={setTags} tags={tagsPass} />
         </>
     )

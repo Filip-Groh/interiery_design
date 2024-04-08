@@ -14,8 +14,8 @@ const SettingsMenu = ({children, activeTabName}) => {
                         <li><Link href="/admin/settings/realization" className={activeTabName == "Realization" ? "active" : ""}>Realizace</Link></li>
                         <li><Link href="/admin/settings/article" className={activeTabName == "Article" ? "active" : ""}>Články</Link></li>
                         <li><Link href="/admin/settings/preview" className={activeTabName == "Preview" ? "active" : ""}>Porovnání</Link></li>
-                        <li><Link href="/admin/settings/tag" className={activeTabName == "Tag" ? "active" : ""}>Tagy</Link></li>
                         <li><Link href="/admin/settings/image" className={activeTabName == "Image" ? "active" : ""}>Fotky</Link></li>
+                        <li><Link href="/admin/settings/tag" className={activeTabName == "Tag" ? "active" : ""}>Tagy</Link></li>
                         <li><Link href="/admin/settings/metadata" className={activeTabName == "Metadata" ? "active" : ""}>Metadata</Link></li>
                     </ul>
                     {children}

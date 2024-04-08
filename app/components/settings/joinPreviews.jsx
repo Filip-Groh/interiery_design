@@ -1,7 +1,7 @@
 import React from 'react'
 import UserPreview from '../images/userPreview'
 
-const JoinPreviews = ({dialogId, update, previews}) => {
+const JoinPreviews = ({dialogId, update, previews, tagsPass}) => {
     const submit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -27,10 +27,10 @@ const JoinPreviews = ({dialogId, update, previews}) => {
                                         <label key={preview.id} className="swap swap-flip grid-cols-1">
                                             <input type="checkbox" id={preview.id} name={preview.id} className='preview-reset'/>
                                             <div className="swap-on text-primary">
-                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                                <UserPreview title={preview.title} isHighlighted={true} tags={tagsPass} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
                                             </div>
                                             <div className="swap-off">
-                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                                <UserPreview title={preview.title} tags={tagsPass} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
                                             </div>
                                         </label>
                                     )
@@ -44,10 +44,10 @@ const JoinPreviews = ({dialogId, update, previews}) => {
                                         <label key={preview.id} className="swap swap-flip grid-cols-1">
                                             <input type="checkbox" id={preview.id} name={preview.id} className='preview-reset'/>
                                             <div className="swap-on text-primary">
-                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                                <UserPreview title={preview.title} isHighlighted={true} tags={tagsPass} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
                                             </div>
                                             <div className="swap-off">
-                                                <UserPreview title={preview.title} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
+                                                <UserPreview title={preview.title} tags={tagsPass} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} />
                                             </div>
                                         </label>
                                     )

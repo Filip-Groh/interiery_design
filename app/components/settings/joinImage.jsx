@@ -1,7 +1,7 @@
 import React from 'react'
 import UserImage from '../images/userImage'
 
-const JoinImage = ({dialogId, update, images}) => {
+const JoinImage = ({dialogId, update, images, tagsPass}) => {
     const firstHalfImages = images.filter((image, index) => {return index % 2 == 0})
     const secondHalfImages = images.filter((image, index) => {return index % 2 == 1})
 
@@ -18,7 +18,7 @@ const JoinImage = ({dialogId, update, images}) => {
                                         update(image.id)
                                         document.getElementById(dialogId).close()
                                     }}>
-                                        <UserImage path={image.path} description={image.description} isOpenable={false}/>
+                                        <UserImage path={image.path} description={image.description} isOpenable={false} tags={tagsPass}/>
                                     </button>
                                 )
                             })}
@@ -30,7 +30,7 @@ const JoinImage = ({dialogId, update, images}) => {
                                         update(image.id)
                                         document.getElementById(dialogId).close()
                                     }}>
-                                        <UserImage path={image.path} description={image.description} isOpenable={false}/>
+                                        <UserImage path={image.path} description={image.description} isOpenable={false} tags={tagsPass}/>
                                     </button>
                                 )
                             })}

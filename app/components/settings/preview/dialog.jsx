@@ -3,10 +3,12 @@
 import React from 'react'
 import JoinImage from '../joinImage'
 import { useState } from "react";
+import JoinTags from '../joinTags';
 
-const PreviewDialog = ({dialogId, images, previews, setPreviews}) => {
+const PreviewDialog = ({dialogId, images, previews, setPreviews, tagsPass}) => {
     const [image1Id, setimage1Id] = useState()
     const [image2Id, setimage2Id] = useState()
+    const [tags, setTags] = useState()
 
     const submit = async (event) => {
         event.preventDefault()
@@ -22,8 +24,16 @@ const PreviewDialog = ({dialogId, images, previews, setPreviews}) => {
         event.target.elements.image1.value = ""
         event.target.elements.image2.value = ""
         event.target.elements.title.value = ""
+        event.target.elements.tags.value = ""
+
         setimage1Id()
         setimage2Id()
+        setTags()
+
+        let tagsToReset = document.getElementsByClassName("tag-reset")
+        for (let i = 0; i < tagsToReset.length; i++) {
+            tagsToReset.item(i).checked = false
+        }
 
         document.getElementById(dialogId).close()
     }
@@ -44,6 +54,11 @@ const PreviewDialog = ({dialogId, images, previews, setPreviews}) => {
                             <input type="text" accept="image/*" id="image2" name="image2" placeholder="Id fotky 2" value={image2Id} className="file-input file-input-bordered w-full" onChange={(e) => setimage2Id(e.target.value)} required />
                             <button className='btn' onClick={()=>document.getElementById("joinImage2").showModal()}>Připojit</button>
                         </div>
+                        <label htmlFor="tags">Id tagů: </label>
+                        <div className="flex flex-row">
+                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full" onChange={(e) => setTags(e.target.value)} required />
+                            <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Připojit</button>
+                        </div>
                         <label htmlFor="title">Nadpis: </label>
                         <div className="flex flex-row">
                             <input type="text" id="title" name="title" placeholder="Nadpis" className="rounded w-full p-2" required />
@@ -57,8 +72,9 @@ const PreviewDialog = ({dialogId, images, previews, setPreviews}) => {
                     </div>
                 </div>
             </dialog>
-            <JoinImage dialogId="joinImage1" update={setimage1Id} images={images} />
-            <JoinImage dialogId="joinImage2" update={setimage2Id} images={images} />
+            <JoinImage dialogId="joinImage1" update={setimage1Id} images={images} tagsPass={tagsPass}/>
+            <JoinImage dialogId="joinImage2" update={setimage2Id} images={images} tagsPass={tagsPass}/>
+            <JoinTags dialogId="joinTags" update={setTags} tags={tagsPass}/>
         </>
     )
 }
