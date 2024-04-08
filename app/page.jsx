@@ -133,18 +133,20 @@ export default function Home() {
 }
 
 // TODO:
+// Tag search in gallery
+// Homepage rebuild
+
+// Address in footer
+// Comment only text no title
+
 // Pager design + Limited pages
 // Better login
-// Tag search in gallery
-// Address in footer
-// Better admin dialogs
 // Anonym comment
-// Full content editable
+// Sociální sítě
 // Progress animations
 
-// Sociální sítě
-// Homepage rebuild
-// Comment only text no title
+// Better admin dialogs
+// Full content editable
 
 // TS / TSX
 // Deploy
