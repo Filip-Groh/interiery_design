@@ -61,7 +61,6 @@ model Comment {
   createDate DateTime @default(now())
   updateDate DateTime @updatedAt
 
-  title         String
   text          String
   likes         Int
   likers        User[]       @relation("like")

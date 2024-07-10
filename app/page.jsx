@@ -203,9 +203,11 @@ export default async function Home() {
 }
 
 // TODO:
-// Hydratation of designers in settings - 2 hod
 
-// Comment only text no title - 10 min
+
+
+
+// Hydratation of designers in settings - 2 hod
 
 // Pager design + Limited pages - 2 hod
 // Better login - 1 hod

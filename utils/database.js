@@ -728,11 +728,10 @@ export const delTag = async (id) => {
     }
 }
 
-export const setRealizationComment = async (title, text, userName, userEmail, realizationId) => {
+export const setRealizationComment = async (text, userName, userEmail, realizationId) => {
     try {
         const query = prisma.comment.create({
             data: {
-                title: title,
                 text: text,
                 likes: 0,
                 user: { 
@@ -757,11 +756,10 @@ export const setRealizationComment = async (title, text, userName, userEmail, re
     }
 }
 
-export const setArticleComment = async (title, text, userName, userEmail, articleId) => {
+export const setArticleComment = async (text, userName, userEmail, articleId) => {
     try {
         const query = prisma.comment.create({
             data: {
-                title: title,
                 text: text,
                 likes: 0,
                 user: { 

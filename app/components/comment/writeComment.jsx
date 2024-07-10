@@ -19,7 +19,6 @@ const WriteComment = ({session, id, realizationOrArticle, comments, setComments}
         const newComment = await response.json()
         setComments(() => {return [newComment.data, ...comments]})
 
-        event.target.elements.title.value = ""
         event.target.elements.text.value = ""
     }
 
@@ -34,8 +33,7 @@ const WriteComment = ({session, id, realizationOrArticle, comments, setComments}
                     <input type="submit" value="Okomentovat" className="btn" />
                 </div>
                 <div className='flex flex-col p-2 gap-2 w-full text-neutral'>
-                    <input type="text" id="title" name="title" placeholder="Nadpis" className="rounded w-full p-2" required />
-                    <input type="text" id="text" name="text" placeholder="Komentář" className="rounded w-full h-full p-2" required />
+                    <textarea id="text" name="text" className="file-input file-input-bordered w-full h-full p-2" placeholder="Dotaz" required></textarea>
                 </div>
             </form>
             <p className={`text-2xl text-neutral absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${session ? "opacity-0 hidden": "opacity-100"}`}>Pro napsání komentáře se musíte přihlásit.</p>

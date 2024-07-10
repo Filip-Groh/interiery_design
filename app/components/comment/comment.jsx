@@ -4,7 +4,7 @@ import React from 'react'
 import Image from "next/image"
 import DeleteButton from '../settings/deleteButton'
 
-const Comment = ({session, id, name, email, image, title, text, likes, state, comments, setComments}) => {
+const Comment = ({session, id, name, email, image, text, likes, state, comments, setComments}) => {
     const [like, setLike] = React.useState(likes)
 
     const [activeButton, setActiveButton] = React.useState(state)
@@ -112,7 +112,6 @@ const Comment = ({session, id, name, email, image, title, text, likes, state, co
                 </div>
             </div>
             <div className='text-neutral max-w-full overflow-auto'>
-                <h1 className="text-2xl p-1">{title}</h1>
                 <p className="text-sm p-1">{text}</p>
             </div>
         </div>

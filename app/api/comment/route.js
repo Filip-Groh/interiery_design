@@ -3,17 +3,16 @@ import { NextResponse } from 'next/server'
 
 export async function POST(request) {
     const formData = await request.formData()
-    const title = formData.get('title')
     const text = formData.get('text')
     const userName = formData.get('userName')
     const userEmail = formData.get('userEmail')
     const id = Number(formData.get('id'))
     const realizationOrArticle = formData.get('realizationOrArticle')
     if (realizationOrArticle == "REALIZATION") {
-        const comment = await setRealizationComment(title, text, userName, userEmail, id)
+        const comment = await setRealizationComment(text, userName, userEmail, id)
         return NextResponse.json({data: comment}, { status: 200 })
     } else if (realizationOrArticle == "ARTICLE") {
-        const comment = await setArticleComment(title, text, userName, userEmail, id)
+        const comment = await setArticleComment(text, userName, userEmail, id)
         return NextResponse.json({data: comment}, { status: 200 })
     }
     return NextResponse.json({ status: 200 })
