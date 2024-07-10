@@ -10,6 +10,8 @@ const SettingsMenu = ({children, activeTabName}) => {
                 <div className="flex flex-row bg-base-200 w-10/12 rounded-lg mb-2">
                     <ul className="menu bg-base-100 w-56 rounded-lg m-2 text-neutral">
                         <li><Link href="/admin/settings" className={activeTabName == "Basic" ? "active" : ""}>Basic</Link></li>
+                        <li><Link href="/admin/settings/query" className={activeTabName == "Query" ? "active" : ""}>Dotazník</Link></li>
+                        <li><Link href="/admin/settings/QandA" className={activeTabName == "QandA" ? "active" : ""}>Q&A</Link></li>
                         <li><Link href="/admin/settings/designer" className={activeTabName == "Designer" ? "active" : ""}>Pracovníci</Link></li>
                         <li><Link href="/admin/settings/realization" className={activeTabName == "Realization" ? "active" : ""}>Realizace</Link></li>
                         <li><Link href="/admin/settings/article" className={activeTabName == "Article" ? "active" : ""}>Články</Link></li>

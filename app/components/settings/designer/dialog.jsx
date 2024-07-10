@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from "react"
 import JoinImage from '../joinImage'
 
-const DesignerDialog = ({dialogId, imagesPass, tagsPass}) => {
+const DesignerDialog = ({dialogId, imagesPass, tagsPass, designers, setDesigners}) => {
     const [image, setImage] = useState()
 
     const submit = async (event) => {
@@ -14,6 +14,19 @@ const DesignerDialog = ({dialogId, imagesPass, tagsPass}) => {
             method: 'POST',
             body: formData,
         })
+
+        const newDesigner = await response.json()
+        setDesigners(() => {return [newDesigner.data, ...designers]})
+
+        event.target.elements.image.value = ""
+        event.target.elements.name.value = ""
+        event.target.elements.role.value = ""
+        event.target.elements.email.value = ""
+        event.target.elements.phone.value = ""
+
+        setImage()
+
+        document.getElementById(dialogId).close()
     }
 
     return (

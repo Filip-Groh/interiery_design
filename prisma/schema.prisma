@@ -177,3 +177,22 @@ model Settings {
   key   String @id
   value String
 }
+
+model Query {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  name  String
+  email String
+  query String
+}
+
+model QandA {
+  id         Int      @id @default(autoincrement())
+  createDate DateTime @default(now())
+  updateDate DateTime @updatedAt
+
+  question String
+  answer   String
+}

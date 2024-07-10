@@ -1,0 +1,9 @@
+-- CreateTable
+CREATE TABLE "Query" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createDate" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updateDate" DATETIME NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "query" TEXT NOT NULL
+);

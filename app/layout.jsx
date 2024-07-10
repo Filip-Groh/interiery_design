@@ -28,7 +28,8 @@ export async function generateMetadata() {
         },
 
         description: defaultDescription,
-        keywords: defaultKeywords
+        keywords: defaultKeywords,
+        icons: [{ rel: "icon", url: "/static/favicon.ico" }],
     }
 }
 

@@ -5,20 +5,36 @@ import Image from 'next/image'
 import { useState, useEffect } from "react";
 import DeleteButton from '../deleteButton';
 
-const Designer = ({id, name, role, email, phone, image}) => {
-    const [nameState, setNameState] = useState(name)
-    const [roleState, setRoleState] = useState(role)
-    const [emailState, setEmailState] = useState(email)
-    const [phoneState, setPhoneState] = useState(phone)
+const Designer = ({id, name, role, email, phone, image, designers, setDesigners}) => {
+    const [defaultNameState, setDefaultNameState] = useState("")
+    const [defaultRoleState, setDefaultRoleState] = useState("")
+    const [defaultEmailState, setDefaultEmailState] = useState("")
+    const [defaultPhoneState, setDefaultPhoneState] = useState("")
+    const [nameState, setNameState] = useState("")
+    const [roleState, setRoleState] = useState("")
+    const [emailState, setEmailState] = useState("")
+    const [phoneState, setPhoneState] = useState("")
     const [valueChanged, setValueChanged] = useState(false)
 
     useEffect(() => {
-        if (nameState == name && roleState == role && emailState == email && phoneState == phone) {
+        setDefaultNameState(name)
+        setDefaultRoleState(role)
+        setDefaultEmailState(email)
+        setDefaultPhoneState(phone)
+        setNameState(name)
+        setRoleState(role)
+        setEmailState(email)
+        setPhoneState(phone)
+    }, [name, role, email, phone])
+    
+
+    useEffect(() => {
+        if (nameState == defaultNameState && roleState == defaultRoleState && emailState == defaultEmailState && phoneState == defaultPhoneState) {
             setValueChanged(false)
         } else {
             setValueChanged(true)
         }
-    }, [nameState, roleState, emailState, phoneState, name, role, email, phone])
+    }, [nameState, roleState, emailState, phoneState, defaultNameState, defaultRoleState, defaultEmailState, defaultPhoneState])
 
     const handleDelete = async (event) => {
         event.preventDefault()
@@ -27,6 +43,12 @@ const Designer = ({id, name, role, email, phone, image}) => {
         const response = await fetch('/api/designer', {
             method: 'DELETE',
             body: formData,
+        })
+
+        designers.forEach((designer, index) => {
+            if (designer.id == id) {
+                setDesigners(designers.toSpliced(index, 1))
+            }
         })
     }
 
@@ -45,6 +67,13 @@ const Designer = ({id, name, role, email, phone, image}) => {
             method: 'PATCH',
             body: formData,
         })
+
+        const updatedDesigner = await response.json()
+        console.log(updatedDesigner)
+        setDefaultNameState(updatedDesigner.data.name)
+        setDefaultRoleState(updatedDesigner.data.role)
+        setDefaultEmailState(updatedDesigner.data.email)
+        setDefaultPhoneState(updatedDesigner.data.mobil)
     }
 
     return (

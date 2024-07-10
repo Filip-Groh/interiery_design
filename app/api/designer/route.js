@@ -1,5 +1,10 @@
-import { delDesigner, modDesigner, setDesigner } from '@/utils/database'
+import { delDesigner, getDesigner, modDesigner, setDesigner } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET(request) {
+    const designer = await getDesigner()
+    return NextResponse.json({data: designer}, { status: 200 })
+}
 
 export async function POST(request) {
     const formData = await request.formData()

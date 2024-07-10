@@ -206,6 +206,9 @@ export const setDesigner = async (name, role, email, mobil, image) => {
                         id: image
                     }
                 }
+            },
+            include: {
+                image: true                
             }
         })
         return query
@@ -985,6 +988,87 @@ export const delSettings = async (key) => {
         const query = prisma.settings.delete({
             where: {
                 key: key
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const setQuery = async (name, email, queryInput) => {
+    try {
+        const query = prisma.query.create({
+            data: {
+                name: name,
+                email: email,
+                query: queryInput
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getQueries = async () => {
+    try {
+        const query = prisma.query.findMany({
+            orderBy: {
+                createDate: "desc"
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const delQuery = async (id) => {
+    try {
+        const query = prisma.query.delete({
+            where: {
+                id: id
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const setQandA = async (question, answer) => {
+    try {
+        const query = prisma.qandA.create({
+            data: {
+                question: question,
+                answer: answer
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getQandA = async () => {
+    try {
+        const query = prisma.qandA.findMany({
+            orderBy: {
+                createDate: "desc"
+            }
+        })
+        return query
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const delQandA = async (id) => {
+    try {
+        const query = prisma.qandA.delete({
+            where: {
+                id: id
             }
         })
         return query
