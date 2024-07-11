@@ -27,12 +27,12 @@ const GalleryPage = ({defaultOutput, defaultTags}) => {
     }, [tags])
 
     return (
-        <>
+        <main>
             <NavigationPath path={["Home", "Galerie"]} links={["/", "/galerie"]} />
-            <div className='flex flex-row justify-center'>
+            <section className='flex flex-row justify-center'>
                 <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags} />
-            </div>
-            <div className="flex flex-wrap justify-center w-full gap-10 my-10">
+            </section>
+            <section className="flex flex-wrap justify-center w-full gap-10 my-10">
                 {output.map((item) => {
                     if (item.type == "Image") {
                         let image = item.data
@@ -42,8 +42,8 @@ const GalleryPage = ({defaultOutput, defaultTags}) => {
                         return <GalleryPreview key={preview.id} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[0].description} title={preview.title} tags={preview.tags} />
                     }
                 })}
-            </div>
-        </>
+            </section>
+        </main>
     )
 }
 

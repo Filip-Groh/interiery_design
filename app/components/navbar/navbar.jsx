@@ -7,30 +7,30 @@ import User from './user/user'
 
 const Navbar = async () => {
     return (
-        <div className="navbar bg-base-100">
+        <header className="navbar bg-base-100">
             <div className="navbar-start">
-                <div className="dropdown">
+                <nav className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
+                    <menu tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
                         <ItemGroup />
-                    </ul>
-                </div>
+                    </menu>
+                </nav>
                 <Link className="btn btn-ghost p-0 normal-case text-xl flex justify-center content-center overflow-hidden" href="/">
                     <Image className="rounded-xl" width={150} height={150} src="/static/logo.jpg" alt="Company logo" />
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 z-50">
+            <nav className="navbar-center hidden lg:flex">
+                <menu className="menu menu-horizontal px-1 z-50">
                     <ItemGroup />
-                </ul>
-            </div>
+                </menu>
+            </nav>
             <div className="navbar-end gap-2">
                 <User />
                 <DarkmodeSwap />
             </div>
-        </div>
+        </header>
     )
 }
 
