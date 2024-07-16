@@ -23,7 +23,7 @@ const ContactForm = () => {
             <label htmlFor="email">Kde vás máme kontaktovat: </label>
             <input type="email" id="email" name="email" placeholder="E-mail" className="file-input file-input-bordered w-full mb-2" required />
             <label htmlFor="text">Na co se chcete zeptat: </label>
-            <textarea id="text" name="text" className="file-input file-input-bordered w-full" placeholder="Dotaz" required></textarea>
+            <textarea id="text" name="text" className="file-input file-input-bordered w-full h-40" placeholder="Dotaz" required></textarea>
             <input type="submit" value="Odeslat dotaz" className="btn max-sm:btn-wide mt-2"/>
         </form>
     )

@@ -35,11 +35,13 @@ export async function generateMetadata() {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="cs" suppressHydrationWarning>
-            <body className={`${inter.className} bg-base-300`}>
+        <html lang="cs" suppressHydrationWarning className='h-full'>
+            <body className={`${inter.className} bg-base-300 min-h-full flex flex-col`}>
                 <Providers>
                     <Navbar />
-                    {children}
+                    <div className='flex-grow'>
+                        {children}
+                    </div>
                     <Footer />
                 </Providers>
             </body>

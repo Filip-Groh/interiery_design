@@ -3,6 +3,7 @@ import AdminLogin from '@/app/components/settings/basic/adminLogin'
 import BasicSettings from '@/app/components/settings/basic/basicSettings'
 import NewDuration from '@/app/components/settings/basic/newDuration'
 import PageSize from '@/app/components/settings/basic/pageSize'
+import SocialNetwork from '@/app/components/settings/basic/socialNetwork'
 import SettingsMenu from '@/app/components/settings/menu'
 import { getSettings } from '@/utils/database'
 import React from 'react'
@@ -24,6 +25,9 @@ const Settings = async () => {
     const newDuration = await getSettings("newDuration")
     const defaultNewDuration = JSON.parse(newDuration?.value || "0")
 
+    const newSocialNetwork = await getSettings("socialNetwork")
+    const defaultSocialNetwork = JSON.parse(newSocialNetwork?.value || '""')
+
     return (
         <SettingsMenu activeTabName="Basic">
             <div className="flex flex-row w-full">
@@ -33,6 +37,9 @@ const Settings = async () => {
                     </BasicSettings>
                     <BasicSettings title="Články na stránku">
                         <PageSize defaultPageSize={defaultPageSize} />
+                    </BasicSettings>
+                    <BasicSettings title="Sociální sítě">
+                        <SocialNetwork defaultSocialNetwork={defaultSocialNetwork} />
                     </BasicSettings>
                 </div>
                 <div className='basis-1/2'>

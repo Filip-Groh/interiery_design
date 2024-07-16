@@ -207,11 +207,9 @@ export default async function Home() {
 // TODO:
 
 
-
 // Hydratation of designers in settings - 2 hod
 
 // Pager design + Limited pages - 2 hod
-// Sociální sítě - 20 min
 // Progress animations - 4 hod
 // Single db instance - 5 min
 // Anonym user logo - 10 min
@@ -232,3 +230,4 @@ export default async function Home() {
 // Bugs:
 // Create foto
 // Article + Realization too long text
+// Footer don't stick to bottom
