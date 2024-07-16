@@ -87,7 +87,7 @@ const Comment = ({session, id, name, email, image, text, likes, state, comments,
         <div className="flex flex-row w-[min(100%,40rem)] bg-base-200 rounded p-2 even:animate-fade-left odd:animate-fade-right">
             <div className="p-2 flex flex-col max-w-min relative">
                 <div className='absolute top-0 left-0 bg-base-200 rounded-full flex justify-center items-center'>
-                    {sameUser ? <DeleteButton handleDelete={handleDelete} width={20} height={20}/> : undefined}
+                    {sameUser ? <DeleteButton id={id} handleDelete={handleDelete} width={20} height={20}/> : undefined}
                 </div>
                 <span className="block w-16 h-16">
                     <Image src={image || "/svg/user.svg"} alt='User avatar image' width={1000} height={1000} className="rounded-full" />

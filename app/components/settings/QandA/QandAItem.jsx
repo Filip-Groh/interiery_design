@@ -26,7 +26,7 @@ const QandAItem = ({id, question, answer, QandAs, setQandAs}) => {
                 <p className='basis-1/3 text-center'>{question}</p>
                 <p className='basis-1/3 text-center'>{answer}</p>
                 <div className='basis-1/3 text-right'>
-                    <DeleteButton handleDelete={handleDelete} />
+                    <DeleteButton handleDelete={handleDelete} id={id}/>
                 </div>
             </div>
         </div>

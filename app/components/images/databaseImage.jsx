@@ -28,7 +28,7 @@ const DatabaseImage = ({id, path, description, isDependent, images, setImages, t
                 <div className="absolute bottom-2 left-2 right-2 flex flex-row gap-2 flex-wrap justify-between">
                     <div className="flex flex-row bg-opacity-75 bg-base-300 rounded-lg text-neutral px-2 gap-2">                
                         <p className='font-bold py-1 leading-[100%] z-10'>{description}</p>
-                        <DeleteButton handleDelete={handleDelete} isDependent={isDependent}/>
+                        <DeleteButton handleDelete={handleDelete} isDependent={isDependent} id={id}/>
                     </div>
                     <div>
                         {tags.map((tag) => {

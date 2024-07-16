@@ -9,7 +9,7 @@ const KeywordList = ({keyword, index, keywords, setKeywords}) => {
     return (
         <li className='bg-base-100 rounded-lg m-2 py-1 px-4 flex justify-between gap-2'>
             {keyword}
-            <DeleteButton handleDelete={handleDelete} />
+            <DeleteButton handleDelete={handleDelete} id={index}/>
         </li>
     )
 }

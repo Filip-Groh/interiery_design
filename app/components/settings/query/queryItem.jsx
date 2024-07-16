@@ -39,7 +39,7 @@ const QueryItem = ({id, name, email, createDate, query, queries, setQueries}) =>
                     <p className='basis-1/5 text-center'>{email}</p>
                     <p className='basis-1/5 text-center'>{createDate.toLocaleString()}</p>
                     <div className='basis-1/5 text-right'>
-                        <DeleteButton handleDelete={handleDelete} />
+                        <DeleteButton handleDelete={handleDelete} id={id}/>
                     </div>
                 </div>
                 <p>{query}</p>
@@ -58,7 +58,7 @@ const QueryItem = ({id, name, email, createDate, query, queries, setQueries}) =>
                 <p className='basis-1/5 text-center'>{email}</p>
                 <p className='basis-1/5 text-center'>{createDate.toLocaleString()}</p>
                 <div className='basis-1/5 text-right'>
-                    <DeleteButton handleDelete={handleDelete} />
+                    <DeleteButton handleDelete={handleDelete} id={id}/>
                 </div>
             </div>
         </div>

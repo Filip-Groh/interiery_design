@@ -110,7 +110,7 @@ const Designer = ({id, name, role, email, phone, image, designers, setDesigners}
                     <div className="flex flex-row gap-2 my-2 w-full">
                         <input type="reset" value="Reset" onClick={handleReset} className={"btn flex-grow" + (valueChanged ? "" : " btn-disabled")} />
                         <input type="submit" value="Update" className={"btn flex-grow" + (valueChanged ? "" : " btn-disabled")} />
-                        <DeleteButton handleDelete={handleDelete} width={50} height={50} />
+                        <DeleteButton handleDelete={handleDelete} width={50} height={50} id={id}/>
                     </div>
                 </form>
             </div>

@@ -46,7 +46,7 @@ const DatabasePreview = ({id, title, beforePath, afterPath, beforeDescription, a
             </ImgComparisonSlider>
             <div className='absolute top-4 left-4 flex flex-row justify-between right-4 gap-2'>
                 <span className='bg-base-300 rounded-full w-6 h-6 shrink-0 flex flex-row justify-center'>
-                    <DeleteButton handleDelete={handleDelete} isDependent={isDependent} />
+                    <DeleteButton handleDelete={handleDelete} isDependent={isDependent} id={id}/>
                 </span>
                 <div>
                     {tags.map((tag) => {

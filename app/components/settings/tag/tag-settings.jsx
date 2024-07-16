@@ -25,7 +25,7 @@ const TagEditable = ({id, name, isDependent, tags, setTags}) => {
         <div className="h-8 my-2 flex flex-col justify-center">
             <Tag name={name}>
                 <div className='ml-1 flex flex-col justify-center'>
-                    <DeleteButton handleDelete={handleDelete} isDependent={isDependent} width={15} height={15}/>
+                    <DeleteButton id={id} handleDelete={handleDelete} isDependent={isDependent} width={15} height={15}/>
                 </div>
             </Tag>
         </div>

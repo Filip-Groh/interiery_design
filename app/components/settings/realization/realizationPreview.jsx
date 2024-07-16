@@ -30,7 +30,7 @@ const RealizationPreview = ({id, title, description, tags, previewImage, realiza
             <div className="card-body text-neutral">
                 <h2 className="card-title">
                     {title}
-                    <DeleteButton handleDelete={handleDelete} />
+                    <DeleteButton handleDelete={handleDelete} id={id}/>
                 </h2>
                 <p>{description}</p>
                 <div className="card-actions justify-end">

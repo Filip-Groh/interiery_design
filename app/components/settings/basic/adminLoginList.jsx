@@ -9,7 +9,7 @@ const AdminLoginList = ({login, index, admin, setAdmin}) => {
     return (
         <li className='bg-base-100 w-56 rounded-lg m-2 py-1 px-4 flex justify-between'>
             {login}
-            <DeleteButton handleDelete={handleDelete} isDependent={admin.length < 2}/>
+            <DeleteButton handleDelete={handleDelete} isDependent={admin.length < 2} id={index}/>
         </li>
     )
 }

@@ -211,12 +211,12 @@ export default async function Home() {
 // Hydratation of designers in settings - 2 hod
 
 // Pager design + Limited pages - 2 hod
-// Better login - 1 hod
-// Anonym comment - 5 hod
 // Sociální sítě - 20 min
 // Progress animations - 4 hod
+// Single db instance - 5 min
+// Anonym user logo - 10 min
 
-// Delete modal confirm - 30 min
+
 // Click throw web design - déle než 10 hod
 // Realization and article activity tracking - 4 hod
 
@@ -227,3 +227,8 @@ export default async function Home() {
 // TS / TSX - 4 hod
 // Deploy - 8 hod
 // Google Analytics - 4 hod
+
+
+// Bugs:
+// Create foto
+// Article + Realization too long text
