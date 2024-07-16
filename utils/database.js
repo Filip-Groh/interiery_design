@@ -3,8 +3,8 @@
 import { PrismaClient } from "@prisma/client"
 import { writeFile, rm } from "fs/promises"
 
-let prisma = new PrismaClient()
-
+const prisma = new PrismaClient()
+  
 export const setArticle = async (title, text, images, tags) => {
     try {
         images = images.map(image => {
