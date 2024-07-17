@@ -7,13 +7,23 @@ import CommentSection from '../comment/commentSection'
 const Article = async ({id, comments, images, tags, title, text, createDate}) => {
     const session = await auth()
     const state = comments.map((comment) => {
-        if (comment.likers.length > 0 && comment.likers.reduce((previousValue, currentValue, index) => {
-            return previousValue || currentValue.id == session?.user?.id
-        })) {
+        let userLiked = false
+        if (comment.likers.length > 0) {
+            comment.likers.forEach((value) => {
+                userLiked = userLiked || value.email == session?.user?.email
+            })
+        }
+        if (userLiked) {
             return 1
-        } else if (comment.dislikers.length > 0 && comment.dislikers.reduce((previousValue, currentValue, index) => {
-            return previousValue || currentValue.id == session?.user?.id
-        })) {
+        }
+    
+        let userDisliked = false
+        if (comment.dislikers.length > 0) {
+            comment.dislikers.forEach((value) => {
+                userDisliked = userDisliked || value.email == session?.user?.email
+            })
+        }
+        if (userDisliked) {
             return -1
         }
         return 0
@@ -55,7 +65,7 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                 </section>
 
                 <section>
-                    <h2 className='animate-fade-right'>Komentáře</h2>
+                    <h2 className='animate-fade-right text-neutral'>Komentáře</h2>
                     <CommentSection session={session} id={id} realizationOrArticle={"ARTICLE"} defaultComments={comments} state={state}/>
                 </section>
             </article>

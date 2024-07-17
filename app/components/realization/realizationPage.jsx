@@ -66,9 +66,13 @@ const RealizationPage = ({pageSize, defaultNumberOfPages, defaultRealizations, d
                 <section className='md:basis-3/5'>
                     <Pager numberOfPages={numberOfPages} currentPage={currentPage} setCurrentPage={setCurrentPage}>
                         <div className="flex flex-wrap justify-center w-full gap-10 my-10">
-                            {realizations.map((realization) => {
+                            {realizations.length > 0 ? realizations.map((realization) => {
                                 return <RealizationPreview key={realization.id} id={realization.id} title={realization.title} tags={realization.tags} path={realization.image[0]?.path} alt={realization.image[0]?.description} defaultNewDuration={defaultNewDuration} createDate={realization.createDate}/>
-                            })}
+                            }) : 
+                                <p className='text-neutral'>
+                                    Žádné položky odpovídající vašemu výběru.
+                                </p>
+                            }
                         </div>
                     </Pager>
                 </section>

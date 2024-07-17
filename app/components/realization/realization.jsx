@@ -62,7 +62,7 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                 </section>
 
                 <section>
-                    <h2 className='animate-fade-right'>Komentáře</h2>
+                    <h2 className='animate-fade-right text-neutral'>Komentáře</h2>
                     <CommentSection session={session} id={id} realizationOrArticle={"REALIZATION"} defaultComments={comments} state={state}/>
                 </section>
             </article>

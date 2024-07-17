@@ -66,9 +66,13 @@ const ArticlePage = ({pageSize, defaultNumberOfPages, defaultArticles, defaultTa
                 <section className='md:basis-3/5'>
                     <Pager numberOfPages={numberOfPages} currentPage={currentPage} setCurrentPage={setCurrentPage}>
                         <div className="flex flex-wrap justify-center w-full gap-10 my-10">
-                            {articles.map((article) => {
+                            {articles.length > 0 ? articles.map((article) => {
                                 return <ArticlePreview key={article.id} id={article.id} title={article.title} tags={article.tags} path={article.images[0]?.path} alt={article.images[0]?.description} defaultNewDuration={defaultNewDuration} createDate={article.createDate}/>
-                            })}
+                            }) : 
+                                <p className='text-neutral'>
+                                    Žádné položky odpovídající vašemu výběru.
+                                </p>
+                            }
                         </div>
                     </Pager>
                 </section>

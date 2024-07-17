@@ -24,7 +24,7 @@ const WriteComment = ({session, id, realizationOrArticle, comments, setComments}
 
     return (
         <div className="flex flex-col w-full bg-base-200 rounded-lg my-2 relative animate-fade-left">
-            <form onSubmit={submit} className={`flex md:flex-row flex-col items-center md:items-stretch w-full ${session ? "opacity-100": "opacity-0 invisible"}`} >
+            <form onSubmit={submit} className={`flex md:flex-row flex-col items-center md:items-stretch w-full ${session ? "opacity-100": "opacity-0 invisible h-32"}`} >
                 <div className="p-2 flex flex-col max-w-min">
                     <span className="w-full aspect-square rounded-full">
                         <Image src={session?.user?.image || "/svg/user.svg"} alt='User avatar image' width={1000} height={1000} className="rounded-full" />

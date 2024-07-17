@@ -209,9 +209,6 @@ export default async function Home() {
 
 
 
-
-// Hydratation of designers in settings - 2 hod
-
 // Pager design + Limited pages - 2 hod
 // Progress animations - 4 hod
 
@@ -223,6 +220,6 @@ export default async function Home() {
 // Better admin dialogs - déle než 10 hod
 // Full content editable - déle než 10 hod
 
-// TS / TSX - 4 hod
-// Deploy - 8 hod
 // Google Analytics - 4 hod
+
+// Bugs:

@@ -273,8 +273,8 @@ export const setImage = async (file, description, tags) => {
 
         const bytes = await file.arrayBuffer()
         const buffer = Buffer.from(bytes)
-        const pathOfFile = `./public/${file.name}`
-        const pathOfData = `/${file.name}`
+        const pathOfFile = `./public/images/${file.name}`
+        const pathOfData = `/images/${file.name}`
         await writeFile(pathOfFile, buffer)
 
         const query = prisma.image.create({

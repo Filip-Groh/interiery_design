@@ -33,15 +33,21 @@ const GalleryPage = ({defaultOutput, defaultTags}) => {
                 <Tagsearch tags={tags} setTags={setTags} defaultTags={defaultTags} />
             </section>
             <section className="flex flex-wrap justify-center w-full gap-10 my-10">
-                {output.map((item) => {
-                    if (item.type == "Image") {
-                        let image = item.data
-                        return <GalleryImage key={image.id} path={image.path} description={image.description} tags={image.tags}/>
-                    } else if (item.type == "Preview") {
-                        let preview = item.data
-                        return <GalleryPreview key={preview.id} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[0].description} title={preview.title} tags={preview.tags} />
-                    }
-                })}
+                {output.length > 0 ? 
+                    output.map((item) => {
+                        if (item.type == "Image") {
+                            let image = item.data
+                            return <GalleryImage key={image.id} path={image.path} description={image.description} tags={image.tags}/>
+                        } else if (item.type == "Preview") {
+                            let preview = item.data
+                            return <GalleryPreview key={preview.id} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[0].description} title={preview.title} tags={preview.tags} />
+                        }
+                }) : 
+                    <p className='text-neutral'>
+                        Žádné položky odpovídající vašemu výběru.
+                    </p>
+                }
+                
             </section>
         </main>
     )
