@@ -16,10 +16,10 @@ const Contact = async () => {
         <main>
             <NavigationPath path={["Home", "Kontakty"]} links={["/", "/kontakty"]} />
             <section className="flex flex-wrap justify-evenly gap-8 my-10">
+                <Location />
                 {peoples.map((people) => {
                     return <People key={people.id} name={people.name} role={people.role} email={people.email} phone={people.mobil} image={people.image.path}/>
                 })}
-                <Location />
                 <Company />
             </section>
         </main>

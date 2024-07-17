@@ -38,7 +38,7 @@ const DisplayImage = ({src, alt, width, height, classes="max-w-sm rounded-lg", i
 
     return (
         <>
-            <Image className={`${classes} shadow-2xl cursor-pointer ${isScaling? "hover:scale-[110%] sm:hover:scale-[150%] transition-transform" : ""}`} onClick={handleOpen} width={width} height={height} src={src} alt={alt} />
+            <Image className={`${classes} shadow-2xl ${!isMobile ? "cursor-pointer" : ""} ${isScaling ? "hover:scale-[110%] sm:hover:scale-[150%] transition-transform" : ""}`} onClick={handleOpen} width={width} height={height} src={src} alt={alt} />
             <dialog id={src} className="modal">
                 <div className="modal-box max-w-[90vw] max-h-[90vh] flex justify-center align-middle">
                     <Link href={src} className='focus:outline-none' target='_blank'>

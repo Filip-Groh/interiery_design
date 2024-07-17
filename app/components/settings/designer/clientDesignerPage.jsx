@@ -7,20 +7,7 @@ import DesignerDialog from './dialog'
 import Designer from './designer'
 
 const ClientDesignerPage = ({defaultDesigners, imagesPass, tagsPass}) => {
-    const [designers, setDesigners] = React.useState([])
-
-    React.useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('/api/designer', {
-                method: 'GET'
-            })
-            const fetchedDesigner = await response.json()
-            console.log(fetchedDesigner)
-            setDesigners(fetchedDesigner.data)
-        }
-        fetchData()
-    }, [])
-    
+    const [designers, setDesigners] = React.useState(defaultDesigners)
 
     return (
         <SettingsMenu activeTabName="Designer">

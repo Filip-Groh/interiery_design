@@ -217,7 +217,6 @@ export default async function Home() {
 
 
 
-// Click throw web design - déle než 10 hod
 // Realization and article activity tracking - 4 hod
 
 
@@ -227,10 +226,3 @@ export default async function Home() {
 // TS / TSX - 4 hod
 // Deploy - 8 hod
 // Google Analytics - 4 hod
-
-
-// Bugs:
-// Create foto
-// Article + Realization too long text
-// Footer don't stick to bottom
-// Chrome styles

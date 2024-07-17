@@ -222,6 +222,9 @@ export const getDesigner = async () => {
         const query = prisma.designer.findMany({
             include: {
                 image: true                
+            },
+            orderBy: {
+                createDate: "desc"
             }
         })
         return query
@@ -283,7 +286,8 @@ export const setImage = async (file, description, tags) => {
                 }
             },
             include: {
-                _count: true
+                _count: true,
+                tags: true
             }
         })
         return query

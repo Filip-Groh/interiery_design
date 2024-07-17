@@ -32,7 +32,7 @@ const RealizationPreview = ({id, title, description, tags, previewImage, realiza
                     {title}
                     <DeleteButton handleDelete={handleDelete} id={id}/>
                 </h2>
-                <p>{description}</p>
+                <p className='truncate'>{description}</p>
                 <div className="card-actions justify-end">
                     {tags?.map((tag) => {
                         return <Tag key={tag.id} name={tag.name} />

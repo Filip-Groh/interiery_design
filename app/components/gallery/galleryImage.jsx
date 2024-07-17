@@ -4,9 +4,9 @@ import Tag from '../tag'
 
 const GalleryImage = ({path, description, tags}) => {
     return (
-        <div className="card w-80 bg-base-100 shadow-xl animate-fade-up">
+        <div className="card w-[min(20rem,100%)] bg-base-100 shadow-xl animate-fade-up">
             <figure>
-                <DisplayImage width={500} height={295} src={path} alt={description} />
+                <DisplayImage width={500} height={295} src={path} alt={description} classes='rounded-lg'/>
             </figure>
             <div className="card-body text-neutral">
                 <h2 className="card-title">
