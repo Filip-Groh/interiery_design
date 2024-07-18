@@ -8,6 +8,25 @@ const Address = ({defaultAddress, defaultCity, defaultPsc, defaultContact}) => {
     const [psc, setPsc] = React.useState(defaultPsc)
     const [contact, setContact] = React.useState(defaultContact)
 
+    React.useEffect(() => {
+        async function getAllAddress() {
+            const formData = new FormData()
+            formData.set("key", "address")
+            const response = await fetch('/api/settings', {
+                method: 'PUT',
+                body: formData
+            })
+
+            let address = await response.json()
+            address = JSON.parse(address.data?.value || '""')
+            setAddress(address.address)
+            setCity(address.city)
+            setPsc(address.psc)
+            setContact(address.contact)
+        }
+        getAllAddress()
+    }, [])
+
     const handleSubmit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)

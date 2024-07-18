@@ -1,5 +1,10 @@
-import { getRealizationBySet, delRealization, setRealization, getNumberOfRealizations, getRealizationBySetWithTags, getNumberOfRealizationsWithTags } from '@/utils/database'
+import { getRealizationBySet, delRealization, setRealization, getNumberOfRealizations, getRealizationBySetWithTags, getNumberOfRealizationsWithTags, getRealization } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    const realizations = await getRealization()
+    return NextResponse.json({data: realizations}, { status: 200 })
+}
 
 export async function PUT(request) {
     const formData = await request.formData()

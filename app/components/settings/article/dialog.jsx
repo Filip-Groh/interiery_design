@@ -8,6 +8,19 @@ import JoinTags from '../joinTags'
 const ArticleDialog = ({dialogId, imagesPass, tagsPass, articles, setArticles}) => {
     const [images, setImages] = useState("")
     const [tags, setTags] = useState("")
+    const [allTags, setAllTags] = React.useState(tagsPass)
+
+    React.useEffect(() => {
+        async function getAllTags() {
+            const response = await fetch('/api/tag', {
+                method: 'GET'
+            })
+    
+            const tags = await response.json()
+            setAllTags(tags.data)
+        }
+        getAllTags()
+    }, [])
 
     const submit = async (event) => {
         event.preventDefault()
@@ -52,12 +65,12 @@ const ArticleDialog = ({dialogId, imagesPass, tagsPass, articles, setArticles}) 
                         <input type="text" id="title" name="title" placeholder="Nadpis" className="file-input file-input-bordered w-full" required />
                         <label htmlFor="images">Id fotek: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="images" name="images" placeholder="Id fotek" value={images} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" id="images" name="images" placeholder="Id fotek" value={images} onChange={() => {}} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinImages").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="tags">Id tagů: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} onChange={() => {}} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="text">Text: </label>
@@ -72,7 +85,7 @@ const ArticleDialog = ({dialogId, imagesPass, tagsPass, articles, setArticles}) 
                 </div>
             </dialog>
             <JoinImages dialogId="joinImages" update={setImages} images={imagesPass}/>
-            <JoinTags dialogId="joinTags" update={setTags} tags={tagsPass} />
+            <JoinTags dialogId="joinTags" update={setTags} tags={allTags} />
         </>
     )
 }

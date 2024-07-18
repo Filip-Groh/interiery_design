@@ -5,16 +5,37 @@ import AdminLoginList from './adminLoginList'
 
 const AdminLogin = ({defaultAdmin}) => {
     const [admins, setAdmins] = React.useState(defaultAdmin)
+    const [actualData, setActualData] = React.useState(false)
 
     React.useEffect(() => {
-        const formData = new FormData()
-        formData.set("key", "adminLogin")
-        formData.set("value", JSON.stringify(admins))
-        const response = fetch('/api/settings', {
-            method: 'POST',
-            body: formData,
-        })
-    }, [admins])
+        async function getAllAdmins() {
+            const formData = new FormData()
+            formData.set("key", "adminLogin")
+            const response = await fetch('/api/settings', {
+                method: 'PUT',
+                body: formData
+            })
+
+            const admins = await response.json()
+            const defaultAdmin = JSON.parse(admins.data?.value || "[]")
+            setAdmins(defaultAdmin)
+        }
+        getAllAdmins()
+        setActualData(true)
+    }, [])
+
+    React.useEffect(() => {
+        if (actualData) {
+            const formData = new FormData()
+            formData.set("key", "adminLogin")
+            formData.set("value", JSON.stringify(admins))
+            const response = fetch('/api/settings', {
+                method: 'POST',
+                body: formData,
+            })   
+        }
+
+    }, [admins, actualData])
 
     const handleSubmit = (event) => {
         event.preventDefault()

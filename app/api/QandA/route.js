@@ -1,5 +1,10 @@
-import { delQandA, setQandA } from '@/utils/database'
+import { delQandA, getQandA, setQandA } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    const qandas = await getQandA()
+    return NextResponse.json({data: qandas}, { status: 200 })
+}
 
 export async function POST(request) {
     const formData = await request.formData()

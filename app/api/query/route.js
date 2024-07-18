@@ -1,5 +1,10 @@
-import { delQuery, setQuery } from '@/utils/database'
+import { delQuery, getQueries, setQuery } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    const queries = await getQueries()
+    return NextResponse.json({data: queries}, { status: 200 })
+}
 
 export async function POST(request) {
     const formData = await request.formData()

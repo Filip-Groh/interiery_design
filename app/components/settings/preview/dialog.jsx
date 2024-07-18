@@ -9,6 +9,19 @@ const PreviewDialog = ({dialogId, images, previews, setPreviews, tagsPass}) => {
     const [image1Id, setimage1Id] = useState("")
     const [image2Id, setimage2Id] = useState("")
     const [tags, setTags] = useState("")
+    const [allTags, setAllTags] = React.useState(tagsPass)
+
+    React.useEffect(() => {
+        async function getAllTags() {
+            const response = await fetch('/api/tag', {
+                method: 'GET'
+            })
+    
+            const tags = await response.json()
+            setAllTags(tags.data)
+        }
+        getAllTags()
+    }, [])
 
     const submit = async (event) => {
         event.preventDefault()
@@ -46,17 +59,17 @@ const PreviewDialog = ({dialogId, images, previews, setPreviews, tagsPass}) => {
                     <form onSubmit={submit}>
                         <label htmlFor="image1">Id fotky před: </label>
                         <div className="flex flex-row">
-                            <input type="text" accept="image/*" id="image1" name="image1" placeholder="Id fotky před" value={image1Id} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" accept="image/*" id="image1" name="image1" placeholder="Id fotky před" value={image1Id} onChange={() => {}} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinImage1").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="image2">Id fotky po: </label>
                         <div className="flex flex-row">
-                            <input type="text" accept="image/*" id="image2" name="image2" placeholder="Id fotky po" value={image2Id} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" accept="image/*" id="image2" name="image2" placeholder="Id fotky po" value={image2Id} onChange={() => {}} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinImage2").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="tags">Id tagů: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} onChange={() => {}} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="title">Nadpis: </label>
@@ -74,7 +87,7 @@ const PreviewDialog = ({dialogId, images, previews, setPreviews, tagsPass}) => {
             </dialog>
             <JoinImage dialogId="joinImage1" update={setimage1Id} images={images}/>
             <JoinImage dialogId="joinImage2" update={setimage2Id} images={images}/>
-            <JoinTags dialogId="joinTags" update={setTags} tags={tagsPass}/>
+            <JoinTags dialogId="joinTags" update={setTags} tags={allTags}/>
         </>
     )
 }

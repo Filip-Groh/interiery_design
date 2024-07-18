@@ -42,7 +42,7 @@ const QueryItem = ({id, name, email, createDate, query, queries, setQueries}) =>
                         <DeleteButton handleDelete={handleDelete} id={id}/>
                     </div>
                 </div>
-                <p>{query}</p>
+                <p className='whitespace-pre-line'>{query}</p>
             </div>
         )
     }

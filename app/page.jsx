@@ -167,7 +167,7 @@ export default async function Home() {
                             </svg>
                             <h4 className='sm:text-4xl text-2xl sm:m-4'><strong>Email</strong></h4>
                             <p className='sm:text-2xl mb-2'>Neváhejte nám napsat</p>
-                            <p className='text-sm'>{peoples[0].email}</p>
+                            <p className='text-sm'>{peoples[0]?.email}</p>
                         </div>
                         <div className='basis-1/3 flex flex-col items-center animate-fade-up'>
                             <svg version="1.1" className='fill-current' id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="min(20vw,300px)" height="min(20vw,300px)" viewBox="0 0 122.879 122.785" enableBackground="new 0 0 122.879 122.785" xmlSpace="preserve">
@@ -177,7 +177,7 @@ export default async function Home() {
                             </svg>
                             <h4 className='sm:text-4xl text-2xl sm:m-4'><strong>Mobil</strong></h4>
                             <p className='sm:text-2xl mb-2'>Neváhejte nám zavolat</p>
-                            <p className='text-sm'>(+420) {peoples[0].mobil}</p>
+                            <p className='text-sm'>(+420) {peoples[0]?.mobil}</p>
                         </div>
                         <div className='basis-1/3 flex flex-col items-center animate-fade-left'>
                             <svg id="Layer_1" dataname="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104.44 122.88" className='fill-neutral' width="min(20vw,300px)" height="min(20vw,300px)">
@@ -214,9 +214,6 @@ export default async function Home() {
 
 
 // Realization and article activity tracking - 4 hod
-// Better article and realization pages
-
-// Disable automatic page cache
 
 // Google Analytics - 4 hod
 

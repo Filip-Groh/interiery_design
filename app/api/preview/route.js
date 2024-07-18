@@ -1,5 +1,10 @@
-import { setPreview, delPreview } from '@/utils/database'
+import { setPreview, delPreview, getPreview } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    const previews = await getPreview()
+    return NextResponse.json({data: previews}, { status: 200 })
+}
 
 export async function POST(request) {
     const formData = await request.formData()

@@ -3,7 +3,25 @@
 import React from 'react'
 
 const Description = ({defaultDescription}) => {
-    const [chars, setChars] = React.useState(defaultDescription.length)
+    const [description, setDescription] = React.useState(defaultDescription)
+    const [chars, setChars] = React.useState(description.length)
+
+    React.useEffect(() => {
+        async function getAllDescription() {
+            const formData = new FormData()
+            formData.set("key", "description")
+            const response = await fetch('/api/settings', {
+                method: 'PUT',
+                body: formData
+            })
+
+            const description = await response.json()
+            const defaultDescription = JSON.parse(description.data?.value || '""')
+            setDescription(defaultDescription)
+            setChars(defaultDescription.length)
+        }
+        getAllDescription()
+    }, [])
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -18,11 +36,12 @@ const Description = ({defaultDescription}) => {
 
     const handleChange = (event) => {
         setChars(event.target.value.length)
+        setDescription(event.target.value)
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <textarea id="description" name="description" className='w-full block h-40' onChange={handleChange}>{defaultDescription}</textarea>
+            <textarea id="description" name="description" className='w-full block h-40' onChange={handleChange} value={description}></textarea>
             <div className="flex flex-row justify-evenly">
                 <p className='py-3'>{chars} / 160 doporučených znaků</p>
                 <input type="submit" value="Submit" className="btn"/>

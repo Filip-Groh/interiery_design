@@ -5,6 +5,22 @@ import React from 'react'
 const PageSize = ({defaultPageSize}) => {
     const [pageSize, setPageSize] = React.useState(defaultPageSize)
 
+    React.useEffect(() => {
+        async function getAllPageSize() {
+            const formData = new FormData()
+            formData.set("key", "pageSize")
+            const response = await fetch('/api/settings', {
+                method: 'PUT',
+                body: formData
+            })
+
+            const pageSize = await response.json()
+            const defaultPageSize = JSON.parse(pageSize.data?.value || "0")
+            setPageSize(defaultPageSize)
+        }
+        getAllPageSize()
+    }, [])
+
     const handleSubmit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)

@@ -5,16 +5,36 @@ import KeywordList from './keywordList'
 
 const Keyword = ({defaultKeywords}) => {
     const [keywords, setKeywords] = React.useState(defaultKeywords)
+    const [actualData, setActualData] = React.useState(false)
 
     React.useEffect(() => {
-        const formData = new FormData()
-        formData.set("key", "keywords")
-        formData.set("value", JSON.stringify(keywords))
-        const response = fetch('/api/settings', {
-            method: 'POST',
-            body: formData,
-        })
-    }, [keywords])
+        async function getAllKeywords() {
+            const formData = new FormData()
+            formData.set("key", "keywords")
+            const response = await fetch('/api/settings', {
+                method: 'PUT',
+                body: formData
+            })
+
+            const keywords = await response.json()
+            const defaultKeywords = JSON.parse(keywords.data?.value || "[]")
+            setKeywords(defaultKeywords)
+        }
+        getAllKeywords()
+        setActualData(true)
+    }, [])
+
+    React.useEffect(() => {
+        if (actualData) {
+            const formData = new FormData()
+            formData.set("key", "keywords")
+            formData.set("value", JSON.stringify(keywords))
+            const response = fetch('/api/settings', {
+                method: 'POST',
+                body: formData,
+            })
+        }
+    }, [keywords, actualData])
 
     const handleSubmit = (event) => {
         event.preventDefault()

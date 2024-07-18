@@ -26,16 +26,13 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
     return (
         <main className="flex flex-row justify-center">
             <article className="w-3/4">
-                <section className='text-neutral'>
-                    <div className="flex flex-row justify-between">
-                        <h1 className='animate-fade-right'>{title}</h1>
-                        <p className='animate-fade-left'>{createDate.toLocaleString()}</p>
-                    </div>
-
+                <section className='text-neutral flex flex-col items-center'>
+                    <p className='text-sm animate-fade-down'>{createDate.toLocaleString()}</p>
                     <UserImage path={images[0]?.path} description={images[0]?.description} isAnimated={true} tags={images[0]?.tags}/>
+                    <h1 className='sm:text-4xl text-2xl font-bold animate-fade-up'>{title}</h1>
                 </section>
 
-                <section className="flex flex-row gap-2">
+                <section className="flex flex-row flex-wrap gap-2">
                     {tags.map((tag) => {
                         return <Tag key={tag.id} name={tag.name} isAnimated={true}/>
                     })}
@@ -62,7 +59,7 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                 </section>
 
                 <section>
-                    <h2 className='animate-fade-right text-neutral'>Komentáře</h2>
+                    <h2 className='animate-fade-right text-neutral sm:text-2xl text-xl font-semibold'>Komentáře</h2>
                     <CommentSection session={session} id={id} realizationOrArticle={"REALIZATION"} defaultComments={comments} state={state}/>
                 </section>
             </article>

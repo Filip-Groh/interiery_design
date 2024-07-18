@@ -1,5 +1,10 @@
-import { setArticle, delArticle, getArticleBySet, getNumberOfArticles, getNumberOfArticlesWithTags, getArticleBySetWithTags } from '@/utils/database'
+import { setArticle, delArticle, getArticleBySet, getNumberOfArticles, getNumberOfArticlesWithTags, getArticleBySetWithTags, getArticle } from '@/utils/database'
 import { NextResponse } from 'next/server'
+
+export async function GET() {
+    const articles = await getArticle()
+    return NextResponse.json({data: articles}, { status: 200 })
+}
 
 export async function PUT(request) {
     const formData = await request.formData()

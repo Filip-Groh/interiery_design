@@ -7,6 +7,18 @@ import QandAItem from './QandAItem'
 const ClientQandAPage = ({defaultQandAs}) => {
     const [QandAs, setQandAs] = React.useState(defaultQandAs)
 
+    React.useEffect(() => {
+        async function getAllQandAs() {
+            const response = await fetch('/api/QandA', {
+                method: 'GET'
+            })
+    
+            const qandas = await response.json()
+            setQandAs(qandas.data)
+        }
+        getAllQandAs()
+    }, [])
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)

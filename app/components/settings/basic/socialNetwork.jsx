@@ -10,6 +10,27 @@ const SocialNetwork = ({defaultSocialNetwork}) => {
     const [tiktok, setTiktok] = React.useState(defaultSocialNetwork.tiktok)
     const [pinterest, setPinterest] = React.useState(defaultSocialNetwork.pinterest)
 
+    React.useEffect(() => {
+        async function getAllSocialNetwork() {
+            const formData = new FormData()
+            formData.set("key", "socialNetwork")
+            const response = await fetch('/api/settings', {
+                method: 'PUT',
+                body: formData
+            })
+
+            const newSocialNetwork = await response.json()
+            const defaultSocialNetwork = JSON.parse(newSocialNetwork?.value || '""')
+            setTwitter(defaultSocialNetwork.twitter)
+            setYoutube(defaultSocialNetwork.youtube)
+            setFacebook(defaultSocialNetwork.facebook)
+            setInstagram(defaultSocialNetwork.instagram)
+            setTiktok(defaultSocialNetwork.tiktok)
+            setPinterest(defaultSocialNetwork.pinterest) 
+        }
+        getAllSocialNetwork()
+    }, [])
+
     const handleSubmit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -22,7 +43,6 @@ const SocialNetwork = ({defaultSocialNetwork}) => {
             tiktok: formData.get("tiktok"),
             pinterest: formData.get("pinterest")
         }))
-        console.log(formData)
         const response = fetch('/api/settings', {
             method: 'POST',
             body: formData,

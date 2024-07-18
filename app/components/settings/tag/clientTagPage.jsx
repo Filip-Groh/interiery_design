@@ -9,6 +9,18 @@ import TagEditable from '@/app/components/settings/tag/tag-settings'
 const ClientTagPage = ({defaultTags}) => {
     const [tags, setTags] = React.useState(defaultTags)
 
+    React.useEffect(() => {
+        async function getAllTags() {
+            const response = await fetch('/api/tag', {
+                method: 'GET'
+            })
+    
+            const tags = await response.json()
+            setTags(tags.data)
+        }
+        getAllTags()
+    }, [])
+
     return (
         <SettingsMenu activeTabName="Tag">
             <div className="flex flex-row flex-wrap">

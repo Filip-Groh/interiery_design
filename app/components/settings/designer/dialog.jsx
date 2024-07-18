@@ -1,16 +1,11 @@
 "use client"
 
 import React from 'react'
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import JoinImage from '../joinImage'
 
 const DesignerDialog = ({dialogId, imagesPass, designers, setDesigners}) => {
     const [image, setImage] = useState("")
-
-    useEffect(() => {
-        console.log(image)
-    }, [image])
-    
 
     const submit = async (event) => {
         event.preventDefault()
@@ -42,7 +37,7 @@ const DesignerDialog = ({dialogId, imagesPass, designers, setDesigners}) => {
                     <form onSubmit={submit} className="flex flex-col gap-1">
                         <label htmlFor="image">Id fotky: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="image" name="image" placeholder="Id fotky" value={image} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" id="image" name="image" placeholder="Id fotky" value={image} onChange={() => {}} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinImage").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="name">Jméno: </label>

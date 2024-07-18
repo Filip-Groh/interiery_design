@@ -7,6 +7,18 @@ import QueryItem from '@/app/components/settings/query/queryItem'
 const ClientQueryPage = ({defaultQueries}) => {
     const [queries, setQueries] = React.useState(defaultQueries)
 
+    React.useEffect(() => {
+        async function getAllQueries() {
+            const response = await fetch('/api/query', {
+                method: 'GET'
+            })
+    
+            const queries = await response.json()
+            setQueries(queries.data)
+        }
+        getAllQueries()
+    }, [])
+
     return (
         <SettingsMenu activeTabName="Query">
             <div className='w-full'>

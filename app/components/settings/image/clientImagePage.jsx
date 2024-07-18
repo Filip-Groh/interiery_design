@@ -9,6 +9,18 @@ import SettingsMenu from '@/app/components/settings/menu'
 const ClientImagePage = ({defaultImages, tagsPass}) => {
     const [images, setImages] = React.useState(defaultImages)
 
+    React.useEffect(() => {
+        async function getAllImages() {
+            const response = await fetch('/api/image', {
+                method: 'GET'
+            })
+    
+            const images = await response.json()
+            setImages(images.data)
+        }
+        getAllImages()
+    }, [])
+
     return (
         <SettingsMenu activeTabName="Image">
             <div className="flex flex-col">
