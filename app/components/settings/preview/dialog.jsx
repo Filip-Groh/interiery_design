@@ -44,14 +44,14 @@ const PreviewDialog = ({dialogId, images, previews, setPreviews, tagsPass}) => {
                 <div className="modal-box text-neutral">
                     <h3 className="font-bold text-lg mb-2">Vytváření porovnání</h3>
                     <form onSubmit={submit}>
-                        <label htmlFor="image1">Id fotky 1: </label>
+                        <label htmlFor="image1">Id fotky před: </label>
                         <div className="flex flex-row">
-                            <input type="text" accept="image/*" id="image1" name="image1" placeholder="Id fotky 1" value={image1Id} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" accept="image/*" id="image1" name="image1" placeholder="Id fotky před" value={image1Id} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinImage1").showModal()}>Připojit</button>
                         </div>
-                        <label htmlFor="image2">Id fotky 2: </label>
+                        <label htmlFor="image2">Id fotky po: </label>
                         <div className="flex flex-row">
-                            <input type="text" accept="image/*" id="image2" name="image2" placeholder="Id fotky 2" value={image2Id} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <input type="text" accept="image/*" id="image2" name="image2" placeholder="Id fotky po" value={image2Id} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinImage2").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="tags">Id tagů: </label>

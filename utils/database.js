@@ -384,6 +384,7 @@ export const setPreview = async (title, image1Id, image2Id, tags) => {
             },
             include: {
                 images: true,
+                tags: true,
                 _count: true
             }
         })

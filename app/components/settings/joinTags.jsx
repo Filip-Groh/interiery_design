@@ -21,7 +21,7 @@ const JoinTags = ({dialogId, update, tags}) => {
                 <h3 className="font-bold text-lg mb-2 text-neutral">Vybírání tagů</h3>
                 <form onSubmit={submit} className="flex flex-col">
                     <input type="submit" value="Připojit" className="btn" />
-                    <div className="flex flex-row w-full">
+                    <div className="flex flex-row flex-wrap w-full">
                         {tags.map((tag) => {
                             return (<SwitchableTag key={tag.id} tag={tag}/>)
                         })}

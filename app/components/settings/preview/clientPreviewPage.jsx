@@ -18,7 +18,7 @@ const ClientPreviewPage = ({defaultPreviews, images, tagsPass}) => {
                     {previews.map((preview, index) => {
                         if (index % 2 == 0) {
                             let isDependent = preview._count.realization !== 0
-                            return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} tags={tagsPass} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isDependent={isDependent} previews={previews} setPreviews={setPreviews}/>    
+                            return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} tags={preview.tags} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isDependent={isDependent} previews={previews} setPreviews={setPreviews}/>    
                         }
                     })}
                 </div>
@@ -26,7 +26,7 @@ const ClientPreviewPage = ({defaultPreviews, images, tagsPass}) => {
                     {previews.map((preview, index) => {
                         if (index % 2 == 1) {
                             let isDependent = preview._count.realization !== 0
-                            return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} tags={tagsPass} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isDependent={isDependent} previews={previews} setPreviews={setPreviews}/>
+                            return <DatabasePreview key={preview.id} id={preview.id} title={preview.title} tags={preview.tags} beforePath={preview.images[0].path} beforeDescription={preview.images[0].description} afterPath={preview.images[1].path} afterDescription={preview.images[1].description} isDependent={isDependent} previews={previews} setPreviews={setPreviews}/>
                         }
                     })}
                 </div>

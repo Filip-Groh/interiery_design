@@ -9,7 +9,7 @@ const JoinImage = ({dialogId, update, images}) => {
         <dialog id={dialogId} className="modal">
             <div className="modal-box">
                 <h3 className="font-bold text-lg mb-2 text-neutral">Vybírání fotky</h3>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                     <div className="flex flex-row w-full">
                         <div className="flex flex-col basis-1/2">
                             {firstHalfImages.map((image) => {

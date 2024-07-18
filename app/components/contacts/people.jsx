@@ -14,7 +14,7 @@ const People = ({name, role, email, phone, image}) => {
                         </div>
                     </div>
                 </figure>
-                <div className="card-body text-neutral">
+                <div className="card-body text-neutral overflow-auto">
                     <h2 className="card-title">{name}</h2>
                     <h3>{role}</h3>
                     <p>e-mail:  {email}<br />mobil: (+420) {phone}

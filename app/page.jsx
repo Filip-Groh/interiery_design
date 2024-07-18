@@ -216,7 +216,7 @@ export default async function Home() {
 // Realization and article activity tracking - 4 hod
 // Better article and realization pages
 
-
+// Disable automatic page cache
 
 // Google Analytics - 4 hod
 
