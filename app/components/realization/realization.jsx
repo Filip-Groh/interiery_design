@@ -42,7 +42,7 @@ const Realization = async ({id, comments, images, previews, tags, title, task, c
                 </section>
 
                 <section>
-                    <p className="m-4 text-neutral animate-fade-up">
+                    <p className="m-4 text-neutral animate-fade-up whitespace-pre-line">
                         {task}
                     </p>
                 </section>

@@ -7,9 +7,9 @@ import JoinPreviews from '../joinPreviews'
 import JoinTags from '../joinTags'
 
 const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass, realizations, setRealizations}) => {
-    const [images, setImages] = useState()
-    const [previews, setPreviews] = useState()
-    const [tags, setTags] = useState()
+    const [images, setImages] = useState("")
+    const [previews, setPreviews] = useState("")
+    const [tags, setTags] = useState("")
 
     const submit = async (event) => {
         event.preventDefault()
@@ -58,24 +58,22 @@ const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass, realizat
                         <input type="text" id="title" name="title" placeholder="Nadpis" className="file-input file-input-bordered w-full" required />
                         <label htmlFor="images">Id fotek: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="images" name="images" placeholder="Id fotek" value={images} className="file-input file-input-bordered w-full" onChange={(e) => setImages(e.target.value)} required />
+                            <input type="text" id="images" name="images" placeholder="Id fotek" value={images} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinImages").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="previews">Id porovnání: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="previews" name="previews" placeholder="Id porovnání" value={previews} className="file-input file-input-bordered w-full" onChange={(e) => setPreviews(e.target.value)} required />
+                            <input type="text" id="previews" name="previews" placeholder="Id porovnání" value={previews} className="file-input file-input-bordered w-full file-input-disabled" />
                             <button className='btn' onClick={()=>document.getElementById("joinPreviews").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="tags">Id tagů: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full" onChange={(e) => setTags(e.target.value)} required />
+                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Připojit</button>
                         </div>
-                        <label htmlFor="task">Popis: </label>
-                        <div className="flex flex-row">
-                            <input type="text" id="task" name="task" placeholder="Popis" className="rounded w-full p-2" required />
-                            <input type="submit" value="Vytvořit" className="btn"/>
-                        </div>
+                        <label htmlFor="task">Text: </label>
+                        <textarea id="task" name="task" className="file-input file-input-bordered w-full h-32 p-2 overflow-y-auto" placeholder="Text" required></textarea>
+                        <input type="submit" value="Vytvořit" className="btn w-full mt-2"/>
                     </form>
                     <div className="modal-action">
                         <form method="dialog">
@@ -84,8 +82,8 @@ const RealizationDialog = ({dialogId, imagePass, previewPass, tagsPass, realizat
                     </div>
                 </div>
             </dialog>
-            <JoinImages dialogId="joinImages" update={setImages} images={imagePass} tagsPass={tagsPass}/>
-            <JoinPreviews dialogId="joinPreviews" update={setPreviews} previews={previewPass} tagsPass={tagsPass}/>
+            <JoinImages dialogId="joinImages" update={setImages} images={imagePass}/>
+            <JoinPreviews dialogId="joinPreviews" update={setPreviews} previews={previewPass}/>
             <JoinTags dialogId="joinTags" update={setTags} tags={tagsPass}/>
         </>
     )

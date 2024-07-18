@@ -44,10 +44,14 @@ export async function POST(request) {
         return image.trim()
     })
     let previews = formData.get('previews')
-    previews = previews.split(",")
-    previews = previews.map(preview => {
-        return preview.trim()
-    })
+    if (previews.length > 0) {
+        previews = previews.split(",")
+        previews = previews.map(preview => {
+            return preview.trim()
+        })
+    } else {
+        previews = []
+    }
     let tags = formData.get('tags')
     tags = tags.split(",")
     tags = tags.map(tag => {

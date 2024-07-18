@@ -51,7 +51,7 @@ const Article = async ({id, comments, images, tags, title, text, createDate}) =>
                 </section>
                 
                 <section>
-                    <p className="m-4 text-neutral animate-fade-up">
+                    <p className="m-4 text-neutral animate-fade-up whitespace-pre-line">
                         {text}
                     </p>
                 </section>

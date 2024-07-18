@@ -25,8 +25,8 @@ const ClientQandAPage = ({defaultQandAs}) => {
         <SettingsMenu activeTabName="QandA">
             <div className='w-full pt-2'>
                 <h1 className='text-neutral text-center text-xl mb-2'>Otázky a Odpovědi</h1>
-                <form onSubmit={handleSubmit}>
-                    <div className="flex flex-row gap-2 text-neutral">
+                <form onSubmit={handleSubmit} className='flex flex-row justify-center w-full'>
+                    <div className="flex flex-row gap-2 text-neutral w-11/12">
                         <input type="text" id="question" name="question" placeholder="Otázka" className="file-input file-input-bordered w-full" required />
                         <input type="text" id="answer" name="answer" placeholder="Odpověď" className="file-input file-input-bordered w-full" required />
                         <input type="submit" value="Přidat" className="btn"/>

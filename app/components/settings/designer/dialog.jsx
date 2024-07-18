@@ -1,11 +1,16 @@
 "use client"
 
 import React from 'react'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import JoinImage from '../joinImage'
 
-const DesignerDialog = ({dialogId, imagesPass, tagsPass, designers, setDesigners}) => {
-    const [image, setImage] = useState()
+const DesignerDialog = ({dialogId, imagesPass, designers, setDesigners}) => {
+    const [image, setImage] = useState("")
+
+    useEffect(() => {
+        console.log(image)
+    }, [image])
+    
 
     const submit = async (event) => {
         event.preventDefault()
@@ -36,10 +41,10 @@ const DesignerDialog = ({dialogId, imagesPass, tagsPass, designers, setDesigners
                     <h3 className="font-bold text-lg mb-2">Vytváření pracovníka</h3>
                     <form onSubmit={submit} className="flex flex-col gap-1">
                         <label htmlFor="image">Id fotky: </label>
-                            <div className="flex flex-row">
-                                <input type="text" id="image" name="image" placeholder="Id fotky" value={image} className="file-input file-input-bordered w-full" onChange={(e) => setImage(e.target.value)} required />
-                                <button className='btn' onClick={()=>document.getElementById("joinImage").showModal()}>Připojit</button>
-                            </div>
+                        <div className="flex flex-row">
+                            <input type="text" id="image" name="image" placeholder="Id fotky" value={image} className="file-input file-input-bordered w-full file-input-disabled" required />
+                            <button className='btn' onClick={()=>document.getElementById("joinImage").showModal()}>Připojit</button>
+                        </div>
                         <label htmlFor="name">Jméno: </label>
                         <input type="text" id="name" name="name" placeholder="Jméno" className="rounded w-full p-2" required />
                         <label htmlFor="role">Role: </label>
@@ -59,7 +64,7 @@ const DesignerDialog = ({dialogId, imagesPass, tagsPass, designers, setDesigners
                     </div>
                 </div>
             </dialog>
-            <JoinImage dialogId={"joinImage"} update={setImage} images={imagesPass} tagsPass={tagsPass}/>
+            <JoinImage dialogId={"joinImage"} update={setImage} images={imagesPass}/>
         </>
     )
 }

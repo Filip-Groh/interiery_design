@@ -1,7 +1,7 @@
 import React from 'react'
 import UserImage from '../images/userImage'
 
-const JoinImages = ({dialogId, update, images, tagsPass}) => {
+const JoinImages = ({dialogId, update, images}) => {
     const submit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target)
@@ -27,10 +27,10 @@ const JoinImages = ({dialogId, update, images, tagsPass}) => {
                                         <label key={image.id} className="swap swap-flip">
                                             <input type="checkbox" id={image.id} name={image.id} className='image-reset'/>
                                             <div className="swap-on text-primary">
-                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={tagsPass} isHighlighted={true}/>
+                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={image.tags} isHighlighted={true}/>
                                             </div>
                                             <div className="swap-off">
-                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={tagsPass}/>
+                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={image.tags}/>
                                             </div>
                                         </label>
                                     )
@@ -44,10 +44,10 @@ const JoinImages = ({dialogId, update, images, tagsPass}) => {
                                         <label key={image.id} className="swap swap-flip">
                                             <input type="checkbox" id={image.id} name={image.id} className='image-reset'/>
                                             <div className="swap-on text-primary">
-                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={tagsPass} isHighlighted={true}/>
+                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={image.tags} isHighlighted={true}/>
                                             </div>
                                             <div className="swap-off">
-                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={tagsPass}/>
+                                                <UserImage path={image.path} description={image.description} isOpenable={false} tags={image.tags}/>
                                             </div>
                                         </label>
                                     )

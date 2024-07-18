@@ -4,7 +4,7 @@ import React from 'react'
 import JoinTags from '../joinTags'
 
 const ImageDialog = ({dialogId, images, setImages, tagsPass}) => {
-    const [tags, setTags] = React.useState()
+    const [tags, setTags] = React.useState("")
 
     const submit = async (event) => {
         event.preventDefault()
@@ -41,7 +41,7 @@ const ImageDialog = ({dialogId, images, setImages, tagsPass}) => {
                         <input type="file" accept="image/*" id="file" name="file" className="file-input file-input-bordered w-full" required />
                         <label htmlFor="tags">Id tagů: </label>
                         <div className="flex flex-row">
-                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full" onChange={(e) => setTags(e.target.value)} required />
+                            <input type="text" id="tags" name="tags" placeholder="Id tagů" value={tags} className="file-input file-input-bordered w-full file-input-disabled" required />
                             <button className='btn' onClick={()=>document.getElementById("joinTags").showModal()}>Připojit</button>
                         </div>
                         <label htmlFor="description">Popis: </label>
