@@ -208,13 +208,13 @@ export default async function Home() {
 
 
 
-// Pager design + Limited pages - 2 hod
+
 // Progress animations - 4 hod
 
 
 
 // Realization and article activity tracking - 4 hod
-// Not mandatory parts of admin dialogs - idk hodin
+// Better article and realization pages
 
 
 
