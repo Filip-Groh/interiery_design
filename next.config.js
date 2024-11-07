@@ -9,7 +9,7 @@ const nextConfig = {
                 hostname: "lh3.googleusercontent.com",
             }
         ],
-        disableStaticImages: true
+        disableStaticImages: true,
     }
 }
 

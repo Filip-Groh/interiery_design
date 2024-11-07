@@ -205,16 +205,4 @@ export default async function Home() {
 }
 
 // TODO:
-
-
-
-
-// Progress animations - 4 hod
-
-
-
-// Realization and article activity tracking - 4 hod
-
-// Google Analytics - 4 hod
-
-// Bugs:
+// Microsoft Clarity
